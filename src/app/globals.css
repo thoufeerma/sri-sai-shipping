@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-matte-black: #000000;
+  --color-deep-charcoal: #0A0A0A;
+  --color-graphite: #111111;
+  --color-dark-navy: #050B14;
+  --color-soft-blue: #2962FF;
+  --color-subtle-silver: #A3A3A3;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-glass-bg: rgba(255, 255, 255, 0.02);
+  --color-glass-hover: rgba(255, 255, 255, 0.04);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-inter: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-deep-charcoal);
+    --foreground: #F5F5F7;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] font-sans antialiased overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-[var(--color-glass-bg)] backdrop-blur-2xl border border-[var(--color-border-subtle)] shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+  
+  .glassmorphism-hover {
+    @apply hover:bg-[var(--color-glass-hover)] transition-colors duration-500 ease-out;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-[#E2E2E2] to-[#888888];
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400;
+  }
+
+  .mesh-bg {
+    background-image: 
+      radial-gradient(at 40% 20%, hsla(210,100%,50%,0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(240,100%,50%,0.03) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(210,100%,20%,0.05) 0px, transparent 50%);
+  }
+}
+
+/* Custom Scrollbar - Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-deep-charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-graphite);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* ─── Ambient Gradient Drift ─── */
+@keyframes agDrift1 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  33%      { transform: translate(40px, -30px)  scale(1.06); }
+  66%      { transform: translate(-25px, 40px)  scale(0.97); }
+}
+@keyframes agDrift2 {
+  0%,100% { transform: translate(0px,  0px)   scale(1);    }
+  40%      { transform: translate(-35px, 25px) scale(1.04); }
+  70%      { transform: translate(30px, -35px) scale(0.98); }
+}
+
+/* ─── Glass shimmer sweep ─── */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(300%)  skewX(-12deg); }
+}
+.glass-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  animation: shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─── Text mask reveal util ─── */
+.anim-word { will-change: transform, opacity; }
+
+/* ─── Focus visible ─── */
+*:focus-visible { outline: 2px solid rgba(255,255,255,0.3); outline-offset: 4px; border-radius: 4px; }
