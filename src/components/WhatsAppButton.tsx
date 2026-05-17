@@ -140,7 +140,7 @@ export default function WhatsAppButton() {
               textDecoration: "none",
               cursor: "pointer",
               userSelect: "none",
-            } as React.CSSProperties}
+            } as any}
             className="wa-pill wa-idle"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
