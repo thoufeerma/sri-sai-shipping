@@ -33,7 +33,7 @@ export default function ContactPage() {
       {/* ─── HERO ─── */}
       <section className="relative h-[50vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/cochin.png" alt="Cochin — our home" fill priority className="object-cover" />
+          <Image src="/cochin.webp" alt="Cochin — our home" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
@@ -105,7 +105,7 @@ export default function ContactPage() {
           {/* Info + Image */}
           <div className="lg:col-span-2 flex flex-col gap-12 fade-up">
             <div className="relative h-52 rounded-3xl overflow-hidden">
-              <Image src="/hero-port.png" alt="Port operations" fill className="object-cover" />
+              <Image src="/hero-port.webp" alt="Port operations" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-xs text-white/40 tracking-widest uppercase">
                 Cochin Port — Command Hub

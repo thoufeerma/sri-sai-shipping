@@ -25,7 +25,7 @@ export default function AboutPage() {
       {/* ─── HERO IMAGE ─── */}
       <section className="relative h-[70vh] md:h-[80vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/cochin.png" alt="Cochin port — our home" fill priority className="object-cover" />
+          <Image src="/cochin.webp" alt="Cochin port — our home" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 pb-20 w-full">
@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="fade-up relative h-[500px] rounded-3xl overflow-hidden">
-            <Image src="/cargo-ship.png" alt="Global cargo operations" fill className="object-cover" />
+            <Image src="/cargo-ship.webp" alt="Global cargo operations" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </div>
           <div className="fade-up space-y-10">

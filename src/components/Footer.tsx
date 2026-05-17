@@ -9,7 +9,7 @@ export default function Footer() {
 
         {/* Top strip with image accent */}
         <div className="relative h-32 rounded-2xl overflow-hidden mb-16 border border-white/5">
-          <Image src="/hero-port.png" alt="Sri Sai port" fill className="object-cover object-bottom opacity-30" />
+          <Image src="/hero-port.webp" alt="Sri Sai port" fill className="object-cover object-bottom opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8">
             <div>

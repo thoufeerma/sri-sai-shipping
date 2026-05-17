@@ -32,7 +32,7 @@ export default function GlobalLogisticsPage() {
       <section className="relative h-[65vh] flex items-end overflow-hidden">
         <AmbientGradient />
         <div className="absolute inset-0">
-          <Image src="/freight-air.png" alt="Global air freight" fill priority className="object-cover object-center" />
+          <Image src="/freight-air.webp" alt="Global air freight" fill priority className="object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
@@ -111,9 +111,9 @@ export default function GlobalLogisticsPage() {
           <h2 className="fade-up text-3xl font-medium text-white mb-12">Key corridors.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: "India Origin", img: "/cochin.png", desc: "Our command hub in Cochin — the gateway to global Indian logistics." },
-              { name: "United States", img: "/hero-port.png", desc: "Direct delivery routes to major US ports and door-to-door inland destinations." },
-              { name: "Canada", img: "/freight-air.png", desc: "Established air and sea pipelines into Toronto, Vancouver, and beyond." },
+              { name: "India Origin", img: "/cochin.webp", desc: "Our command hub in Cochin — the gateway to global Indian logistics." },
+              { name: "United States", img: "/hero-port.webp", desc: "Direct delivery routes to major US ports and door-to-door inland destinations." },
+              { name: "Canada", img: "/freight-air.webp", desc: "Established air and sea pipelines into Toronto, Vancouver, and beyond." },
             ].map((route, i) => (
               <div key={i} className="fade-up relative h-[360px] rounded-3xl overflow-hidden group glass-shimmer">
                 <Image src={route.img} alt={route.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />

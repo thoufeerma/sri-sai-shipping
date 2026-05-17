@@ -11,31 +11,31 @@ const services = [
     title: "Customs Clearance",
     desc: "Seamless handling of import and export shipments. We navigate complex customs protocols to ensure rapid, compliant clearance without friction or delays.",
     icon: <ShieldCheck size={24} strokeWidth={1.5} />,
-    image: "/customs.png",
+    image: "/customs.webp",
   },
   {
     title: "Freight Forwarding",
     desc: "Intelligent global routing across sea and air. We optimise transit times and secure your cargo through a vetted international carrier network.",
     icon: <Ship size={24} strokeWidth={1.5} />,
-    image: "/cargo-ship.png",
+    image: "/cargo-ship.webp",
   },
   {
     title: "Warehousing & Transport",
     desc: "Secure storage facilities paired with high-velocity inland transportation for seamless end-to-end logistics operations.",
     icon: <Warehouse size={24} strokeWidth={1.5} />,
-    image: "/warehouse.png",
+    image: "/warehouse.webp",
   },
   {
     title: "Devotional Projects",
     desc: "Specialised logistics handling for traditional and religious cargo — prioritising cultural respect, meticulous care, and white-glove treatment.",
     icon: <Anchor size={24} strokeWidth={1.5} />,
-    image: "/cochin.png",
+    image: "/cochin.webp",
   },
   {
     title: "India to North America",
     desc: "Premium door-to-door delivery connecting the Indian subcontinent directly to USA and Canada markets with unrivalled speed and traceability.",
     icon: <Map size={24} strokeWidth={1.5} />,
-    image: "/freight-air.png",
+    image: "/freight-air.webp",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function ServicesPage() {
       {/* ─── HERO ─── */}
       <section className="relative h-[55vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/hero-port.png" alt="Services hero" fill priority className="object-cover" />
+          <Image src="/hero-port.webp" alt="Services hero" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">

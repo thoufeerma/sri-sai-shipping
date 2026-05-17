@@ -62,7 +62,7 @@ export default function Home() {
 
         <div className="hero-img absolute inset-0 will-change-transform">
           <Image
-            src="/hero-port.png"
+            src="/hero-port.webp"
             alt="Sri Sai Shipping port — Cochin, India"
             fill
             priority
@@ -136,7 +136,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <div className="relative h-[300px] sm:h-[400px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden glass-shimmer">
             <Image
-              src="/cochin.png"
+              src="/cochin.webp"
               alt="Cochin port aerial view — Sri Sai Shipping headquarters"
               fill
               quality={85}
@@ -186,7 +186,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="svc-card md:col-span-2 relative h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
               <Image
-                src="/cargo-ship.png"
+                src="/cargo-ship.webp"
                 alt="Sri Sai freight forwarding — cargo ship at sea"
                 fill
                 quality={85}
@@ -205,7 +205,7 @@ export default function Home() {
 
             <div className="svc-card relative h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
               <Image
-                src="/customs.png"
+                src="/customs.webp"
                 alt="Sri Sai customs clearance documentation"
                 fill
                 quality={85}
@@ -224,7 +224,7 @@ export default function Home() {
 
             <div className="svc-card relative h-[240px] sm:h-[280px] md:h-[320px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
               <Image
-                src="/warehouse.png"
+                src="/warehouse.webp"
                 alt="Sri Sai bonded warehouse facility in Cochin"
                 fill
                 quality={85}
@@ -243,7 +243,7 @@ export default function Home() {
 
             <div className="svc-card md:col-span-2 relative h-[240px] sm:h-[280px] md:h-[320px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
               <Image
-                src="/freight-air.png"
+                src="/freight-air.webp"
                 alt="Air freight service India to USA and Canada"
                 fill
                 quality={85}
@@ -324,7 +324,7 @@ export default function Home() {
       <section className="relative py-28 md:py-44 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/cargo-ship.png"
+            src="/cargo-ship.webp"
             alt="Sri Sai Shipping contact background"
             fill
             quality={80}
