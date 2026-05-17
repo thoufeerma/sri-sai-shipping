@@ -5,13 +5,20 @@ import { ComposableMap, Geographies, Geography, Line, Marker } from "react-simpl
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Each city has independent label offsets so they never overlap.
-// NY label → below-right, Toronto → above-left (separated vertically)
-const COCHIN  = { name: "Cochin",    sub: "India — Origin",           coords: [76.22, 9.93]   as [number, number], lx: 14,  ly: -4,  lAnchor: "start" as const };
-const NEWYORK = { name: "New York",  sub: "USA — Primary Dest.",      coords: [-74.0, 40.71]  as [number, number], lx: 12,  ly: 20,  lAnchor: "start" as const };
-const TORONTO = { name: "Toronto",   sub: "Canada — Secondary Dest.", coords: [-79.38, 43.65] as [number, number], lx: -14, ly: -18, lAnchor: "end"   as const };
+interface City {
+  name: string;
+  sub: string;
+  coords: [number, number];
+  lx: number;
+  ly: number;
+  lAnchor: "start" | "end" | "middle";
+}
 
-function PulseMarker({ city }: { city: typeof COCHIN }) {
+const COCHIN: City  = { name: "Cochin",    sub: "India — Origin",           coords: [76.22, 9.93]   as [number, number], lx: 14,  ly: -4,  lAnchor: "start" };
+const NEWYORK: City = { name: "New York",  sub: "USA — Primary Dest.",      coords: [-74.0, 40.71]  as [number, number], lx: 12,  ly: 20,  lAnchor: "start" };
+const TORONTO: City = { name: "Toronto",   sub: "Canada — Secondary Dest.", coords: [-79.38, 43.65] as [number, number], lx: -14, ly: -18, lAnchor: "end" };
+
+function PulseMarker({ city }: { city: City }) {
   return (
     <Marker coordinates={city.coords}>
       {/* Outer pulse ring */}
