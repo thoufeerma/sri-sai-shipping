@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
   const btnRef = useRef<HTMLAnchorElement>(null);
 
-  const phoneNumber = "+919846501223";
+  const phoneNumber = "919447054109";
   const message = encodeURIComponent("Hello, I would like to inquire about your logistics services.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

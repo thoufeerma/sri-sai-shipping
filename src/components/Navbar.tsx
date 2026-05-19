@@ -36,7 +36,7 @@ export default function Navbar() {
             : "py-6"
         )}
         style={isScrolled ? {
-          background: "rgba(7,8,9,0.72)",
+          background: "rgba(15,23,42,0.75)",
           backdropFilter: "blur(20px) saturate(180%)",
           WebkitBackdropFilter: "blur(20px) saturate(180%)",
           // Subtle top highlight — glass edge lighting
@@ -100,7 +100,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
             className="fixed inset-0 z-40 flex flex-col justify-center px-8"
-            style={{ background: "rgba(7,8,9,0.92)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
+            style={{ background: "rgba(15,23,42,0.94)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
           >
             <nav className="flex flex-col gap-7 items-center">
               {navLinks.map((link, i) => (

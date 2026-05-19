@@ -3,38 +3,56 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ShieldCheck, Ship, Warehouse, Anchor, Map } from "lucide-react";
+import { Ship, FileText, Globe, Truck, Boxes, Anchor, Compass, Plane } from "lucide-react";
 import Image from "next/image";
 
 const services = [
   {
-    title: "Customs Clearance",
-    desc: "Seamless handling of import and export shipments. We navigate complex customs protocols to ensure rapid, compliant clearance without friction or delays.",
-    icon: <ShieldCheck size={24} strokeWidth={1.5} />,
-    image: "/customs.webp",
-  },
-  {
-    title: "Freight Forwarding",
-    desc: "Intelligent global routing across sea and air. We optimise transit times and secure your cargo through a vetted international carrier network.",
+    title: "Shipping Agency (Liner)",
+    desc: "Expert local representation and vessel management for global ocean liners. We handle port agency functions, container tracking, vessel operations, and documentation compliance with utmost precision.",
     icon: <Ship size={24} strokeWidth={1.5} />,
     image: "/cargo-ship.webp",
   },
   {
-    title: "Warehousing & Transport",
-    desc: "Secure storage facilities paired with high-velocity inland transportation for seamless end-to-end logistics operations.",
-    icon: <Warehouse size={24} strokeWidth={1.5} />,
-    image: "/warehouse.webp",
+    title: "Customs Broking & Logistics Services",
+    desc: "Expert customs clearance and integrated document compliance orchestration. Our certified customs specialists navigate complex tariff codes, tax calculations, and regulatory mandates for seamless port exits.",
+    icon: <FileText size={24} strokeWidth={1.5} />,
+    image: "/customs.webp",
   },
   {
-    title: "Devotional Projects",
-    desc: "Specialised logistics handling for traditional and religious cargo — prioritising cultural respect, meticulous care, and white-glove treatment.",
-    icon: <Anchor size={24} strokeWidth={1.5} />,
+    title: "Freight Forwarding",
+    desc: "Reliable end-to-end global cargo coordination and shipping solutions. Leveraging key steamship line agreements and international alliances, we deliver flexible routes tailored to your commercial needs.",
+    icon: <Globe size={24} strokeWidth={1.5} />,
     image: "/cochin.webp",
   },
   {
-    title: "India to North America",
-    desc: "Premium door-to-door delivery connecting the Indian subcontinent directly to USA and Canada markets with unrivalled speed and traceability.",
-    icon: <Map size={24} strokeWidth={1.5} />,
+    title: "Transportation",
+    desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery. We manage a robust container transport fleet to guarantee reliable overland haulage between ports, rail heads, and inland warehouses.",
+    icon: <Truck size={24} strokeWidth={1.5} />,
+    image: "/hero-port.webp",
+  },
+  {
+    title: "Equipment Leasing",
+    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo. We provide short-term and long-term rental options for standard dry vans, flat racks, open tops, and high-cube containers.",
+    icon: <Boxes size={24} strokeWidth={1.5} />,
+    image: "/warehouse.webp",
+  },
+  {
+    title: "Coastal Services",
+    desc: "Seamless coastal shipping and domestic maritime transit along the Indian coastline. We offer cost-effective coastal cargo services connecting all major hubs along the east and west coast ports.",
+    icon: <Anchor size={24} strokeWidth={1.5} />,
+    image: "/cargo-ship.webp",
+  },
+  {
+    title: "Vessel Chartering",
+    desc: "Bespoke chartering solutions for bulk, breakbulk, and heavy-lift project cargo. Our brokers match specific cargo requirements to appropriate vessels, managing negotiation, loading supervision, and voyage chartering.",
+    icon: <Compass size={24} strokeWidth={1.5} />,
+    image: "/cochin.webp",
+  },
+  {
+    title: "Air Freight",
+    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo. Our air logistics network coordinates with premium airlines for rapid door-to-door transit and customs pre-clearance.",
+    icon: <Plane size={24} strokeWidth={1.5} />,
     image: "/freight-air.webp",
   },
 ];
@@ -63,11 +81,14 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
-          <h1 className="fade-elem text-5xl md:text-6xl font-medium text-white tracking-tight max-w-2xl">
-            Core <span className="text-white/40">Capabilities</span>
+          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur text-xs text-white/60 tracking-widest uppercase mb-4">
+            ENTERPRISE CAPABILITIES
+          </div>
+          <h1 className="fade-elem text-5xl md:text-6xl font-medium text-white tracking-tight max-w-2xl uppercase">
+            ARCHITECTURAL <span className="text-white/40 font-light">SOLUTIONS</span>
           </h1>
           <p className="fade-elem text-lg text-white/50 mt-4 max-w-xl">
-            Advanced logistical solutions engineered for scale, speed, and uncompromising security.
+            Comprehensive, enterprise-grade supply chain solutions designed for modern global trade, scale, and absolute deterministic reliability.
           </p>
         </div>
       </section>

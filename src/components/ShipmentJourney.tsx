@@ -6,12 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Truck, FileCheck, Warehouse, Ship, Globe, PackageCheck } from "lucide-react";
 
 const STAGES = [
-  { icon: Truck,       label: "Pickup",               desc: "Cargo collected from your premises with verified documentation and packaging inspection." },
-  { icon: FileCheck,   label: "Customs Clearance",    desc: "Expert handling of all export declarations, HS codes, compliance checks, and duty assessments." },
-  { icon: Warehouse,   label: "Warehousing",          desc: "Secure interim storage, consolidation, and container stuffing at our bonded facility in Cochin." },
-  { icon: Ship,        label: "Freight Forwarding",   desc: "Booking with premier sea and air carriers, vessel assignment, and bill of lading issuance." },
-  { icon: Globe,       label: "International Transit",desc: "Real-time cargo tracking across international waters and airways with full-chain visibility." },
-  { icon: PackageCheck,label: "Destination Delivery", desc: "Import customs clearance at destination, inland haulage, and final mile door-to-door delivery." },
+  { icon: Truck,       label: "Strategic Consultation", desc: "Detailed analysis of cargo specifications, rigorous route optimization modeling, and preventative compliance verification." },
+  { icon: FileCheck,   label: "Secure Consolidation",    desc: "Cargo collected and received at our high-tech facilities for precision inventory logging and specialized export packing." },
+  { icon: Warehouse,   label: "Customs Clearance Protocol", desc: "Flawless documentation handling and submission by veteran specialists, ensuring 100% border compliance." },
+  { icon: Ship,        label: "Freight Forwarding",   desc: "Booking premium tier-1 ocean or air routing, securing guaranteed cargo capacity with premier carriers." },
+  { icon: Globe,       label: "International Transit",desc: "Optimized routing featuring 24/7 enterprise-grade monitoring and predictive arrival analytics across oceans and airways." },
+  { icon: PackageCheck,label: "Final-Mile Execution", desc: "Import customs clearance at destination, final mile haulage, and door-to-door delivery to your enterprise doorstep." },
 ];
 
 export default function ShipmentJourney() {
@@ -30,51 +30,55 @@ export default function ShipmentJourney() {
         },
       });
 
-      // Line fills up completely
-      tl.to(".sj-fill",  { scaleX: 1, ease: "none" }, 0);
-      // Ship moves from left to right end
-      tl.to(".sj-ship",  { left: "100%", xPercent: -100, ease: "none" }, 0);
-      tl.to(".sj-trail", { opacity: 0.8, ease: "none" }, 0);
+      // Line fills up completely over duration 1
+      tl.to(".sj-fill",  { scaleX: 1, ease: "none", duration: 1 }, 0);
+      // Ship moves from left to right end over duration 1, retaining original transform alignment
+      tl.to(".sj-ship",  { left: "100%", ease: "none", duration: 1 }, 0);
+      tl.to(".sj-trail", { opacity: 0.8, ease: "none", duration: 1 }, 0);
 
       // We have 6 stages (0 to 5).
       STAGES.forEach((_, i) => {
         const prog = i / (STAGES.length - 1);
-        
-        // Highlight active dot
+        const duration = 0.15;
+        const start = Math.max(0, prog - duration / 2);
+
+        // Highlight active dot and card exactly when ship passes by
         tl.to(`.sj-dot-${i}`, { 
           backgroundColor: "#ffffff", 
           scale: 1.5, 
           boxShadow: "0 0 16px rgba(255,255,255,0.8)",
           ease: "power2.out", 
-          duration: 0.1 
-        }, prog - 0.05);
+          duration: duration 
+        }, start);
 
-        // Highlight active card
         tl.to(`.sj-card-${i}`, { 
           borderColor: "rgba(255,255,255,0.3)", 
           backgroundColor: "rgba(255,255,255,0.06)",
           opacity: 1,
-          y: -6,
+          y: -8,
           ease: "power2.out", 
-          duration: 0.1 
-        }, prog - 0.05);
+          duration: duration 
+        }, start);
 
-        // Dim previous dot and card
-        if (i > 0) {
-          tl.to(`.sj-dot-${i - 1}`, { 
+        // Dim as ship moves away towards the next stages
+        if (i < STAGES.length - 1) {
+          const nextProg = (i + 1) / (STAGES.length - 1);
+          const dimStart = nextProg - duration / 2;
+
+          tl.to(`.sj-dot-${i}`, { 
             scale: 1, 
             boxShadow: "none", 
-            backgroundColor: "rgba(255,255,255,0.4)",
-            duration: 0.1 
-          }, prog - 0.05);
+            backgroundColor: "rgba(255,255,255,0.15)",
+            duration: duration 
+          }, dimStart);
 
-          tl.to(`.sj-card-${i - 1}`, { 
+          tl.to(`.sj-card-${i}`, { 
             borderColor: "rgba(255,255,255,0.05)", 
             backgroundColor: "rgba(255,255,255,0.02)",
-            opacity: 0.6,
+            opacity: 0.4,
             y: 0,
-            duration: 0.1 
-          }, prog - 0.05);
+            duration: duration 
+          }, dimStart);
         }
       });
     }, wrapRef);
@@ -82,11 +86,11 @@ export default function ShipmentJourney() {
   }, []);
 
   return (
-    <section ref={wrapRef} className="relative bg-[#070809]" style={{ height: "240vh" }}>
+    <section ref={wrapRef} className="relative bg-deep-charcoal" style={{ height: "240vh" }}>
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         {/* Top and Bottom ambient gradients */}
         <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-matte-black/60 to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full relative z-10">
           
@@ -125,7 +129,7 @@ export default function ShipmentJourney() {
                 {STAGES.map((s, i) => (
                   <div key={i} className="flex flex-col items-center justify-center relative">
                     <div
-                      className={`sj-dot-${i} w-3 h-3 rounded-full border-2 border-[#070809] absolute`}
+                      className={`sj-dot-${i} w-3 h-3 rounded-full border-2 border-deep-charcoal absolute`}
                       style={{ backgroundColor: "rgba(255,255,255,0.15)", transform: "scale(1)" }}
                     />
                     {/* Label above dot — hidden on small screens to prevent overflow */}

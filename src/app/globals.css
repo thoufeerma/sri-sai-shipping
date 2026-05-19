@@ -3,15 +3,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-matte-black: #000000;
-  --color-deep-charcoal: #0A0A0A;
-  --color-graphite: #111111;
-  --color-dark-navy: #050B14;
-  --color-soft-blue: #2962FF;
-  --color-subtle-silver: #A3A3A3;
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-glass-bg: rgba(255, 255, 255, 0.02);
-  --color-glass-hover: rgba(255, 255, 255, 0.04);
+  --color-matte-black: #0A0F1D;
+  --color-deep-charcoal: #0F172A;
+  --color-graphite: #1E293B;
+  --color-dark-navy: #1B263B;
+  --color-soft-blue: #5B8DEF;
+  --color-subtle-silver: #94A3B8;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-glass-bg: rgba(255, 255, 255, 0.015);
+  --color-glass-hover: rgba(255, 255, 255, 0.03);
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-inter: var(--font-inter), system-ui, sans-serif;

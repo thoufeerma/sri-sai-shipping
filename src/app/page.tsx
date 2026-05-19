@@ -4,13 +4,118 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, ArrowDown, Globe, Package, Shield } from "lucide-react";
+import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import AmbientGradient from "@/components/AmbientGradient";
 import MagneticButton from "@/components/MagneticButton";
 import AnimatedText from "@/components/AnimatedText";
 import ShipmentJourney from "@/components/ShipmentJourney";
+import AuthorityShowcase from "@/components/AuthorityShowcase";
+
+// ─── CAPABILITY DATA ───
+const capabilities = [
+  {
+    title: "Shipping Agency (Liner)",
+    desc: "Expert local representation and vessel management for global ocean liners.",
+    icon: Ship,
+    img: "/cargo-ship.webp",
+  },
+  {
+    title: "Customs Broking & Logistics Services",
+    desc: "Expert customs clearance and integrated document compliance orchestration.",
+    icon: FileText,
+    img: "/customs.webp",
+  },
+  {
+    title: "Freight Forwarding",
+    desc: "Reliable end-to-end global cargo coordination and shipping solutions.",
+    icon: Globe,
+    img: "/cochin.webp",
+  },
+  {
+    title: "Transportation",
+    desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery.",
+    icon: Truck,
+    img: "/hero-port.webp",
+  },
+  {
+    title: "Equipment Leasing",
+    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo.",
+    icon: Boxes,
+    img: "/warehouse.webp",
+  },
+  {
+    title: "Coastal Services",
+    desc: "Seamless coastal shipping and domestic maritime transit along the Indian coastline.",
+    icon: Anchor,
+    img: "/cargo-ship.webp",
+  },
+  {
+    title: "Vessel Chartering",
+    desc: "Bespoke chartering solutions for bulk, breakbulk, and heavy-lift project cargo.",
+    icon: Compass,
+    img: "/cochin.webp",
+  },
+  {
+    title: "Air Freight",
+    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo.",
+    icon: Plane,
+    img: "/freight-air.webp",
+  },
+];
+
+// ─── REUSABLE CAPABILITY CARD COMPONENT ───
+interface CapabilityCardProps {
+  title: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
+  img: string;
+}
+
+function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="group relative h-[360px] sm:h-[400px] rounded-[2rem] overflow-hidden border border-white/10 bg-slate-950 shadow-2xl"
+    >
+      <Image
+        src={img}
+        alt={title}
+        fill
+        quality={85}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent z-10" />
+      <div className="absolute inset-0 bg-slate-950/15 group-hover:bg-slate-950/30 transition-colors duration-500 z-10" />
+      
+      {/* Top Left Icon Box */}
+      <div className="absolute top-8 left-8 z-20 w-14 h-14 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-all duration-500">
+        <Icon className="text-white/80 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-500" size={24} strokeWidth={1.5} />
+      </div>
+
+      {/* Bottom Text Content */}
+      <div className="absolute bottom-8 left-8 right-8 z-20 flex flex-col justify-end">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight group-hover:text-blue-400 transition-colors duration-300">
+          {title}
+        </h3>
+        
+        <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+          <p className="text-white/60 text-xs md:text-sm mt-3 leading-relaxed">
+            {desc}
+          </p>
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-blue-400 uppercase mt-4">
+            Explore Capability <ArrowRight size={12} />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -77,24 +182,24 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full pb-20 md:pb-32">
           <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-md mb-6 md:mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-            <span className="text-xs text-white/60 font-medium tracking-wide">Sri Sai Shipping Agencies — Est. 1980</span>
+            <span className="text-xs text-white/60 font-medium tracking-wide uppercase">• SRI SAI SHIPPING AGENCIES • GLOBAL AUTHORITY</span>
           </div>
 
           <h1 className="hero-element text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.05] mb-5 md:mb-6 max-w-4xl">
-            The world moves.<br />
-            <span className="text-white/40">We move it.</span>
+            ARCHITECTING<br />
+            <span className="text-white/40">GLOBAL LOGISTICS</span>
           </h1>
 
           <p className="hero-element text-base md:text-xl text-white/55 mb-8 md:mb-10 max-w-xl leading-relaxed">
-            46 years of intelligent customs clearance, freight forwarding, and global logistics — connecting India to the world.
+            Delivering Reliable Freight Solutions for 45+ Years. Elevating international trade through uncompromising customs clearance, elite freight forwarding, and specialized enterprise delivery infrastructure from India to North America.
           </p>
 
           <div className="hero-element flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <Link href="/services" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-black bg-white rounded-full hover:bg-white/90 transition-colors">
-              Our Services
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-black bg-white rounded-full hover:bg-white/90 transition-colors">
+              Track Shipment
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-white bg-white/10 hover:bg-white/15 border border-white/15 rounded-full backdrop-blur-sm transition-colors">
-              Talk to an Expert
+            <Link href="/global-logistics" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-white bg-white/10 hover:bg-white/15 border border-white/15 rounded-full backdrop-blur-sm transition-colors">
+              Explore Enterprise Network
             </Link>
           </div>
         </div>
@@ -115,10 +220,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
-              { num: "46+", label: "Years Experience" },
-              { num: "50K+", label: "Shipments Handled" },
-              { num: "24 / 7", label: "Global Operations" },
-              { num: "100%", label: "Compliance Rate" },
+              { num: "45+", label: "Years Experience" },
+              { num: "1980s", label: "Established Since" },
+              { num: "100%", label: "International Logistics Expertise" },
+              { num: "50+", label: "Global Freight Operations" },
             ].map((stat, i) => (
               <div key={i} className="stat-num">
                 <div className="text-3xl md:text-5xl font-light text-white mb-1 md:mb-2">{stat.num}</div>
@@ -130,42 +235,8 @@ export default function Home() {
       </section>
 
 
-      {/* ─── ABOUT STRIP ─── */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <AmbientGradient />
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
-          <div className="relative h-[300px] sm:h-[400px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden glass-shimmer">
-            <Image
-              src="/cochin.webp"
-              alt="Cochin port aerial view — Sri Sai Shipping headquarters"
-              fill
-              quality={85}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 md:bottom-6 md:left-6 md:right-6">
-              <p className="text-xs text-white/40 tracking-widest uppercase mb-1">Headquarters</p>
-              <p className="text-white font-medium text-sm md:text-base">Cochin, Kerala, India</p>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-white/35 text-xs font-medium tracking-[0.4em] uppercase mb-5 md:mb-6">Our Legacy</p>
-            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-white tracking-tight mb-5 md:mb-6 leading-tight">
-              Built on four decades of logistics excellence.
-            </AnimatedText>
-            <p className="text-white/55 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
-              Since 1980, Sri Sai Shipping Agencies has operated at the heart of global commerce — navigating customs protocols, forging international freight routes, and ensuring every shipment arrives exactly as intended.
-            </p>
-            <MagneticButton>
-              <Link href="/about" className="inline-flex items-center gap-2 text-white hover:text-white/60 transition-colors text-sm font-medium border-b border-white/20 pb-1 hover:border-white/40">
-                Read our story <ArrowRight size={16} />
-              </Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      {/* ─── SHOWCASE STRIP ─── */}
+      <AuthorityShowcase />
 
 
       {/* ─── SHIPMENT JOURNEY (pinned scroll) ─── */}
@@ -177,91 +248,22 @@ export default function Home() {
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-10 md:mb-16">
-            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">Capabilities</p>
+            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">CORE CAPABILITIES</p>
             <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-white tracking-tight max-w-2xl">
-              Comprehensive logistics infrastructure.
+              Precision-Engineered Logistics Services
             </AnimatedText>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div className="svc-card md:col-span-2 relative h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
-              <Image
-                src="/cargo-ship.webp"
-                alt="Sri Sai freight forwarding — cargo ship at sea"
-                fill
-                quality={85}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center mb-3 md:mb-4 backdrop-blur-sm">
-                  <Globe size={18} strokeWidth={1.5} className="text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-1 md:mb-2">Freight Forwarding</h3>
-                <p className="text-white/55 text-sm max-w-sm">Intelligent global routing across sea and air cargo networks.</p>
-              </div>
-            </div>
-
-            <div className="svc-card relative h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
-              <Image
-                src="/customs.webp"
-                alt="Sri Sai customs clearance documentation"
-                fill
-                quality={85}
-                sizes="(max-width: 768px) 100vw, 34vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center mb-3 md:mb-4 backdrop-blur-sm">
-                  <Shield size={18} strokeWidth={1.5} className="text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-1 md:mb-2">Customs Clearance</h3>
-                <p className="text-white/55 text-sm">Precision compliance for import & export.</p>
-              </div>
-            </div>
-
-            <div className="svc-card relative h-[240px] sm:h-[280px] md:h-[320px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
-              <Image
-                src="/warehouse.webp"
-                alt="Sri Sai bonded warehouse facility in Cochin"
-                fill
-                quality={85}
-                sizes="(max-width: 768px) 100vw, 34vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center mb-3 md:mb-4 backdrop-blur-sm">
-                  <Package size={18} strokeWidth={1.5} className="text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-1 md:mb-2">Warehousing</h3>
-                <p className="text-white/55 text-sm">Secure, scalable storage facilities.</p>
-              </div>
-            </div>
-
-            <div className="svc-card md:col-span-2 relative h-[240px] sm:h-[280px] md:h-[320px] rounded-2xl md:rounded-3xl overflow-hidden group glass-shimmer">
-              <Image
-                src="/freight-air.webp"
-                alt="Air freight service India to USA and Canada"
-                fill
-                quality={85}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-1 md:mb-2">India → USA & Canada</h3>
-                <p className="text-white/55 text-sm max-w-md">Direct door-to-door delivery with unrivalled speed and traceability.</p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {capabilities.map((cap, i) => (
+              <CapabilityCard key={i} title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
+            ))}
           </div>
 
           <div className="mt-8 md:mt-10 text-center">
             <MagneticButton>
               <Link href="/services" className="inline-flex items-center gap-2 text-white/45 hover:text-white transition-colors text-sm font-medium">
-                View all services <ArrowRight size={16} />
+                View All Services <ArrowRight size={16} />
               </Link>
             </MagneticButton>
           </div>
@@ -274,51 +276,62 @@ export default function Home() {
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="text-center mb-10 md:mb-16">
-            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">Trusted By</p>
+            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INTERNATIONAL TRUSTED ORGANIZATIONS</p>
             <AnimatedText as="h2" className="text-2xl md:text-4xl font-medium text-white tracking-tight mx-auto max-w-2xl">
-              Global Associations & Partnerships
+              Trusted Clients & Organizations
             </AnimatedText>
+            <p className="text-white/50 text-sm mt-4 max-w-xl mx-auto">
+              Our logistics architecture supports premium institutions, global relief organizations, and major international worship centers.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-            
-            <div className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-white/[0.02] p-7 md:p-10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 flex flex-col h-full justify-between">
-                <div>
-                  <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center mb-5 border border-white/10 group-hover:border-white/20 transition-colors">
-                    <Globe className="text-white/70 group-hover:text-white transition-colors" size={18} strokeWidth={1.5} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                name: "ST JAMES MARTHOMA CHURCH OF ROCKLAND INC",
+                location: "New York, United States of America",
+                service: "Devotional Cargo Handling",
+                flag: "🇺🇸",
+                desc: "Orchestrating precision door-to-door transit and customs clearance for sacred traditional artifacts and institutional goods."
+              },
+              {
+                name: "Blossom Foundation",
+                location: "Dallas, United States of America",
+                service: "Global Freight Coordination",
+                flag: "🇺🇸",
+                desc: "Managing complex supply chain movements and international logistics for institutional community welfare distribution."
+              },
+              {
+                name: "Guruvayurappan Temple of Brampton",
+                location: "Ontario, Canada",
+                service: "Institutional Logistics Support",
+                flag: "🇨🇦",
+                desc: "Executing complex custom clearing and high-frequency cargo movements for traditional temple artifacts."
+              }
+            ].map((client, i) => (
+              <div key={i} className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-white/[0.02] p-7 md:p-8 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[280px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                      <Globe className="text-white/70 group-hover:text-white transition-colors" size={18} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-2xl" role="img" aria-label="country flag">{client.flag}</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Guruvayurappan Temple</h3>
-                  <p className="text-white/40 text-sm">Brampton, Ontario Canada</p>
+                  <h3 className="text-base md:text-lg font-medium text-white mb-2 leading-snug group-hover:text-blue-400 transition-colors">{client.name}</h3>
+                  <p className="text-white/40 text-xs mb-3">{client.location}</p>
+                  <p className="text-white/55 text-xs leading-relaxed">{client.desc}</p>
                 </div>
-                <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-white/30 uppercase tracking-wider">Devotional Project Logistics</span>
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[10px] text-white/30 uppercase tracking-wider">{client.service}</span>
                   <ArrowRight size={14} className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
-            </div>
-
-            <div className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-white/[0.02] p-7 md:p-10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 flex flex-col h-full justify-between">
-                <div>
-                  <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center mb-5 border border-white/10 group-hover:border-white/20 transition-colors">
-                    <Globe className="text-white/70 group-hover:text-white transition-colors" size={18} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Blossom Foundation</h3>
-                  <p className="text-white/40 text-sm">Dallas, United States of America</p>
-                </div>
-                <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-white/30 uppercase tracking-wider">International Freight</span>
-                  <ArrowRight size={14} className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
+
 
       {/* ─── CTA ─── */}
       <section className="relative py-28 md:py-44 overflow-hidden">
@@ -331,18 +344,18 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/80" />
+          <div className="absolute inset-0 bg-matte-black/80" />
         </div>
         <AmbientGradient />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
           <AnimatedText as="h2" className="text-3xl sm:text-4xl md:text-6xl font-medium text-white tracking-tight mb-4 md:mb-6">
-            Ready to ship smarter?
+            READY TO DOMINATE?
           </AnimatedText>
           <p className="text-base md:text-xl text-white/50 mb-8 md:mb-10">
-            Let our experts design the right logistics solution for your business.
+            Partner with Sri Sai Shipping Agencies today and experience the future of elite global trade execution.
           </p>
           <Link href="/contact" className="inline-flex items-center justify-center h-13 md:h-14 px-8 md:px-10 font-medium text-black bg-white rounded-full hover:bg-white/90 transition-colors shadow-[0_0_60px_rgba(255,255,255,0.08)]">
-            Start a Conversation
+            Initiate Consultation
           </Link>
         </div>
       </section>

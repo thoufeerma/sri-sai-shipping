@@ -60,10 +60,10 @@ export default function WorldMapRoute() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
-  if (!mounted) return <div className="w-full aspect-[1000/460] bg-[#040608] rounded-3xl" />;
+  if (!mounted) return <div className="w-full aspect-[1000/460] bg-[#0A0F1D] rounded-3xl" />;
 
   return (
-    <div className="relative w-full aspect-[1000/460] overflow-hidden bg-[#040608] rounded-3xl border border-white/[0.06]">
+    <div className="relative w-full aspect-[1000/460] overflow-hidden bg-[#0A0F1D] rounded-3xl border border-white/[0.06]">
       {/* Subtle centre glow */}
       <div
         className="absolute inset-0 pointer-events-none"
