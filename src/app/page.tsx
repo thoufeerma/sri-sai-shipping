@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane, HardHat, Shirt, FlaskConical, Cpu, Car, Scale, ShoppingCart } from "lucide-react";
+import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane, HardHat, Shirt, FlaskConical, Cpu, Car, Scale, ShoppingCart, Warehouse } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import AmbientGradient from "@/components/AmbientGradient";
@@ -16,10 +16,10 @@ import AuthorityShowcase from "@/components/AuthorityShowcase";
 // ─── CAPABILITY DATA ───
 const capabilities = [
   {
-    title: "Shipping Agency (Liner)",
-    desc: "Expert local representation and vessel management for global ocean liners.",
-    icon: Ship,
-    img: "/cargo-ship.webp",
+    title: "Warehousing",
+    desc: "Secure, scalable storage solutions with integrated inventory management and distribution.",
+    icon: Warehouse,
+    img: "/warehouse.webp",
   },
   {
     title: "Customs Broking & Logistics Services",
@@ -43,7 +43,7 @@ const capabilities = [
     title: "Equipment Leasing",
     desc: "Flexible high-grade logistics and container lease provisions for bulk cargo.",
     icon: Boxes,
-    img: "/warehouse.webp",
+    img: "/cargo-ship.webp",
   },
   {
     title: "Coastal Services",
@@ -80,7 +80,7 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative h-[360px] sm:h-[400px] rounded-[2rem] overflow-hidden border border-slate-200 bg-white shadow-[0_10px_35px_rgba(15,23,42,0.03)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.1)] hover:border-blue-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out"
+      className="group relative h-[360px] sm:h-[420px] rounded-[2rem] overflow-hidden border border-slate-200 bg-white shadow-lg hover:shadow-[0_20px_40px_-10px_rgba(30,64,175,0.2)] hover:border-blue-400/30 hover:-translate-y-1.5 transition-all duration-500 ease-out"
     >
       <Image
         src={img}
@@ -90,9 +90,10 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
         sizes="(max-width: 768px) 100vw, 33vw"
         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0"
       />
-      {/* Strong dark bottom gradient overlay to make text highly legible */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 via-60% to-transparent z-10" />
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-500 z-10" />
+      {/* Cinematic bottom gradient overlay to make text highly legible and add warmth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/50 via-60% to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
       
       {/* Top Left Icon Box */}
       <div className="absolute top-8 left-8 z-20 w-14 h-14 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center border border-slate-200 group-hover:border-blue-500/30 group-hover:bg-blue-50/50 transition-all duration-500">
@@ -124,41 +125,49 @@ const industries = [
     title: "Bulk Cargo",
     desc: "Chartering and coordination for heavy dry and liquid bulk maritime transport.",
     icon: Anchor,
+    img: "/cargo-ship.webp"
   },
   {
     title: "Project Cargo",
     desc: "End-to-end heavy-lift and out-of-gauge logistics for infrastructure ventures.",
     icon: HardHat,
+    img: "/hero-port.webp"
   },
   {
     title: "Textile",
     desc: "Global supply chain logistics connecting Indian weaving hubs with overseas markets.",
     icon: Shirt,
+    img: "/customs.webp"
   },
   {
     title: "Chemicals",
     desc: "Highly secure, compliant transit protocols for hazardous and non-hazardous products.",
     icon: FlaskConical,
+    img: "/freight-air.webp"
   },
   {
     title: "Electronics",
     desc: "Time-sensitive, high-security routing for precision electronic instruments and components.",
     icon: Cpu,
+    img: "/warehouse.webp"
   },
   {
     title: "Automotive",
     desc: "Just-in-time logistics execution for vehicular parts and specialized machinery.",
     icon: Car,
+    img: "/cochin.webp"
   },
   {
     title: "Commodities",
     desc: "Precision shipping coordination for agricultural, metal, and industrial raw materials.",
     icon: Scale,
+    img: "/cargo-ship.webp"
   },
   {
     title: "FMCG",
     desc: "High-velocity distribution networks keeping fast-moving consumer goods in constant motion.",
     icon: ShoppingCart,
+    img: "/warehouse.webp"
   },
 ];
 
@@ -167,25 +176,32 @@ interface IndustryCardProps {
   title: string;
   desc: string;
   icon: React.ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
+  img: string;
 }
 
-function IndustryCard({ title, desc, icon: Icon }: IndustryCardProps) {
+function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group relative rounded-2xl border border-slate-200 bg-white/60 hover:bg-white p-6 backdrop-blur-sm shadow-sm hover:shadow-[0_12px_30px_rgba(15,23,42,0.06)] hover:border-blue-500/20 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[170px] glass-shimmer"
+      className="group relative rounded-2xl overflow-hidden min-h-[360px] shadow-md hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end border border-slate-200/50"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className="relative z-10 flex flex-col h-full justify-between">
-        <div>
-          <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 group-hover:border-blue-400/30 group-hover:bg-blue-50 transition-all duration-500 mb-5">
-            <Icon className="text-slate-600 group-hover:text-[#2563EB] group-hover:scale-110 transition-all duration-500" size={20} strokeWidth={1.5} />
-          </div>
-          <h3 className="text-lg font-medium text-slate-900 mb-2 leading-tight group-hover:text-[#1E40AF] transition-colors duration-300">{title}</h3>
-          <p className="text-slate-700 text-xs md:text-sm leading-relaxed">{desc}</p>
+      <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/50 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-transparent opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500 z-10" />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
+
+      {/* Top right arrow */}
+      <div className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white/20 transition-all">
+        <ArrowRight size={14} className="text-white -rotate-45" />
+      </div>
+
+      <div className="relative z-20 p-6 w-full">
+        <h3 className="text-2xl font-bold text-white mb-2 leading-tight drop-shadow-md">{title}</h3>
+        <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+          <p className="text-slate-200 text-sm leading-relaxed drop-shadow-sm mt-2">{desc}</p>
         </div>
       </div>
     </motion.div>
@@ -231,61 +247,84 @@ export default function Home() {
     <div ref={containerRef} className="flex flex-col w-full">
 
       {/* ─── HERO ─── */}
-      <section className="hero-section relative min-h-screen flex flex-col justify-end overflow-hidden pt-28 md:pt-36">
-        <AmbientGradient />
-
+      <section className="hero-section relative min-h-screen flex flex-col justify-end overflow-hidden pb-12 md:pb-24 pt-28">
         <div className="hero-img absolute inset-0 will-change-transform">
           <Image
             src="/hero-port.webp"
-            alt="Sri Sai Shipping port — Cochin, India"
+            alt="Sri Sai Shipping Background"
             fill
             priority
             quality={100}
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Soft overlay to protect text without excessive smoke */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
+          {/* Cinematic, warmer gradients for premium maritime feel */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050b14] via-[#0a1128]/40 to-transparent mix-blend-multiply opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-[#1e3a8a]/20 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-95" />
+          
+          {/* Top gradient for Navbar visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/0 to-transparent h-48" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full pb-20 md:pb-32">
-          <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-350 bg-slate-100/80 backdrop-blur-md mb-6 md:mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1E40AF]" />
-            <span className="text-xs text-slate-800 font-semibold tracking-wide uppercase">• SRI SAI SHIPPING AGENCIES • GLOBAL AUTHORITY</span>
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row lg:items-end justify-between gap-12 lg:gap-8">
+          
+          {/* Left Side: Large Text */}
+          <div className="flex-1 hero-element text-white w-full max-w-full overflow-hidden">
+            <h1 className="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-6 w-full">
+              <span className="font-sans font-medium block md:inline">Architecting</span> <br className="hidden md:block" />
+              <span className="font-serif italic text-white/95 text-[1em]">Global Logistics</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-2xl text-white/80 max-w-2xl font-light tracking-wide leading-relaxed">
+              Premium freight forwarding across international waters, ports & beyond.
+            </p>
           </div>
 
-          <h1 className="hero-element text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5 md:mb-6 max-w-4xl uppercase">
-            ARCHITECTING<br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">GLOBAL LOGISTICS</span>
-          </h1>
-
-          <p className="hero-element text-base md:text-xl text-slate-700 mb-8 md:mb-10 max-w-xl leading-relaxed">
-            Delivering Reliable Freight Solutions for 45+ Years. Elevating international trade through uncompromising customs clearance, elite freight forwarding, and specialized enterprise delivery infrastructure from India to North America.
-          </p>
-
-          <div className="hero-element flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-semibold text-sm text-white bg-gradient-to-br from-[#1E40AF] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#1E40AF] rounded-full shadow-[0_4px_14px_rgba(30,64,175,0.15)] hover:shadow-[0_6px_20px_rgba(30,64,175,0.25)] transition-all duration-300">
-              Track Shipment
-            </Link>
-            <Link href="/global-logistics" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-semibold text-sm text-slate-800 bg-white/70 backdrop-blur-md hover:bg-white border border-slate-200/80 rounded-full shadow-sm hover:shadow transition-all duration-300">
-              Explore Enterprise Network
-            </Link>
+          {/* Right Side: Solid Dark Card */}
+          <div className="hero-element w-full max-w-[380px] shrink-0">
+            <div className="bg-[#1c1917] border border-[#3c3633] rounded-[24px] p-4 shadow-2xl">
+              {/* Card Image */}
+              <div className="relative w-full h-[220px] rounded-[16px] overflow-hidden mb-5">
+                <Image 
+                  src="/cochin.webp"
+                  alt="Featured operation"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-sm">
+                  <span className="text-white text-xs font-serif italic font-medium">SS</span>
+                </div>
+              </div>
+              
+              {/* Card Content */}
+              <div className="px-2 pb-1">
+                <h3 className="text-[22px] text-white font-medium tracking-tight mb-2">Enterprise Port Operations</h3>
+                <p className="text-[#a8a29e] text-sm leading-relaxed mb-6 font-light pr-2">
+                  Engineered for high-capacity global transit, smart container tracking, and secure breakbulk handling.
+                </p>
+                
+                <div className="flex items-center justify-between border-t border-[#3c3633] pt-4 pb-1">
+                  <span className="text-xs text-[#a8a29e] font-medium tracking-wide">Latest dispatches</span>
+                  <div className="flex items-center gap-2">
+                    <button className="w-8 h-8 rounded-full border border-[#3c3633] flex items-center justify-center text-[#78716c] hover:text-white hover:border-[#57534e] transition-all">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button className="w-8 h-8 rounded-full border border-[#57534e] flex items-center justify-center text-white hover:bg-[#292524] transition-all">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-slate-500"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-        >
-          <ArrowDown size={20} strokeWidth={1.5} />
-        </motion.div>
       </section>
 
 
       {/* ─── STATS STRIP ─── */}
-      <section className="py-16 md:py-20 border-b border-slate-200 bg-white/60 relative">
+      <section className="py-16 md:py-20 border-b border-slate-200 bg-gradient-to-r from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent pointer-events-none" />
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
@@ -314,7 +353,8 @@ export default function Home() {
 
 
       {/* ─── SERVICES VISUAL GRID ─── */}
-      <section className="svc-section py-16 md:py-24 border-t border-slate-200 bg-[#F8FAFC] relative overflow-hidden">
+      <section className="svc-section py-16 md:py-24 border-t border-slate-200 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-1/2 h-[600px] bg-gradient-to-bl from-blue-100/20 via-transparent to-transparent pointer-events-none blur-3xl" />
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-10 md:mb-16">
@@ -341,7 +381,8 @@ export default function Home() {
       </section>
 
       {/* ─── INDUSTRIES WE SERVE SECTION ─── */}
-      <section className="py-12 md:py-20 border-t border-slate-200 bg-white relative overflow-hidden">
+      <section className="py-12 md:py-24 border-t border-slate-200 bg-gradient-to-br from-white to-[#f8fafc] relative overflow-hidden">
+        <div className="absolute -left-[10%] top-[20%] w-[40%] h-[400px] bg-amber-500/5 rounded-full pointer-events-none blur-3xl" />
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-12 md:mb-16">
@@ -356,14 +397,14 @@ export default function Home() {
  
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((ind, i) => (
-              <IndustryCard key={i} title={ind.title} desc={ind.desc} icon={ind.icon} />
+              <IndustryCard key={i} title={ind.title} desc={ind.desc} icon={ind.icon} img={ind.img} />
             ))}
           </div>
         </div>
       </section>
  
       {/* ─── CLIENTS / TRUST SECTION ─── */}
-      <section className="py-12 md:py-24 relative overflow-hidden border-t border-slate-200 bg-[#F8FAFC]">
+      <section className="py-12 md:py-24 relative overflow-hidden border-t border-slate-200 bg-slate-50 shadow-inner">
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="text-center mb-10 md:mb-16">
@@ -383,39 +424,47 @@ export default function Home() {
                 location: "New York, United States of America",
                 service: "Devotional Cargo Handling",
                 flag: "🇺🇸",
-                desc: "Orchestrating precision door-to-door transit and customs clearance for sacred traditional artifacts and institutional goods."
+                desc: "Orchestrating precision door-to-door transit and customs clearance for sacred traditional artifacts and institutional goods.",
+                img: "/cochin.webp"
               },
               {
                 name: "Blossom Foundation",
                 location: "Dallas, United States of America",
                 service: "Global Freight Coordination",
                 flag: "🇺🇸",
-                desc: "Managing complex supply chain movements and international logistics for institutional community welfare distribution."
+                desc: "Managing complex supply chain movements and international logistics for institutional community welfare distribution.",
+                img: "/Blossom Foundation Dallas, United States of America.webp"
               },
               {
                 name: "Guruvayurappan Temple of Brampton",
                 location: "Ontario, Canada",
                 service: "Institutional Logistics Support",
                 flag: "🇨🇦",
-                desc: "Executing complex custom clearing and high-frequency cargo movements for traditional temple artifacts."
+                desc: "Executing complex custom clearing and high-frequency cargo movements for traditional temple artifacts.",
+                img: "/Guruvayurappan Temple of Brampton.jpg"
               }
             ].map((client, i) => (
-              <div key={i} className="group relative rounded-2xl md:rounded-3xl border border-slate-200 bg-white/85 p-7 md:p-8 backdrop-blur-sm hover:bg-white shadow-[0_10px_35px_rgba(15,23,42,0.03)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:border-blue-500/20 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[280px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 group-hover:border-blue-200 group-hover:bg-blue-50/50 transition-colors">
-                      <Globe className="text-slate-600 group-hover:text-[#2563EB] transition-colors" size={18} strokeWidth={1.5} />
-                    </div>
-                    <span className="text-2xl" role="img" aria-label="country flag">{client.flag}</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-slate-900 mb-2 leading-snug group-hover:text-[#1E40AF] transition-colors">{client.name}</h3>
-                  <p className="text-slate-500 text-xs mb-3 font-medium">{client.location}</p>
-                  <p className="text-slate-700 text-xs leading-relaxed">{client.desc}</p>
+              <div key={i} className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1.5 transition-all duration-500 min-h-[380px] flex flex-col justify-end border border-slate-200/50">
+                <Image src={client.img} alt={client.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+
+                {/* Top right arrow */}
+                <div className="absolute top-6 right-6 z-20 w-10 h-10 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white/20 transition-all">
+                  <ArrowRight size={16} className="text-white -rotate-45" />
                 </div>
-                <div className="relative z-10 mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">{client.service}</span>
-                  <ArrowRight size={14} className="text-slate-500 group-hover:text-[#1E40AF] group-hover:translate-x-1 transition-all" />
+
+                <div className="relative z-20 p-8 w-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-3xl" role="img" aria-label="country flag">{client.flag}</span>
+                    <span className="text-[10px] text-white/90 uppercase tracking-wider font-bold border border-white/30 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">{client.service}</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight drop-shadow-md">{client.name}</h3>
+                  <p className="text-white/80 text-xs mb-4 font-semibold uppercase tracking-wider drop-shadow-md">{client.location}</p>
+                  <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                    <p className="text-slate-200 text-sm leading-relaxed drop-shadow-sm border-t border-white/20 pt-4 mt-2">{client.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -443,9 +492,9 @@ export default function Home() {
             READY TO DOMINATE?
           </AnimatedText>
           <p className="text-base md:text-xl text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Partner with Sri Sai Shipping Agencies today and experience the future of elite global trade execution.
+            Partner with SRI SAI SHIPPING AGENCIES today and experience the future of elite global trade execution.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center h-14 px-10 font-semibold text-sm text-white bg-gradient-to-br from-[#1E40AF] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#1E40AF] rounded-full shadow-[0_4px_14px_rgba(30,64,175,0.25)] hover:shadow-[0_6px_20px_rgba(30,64,175,0.35)] transition-all duration-300">
+          <Link href="/contact" className="inline-flex items-center justify-center h-14 px-10 font-semibold text-sm text-white bg-gradient-to-r from-[#0f2863] to-[#1e40af] hover:from-[#1e40af] hover:to-[#2563eb] border border-blue-400/20 rounded-full shadow-[0_4px_20px_rgba(30,64,175,0.3)] hover:shadow-[0_8px_30px_rgba(30,64,175,0.5)] transition-all duration-300">
             Initiate Consultation
           </Link>
         </div>

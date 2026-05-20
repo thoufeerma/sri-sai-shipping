@@ -74,7 +74,7 @@ export default function WorldMapRoute() {
 
       <ComposableMap
         projection="geoEquirectangular"
-        projectionConfig={{ scale: 145, center: [0, 5] }}
+        projectionConfig={{ scale: 160, center: [-15, 25] }}
         style={{ width: "100%", height: "100%" }}
       >
         <defs>

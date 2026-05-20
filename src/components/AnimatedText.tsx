@@ -46,8 +46,8 @@ export default function AnimatedText({ children, as: Tag = "h2", className = "",
   }, [delay, stagger]);
 
   const wordNodes = children.split(" ").map((word, i) => (
-    <span key={i} className="inline-block overflow-hidden align-bottom">
-      <span className="anim-word inline-block">{word}{i < children.split(" ").length - 1 ? "\u00A0" : ""}</span>
+    <span key={i} className="inline-block overflow-hidden align-bottom pb-2 -mb-2">
+      <span className="anim-word inline-block leading-tight">{word}{i < children.split(" ").length - 1 ? "\u00A0" : ""}</span>
     </span>
   ));
 

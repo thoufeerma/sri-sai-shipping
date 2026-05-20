@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
@@ -12,6 +13,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Global Logistics", href: "/global" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -28,96 +30,79 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 inset-x-0 z-50 flex justify-center p-4 md:p-5 pointer-events-none">
-        <header
-          className={clsx(
-            "w-full max-w-7xl mx-auto rounded-2xl border pointer-events-auto transition-all duration-500 ease-out",
-            isScrolled
-              ? "py-3 border-slate-200/80 shadow-[0_8px_32px_rgba(15,23,42,0.08)]"
-              : "py-4 md:py-5 border-slate-200/50 shadow-[0_6px_22px_rgba(15,23,42,0.05)]"
-          )}
-          style={{
-            background: isScrolled ? "rgba(255, 255, 255, 0.88)" : "rgba(255, 255, 255, 0.72)",
-            backdropFilter: isScrolled ? "blur(24px) saturate(180%)" : "blur(16px) saturate(160%)",
-            WebkitBackdropFilter: isScrolled ? "blur(24px) saturate(180%)" : "blur(16px) saturate(160%)",
-            boxShadow: isScrolled 
-              ? "0 8px 32px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.6)"
-              : "0 6px 22px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.5)"
-          }}
-        >
-          {/* Shimmer sweep on scroll */}
-          {isScrolled && (
-            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl">
-              <div className="absolute inset-y-0 w-32 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent animate-[navShimmer_8s_ease-in-out_infinite]" />
-            </div>
-          )}
+      <header
+        className={clsx(
+          "fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out border-b",
+          isScrolled
+            ? "py-4 bg-white/90 backdrop-blur-xl border-slate-200/50 shadow-sm"
+            : "py-6 bg-transparent border-transparent"
+        )}
+      >
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+          <Link href="/" className="relative z-50 group">
+            <span className={clsx(
+              "font-sans font-bold text-xl tracking-widest uppercase transition-colors duration-300 drop-shadow-md",
+              isScrolled ? "text-slate-900 drop-shadow-none" : "text-white group-hover:text-white/80"
+            )}>
+              Sri Sai
+            </span>
+          </Link>
 
-          <div className="w-full px-6 flex items-center justify-between relative">
-            <Link href="/" className="relative z-50 group">
-              <span className="font-sans font-bold text-[15px] tracking-wide text-slate-900 group-hover:text-[#1E40AF] transition-colors duration-300">
-                SRI SAI
-              </span>
-            </Link>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={clsx(
+                  "relative text-sm font-medium tracking-wide transition-colors duration-300 drop-shadow-md",
+                  isScrolled
+                    ? pathname === link.href ? "text-[#1E40AF] drop-shadow-none" : "text-slate-600 hover:text-slate-900 drop-shadow-none"
+                    : pathname === link.href ? "text-white" : "text-white/80 hover:text-white"
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={clsx(
-                    "relative text-sm font-sans tracking-wide transition-colors duration-300 pb-1",
-                    pathname === link.href ? "text-[#1E40AF] font-semibold" : "text-slate-700 hover:text-[#1E40AF]"
-                  )}
-                >
-                  {link.name}
-                  {pathname === link.href && (
-                    <motion.div
-                      layoutId="nav-pill"
-                      className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#1E40AF]"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Mobile Toggle */}
-            <button
-              className="md:hidden relative z-50 text-slate-800 hover:text-[#1E40AF] transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-            </button>
-          </div>
-        </header>
-      </div>
+          {/* Mobile Toggle */}
+          <button
+            className={clsx(
+              "md:hidden relative z-50 transition-colors",
+              isMobileMenuOpen || isScrolled ? "text-slate-900" : "text-white"
+            )}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          </button>
+        </div>
+      </header>
 
       {/* Mobile overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center px-8"
-            style={{ background: "rgba(255, 255, 255, 0.98)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-white px-8 pt-28"
           >
-            <nav className="flex flex-col gap-7 items-center">
+            <nav className="flex flex-col gap-6">
               {navLinks.map((link, i) => (
                 <motion.div key={link.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 * i, ease: "easeOut" }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * i, ease: "easeOut" }}
                 >
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={clsx(
-                      "text-2xl tracking-wide transition-colors",
-                      pathname === link.href ? "text-[#1E40AF] font-semibold" : "text-slate-700 hover:text-[#1E40AF]"
+                      "text-3xl font-medium tracking-tight transition-colors",
+                      pathname === link.href ? "text-[#1E40AF]" : "text-slate-800"
                     )}
                   >
                     {link.name}
@@ -128,14 +113,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes navShimmer {
-          0%   { left: -30%; }
-          50%  { left: 130%; }
-          100% { left: 130%; }
-        }
-      `}} />
     </>
   );
 }

@@ -3,15 +3,15 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Ship, FileText, Globe, Truck, Boxes, Anchor, Compass, Plane } from "lucide-react";
+import { Ship, FileText, Globe, Truck, Boxes, Anchor, Compass, Plane, Warehouse } from "lucide-react";
 import Image from "next/image";
 
 const services = [
   {
-    title: "Shipping Agency (Liner)",
-    desc: "Expert local representation and vessel management for global ocean liners. We handle port agency functions, container tracking, vessel operations, and documentation compliance with utmost precision.",
-    icon: <Ship size={24} strokeWidth={1.5} />,
-    image: "/cargo-ship.webp",
+    title: "Warehousing",
+    desc: "Secure, climate-controlled enterprise storage solutions with integrated inventory management. We offer scalable storage, automated inventory tracking, and seamless cross-docking capabilities.",
+    icon: <Warehouse size={24} strokeWidth={1.5} />,
+    image: "/warehouse.webp",
   },
   {
     title: "Customs Broking & Logistics Services",
@@ -29,13 +29,13 @@ const services = [
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery. We manage a robust container transport fleet to guarantee reliable overland haulage between ports, rail heads, and inland warehouses.",
     icon: <Truck size={24} strokeWidth={1.5} />,
-    image: "/hero-port.webp",
+    image: "/cochin.webp",
   },
   {
     title: "Equipment Leasing",
     desc: "Flexible high-grade logistics and container lease provisions for bulk cargo. We provide short-term and long-term rental options for standard dry vans, flat racks, open tops, and high-cube containers.",
     icon: <Boxes size={24} strokeWidth={1.5} />,
-    image: "/warehouse.webp",
+    image: "/cargo-ship.webp",
   },
   {
     title: "Coastal Services",
@@ -75,20 +75,27 @@ export default function ServicesPage() {
     <div ref={containerRef} className="min-h-screen pb-32">
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[60vh] flex items-end overflow-hidden pt-36 md:pt-48 pb-16 md:pb-20">
+      <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1c1917]">
         <div className="absolute inset-0">
-          <Image src="/hero-port.webp" alt="Services hero" fill priority quality={100} className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
+          <Image src="/hero-port.webp" alt="Services hero" fill priority quality={100} className="object-cover opacity-90 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-transparent h-48" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
-          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-slate-350 bg-slate-100/80 backdrop-blur text-xs text-slate-800 font-semibold tracking-widest uppercase mb-4">
-            ENTERPRISE CAPABILITIES
+        
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center mt-12">
+          <div className="fade-elem inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            <span className="text-[10px] sm:text-xs text-white/90 font-medium tracking-[0.2em] uppercase">
+              Enterprise Capabilities
+            </span>
           </div>
-          <h1 className="fade-elem text-5xl md:text-6xl font-bold text-slate-900 tracking-tight max-w-2xl uppercase">
-            ARCHITECTURAL <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">SOLUTIONS</span>
+          
+          <h1 className="fade-elem text-5xl sm:text-6xl md:text-[6.5rem] tracking-tight text-white leading-[1] mb-8">
+            <span className="font-sans font-medium">Architectural</span> <br />
+            <span className="font-serif italic text-white/95">Solutions</span>
           </h1>
-          <p className="fade-elem text-lg text-slate-700 mt-4 max-w-xl">
+          
+          <p className="fade-elem text-base md:text-xl text-white/70 max-w-2xl font-light tracking-wide leading-relaxed">
             Comprehensive, enterprise-grade supply chain solutions designed for modern global trade, scale, and absolute deterministic reliability.
           </p>
         </div>
@@ -105,6 +112,7 @@ export default function ServicesPage() {
                 src={service.image}
                 alt={service.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500" />

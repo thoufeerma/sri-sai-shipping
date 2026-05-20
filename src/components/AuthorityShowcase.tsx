@@ -109,7 +109,8 @@ export function FloatingInfoCard() {
 // ─── MAIN SHOWCASE COMPONENT ───
 export default function AuthorityShowcase() {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden bg-[#F8FAFC] border-b border-slate-200">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-slate-50 to-[#f1f5f9] border-b border-slate-200">
+      <div className="absolute top-0 right-0 w-[50%] h-[500px] bg-gradient-to-bl from-blue-100/30 via-transparent to-transparent pointer-events-none blur-3xl" />
       <AmbientGradient />
       
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
@@ -127,7 +128,7 @@ export default function AuthorityShowcase() {
             className="border-l border-slate-300 pl-4"
           >
             <p className="text-slate-900 text-lg md:text-xl font-semibold leading-relaxed">
-              Based in the historic logistics hub of Cochin, India, Sri Sai Shipping Agencies is not merely a freight forwarder—we are architects of global supply chains.
+              Based in the historic logistics hub of Cochin, India, SRI SAI SHIPPING AGENCIES is not merely a freight forwarder—we are architects of global supply chains.
             </p>
           </motion.div>
 
@@ -152,7 +153,7 @@ export default function AuthorityShowcase() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="border border-slate-200 p-3 rounded-[32px] bg-white/60 backdrop-blur-sm shadow-[0_20px_50px_rgba(15,23,42,0.06)] relative"
+            className="border border-slate-200 p-3 rounded-[32px] bg-white/80 backdrop-blur-md shadow-[0_20px_50px_rgba(30,64,175,0.08)] relative"
           >
             <div className="relative h-[320px] sm:h-[400px] lg:h-[450px] rounded-2xl overflow-hidden glass-shimmer">
               <Image
@@ -163,7 +164,8 @@ export default function AuthorityShowcase() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/70 via-[#020617]/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-blue-500/10 mix-blend-overlay pointer-events-none" />
               
               <FloatingInfoCard />
             </div>

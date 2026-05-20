@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Global Logistics Network | Sri Sai Shipping Agencies",
+  title: "Global Logistics Network | SRI SAI SHIPPING AGENCIES",
   description: "Explore our real-time multi-modal logistics network and dedicated shipping corridors connecting Cochin, India directly to primary destinations in New York (USA) and Toronto (Canada).",
   keywords: [
     "Global shipping network map",

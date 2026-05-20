@@ -31,20 +31,29 @@ export default function ContactPage() {
     <div ref={containerRef} className="min-h-screen pb-32">
 
       {/* ─── HERO ─── */}
-      <section className="relative h-[50vh] flex items-end overflow-hidden pt-28 md:pt-32">
+      <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1c1917]">
         <div className="absolute inset-0">
-          <Image src="/cochin.webp" alt="Cochin — our home" fill priority quality={100} className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
+          <Image src="/cochin.webp" alt="Cochin — our home" fill priority quality={100} className="object-cover opacity-90 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-transparent h-48" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
-          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-slate-355 bg-slate-100/80 backdrop-blur text-xs text-slate-800 font-semibold tracking-widest uppercase mb-4">
-            GLOBAL SUPPORT NETWORK
+        
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center mt-12">
+          <div className="fade-elem inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            <span className="text-[10px] sm:text-xs text-white/90 font-medium tracking-[0.2em] uppercase">
+              Global Support Network
+            </span>
           </div>
-          <h1 className="fade-elem text-5xl md:text-6xl font-bold text-slate-900 tracking-tight uppercase">
-            INITIATE EXECUTIVE<br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">CONSULTATION</span>
+          
+          <h1 className="fade-elem text-5xl sm:text-6xl md:text-[6.5rem] tracking-tight text-white leading-[1] mb-8">
+            <span className="font-sans font-medium">Initiate</span> <br />
+            <span className="font-serif italic text-white/95">Consultation</span>
           </h1>
+          
+          <p className="fade-elem text-base md:text-xl text-white/70 max-w-2xl font-light tracking-wide leading-relaxed">
+            Connect directly with our executive logistics specialists to architect your custom supply chain solution.
+          </p>
         </div>
       </section>
 

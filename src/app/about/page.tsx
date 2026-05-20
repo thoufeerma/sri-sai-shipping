@@ -23,20 +23,28 @@ export default function AboutPage() {
     <div ref={containerRef} className="min-h-screen pb-32">
 
       {/* ─── HERO IMAGE ─── */}
-      <section className="relative h-[70vh] md:h-[80vh] flex items-end overflow-hidden pt-28 md:pt-36">
+      <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1c1917]">
         <div className="absolute inset-0">
-          <Image src="/cochin.webp" alt="Cochin port — our home" fill priority quality={100} className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
+          <Image src="/cochin.webp" alt="Cochin port — our home" fill priority quality={100} className="object-cover opacity-90 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-transparent h-48" />
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 pb-20 w-full">
-          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-slate-350 bg-slate-100/80 backdrop-blur text-xs text-slate-800 font-semibold tracking-widest uppercase mb-6">
-            CORPORATE HERITAGE & IDENTITY
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center mt-12">
+          <div className="fade-elem inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            <span className="text-[10px] sm:text-xs text-white/90 font-medium tracking-[0.2em] uppercase">
+              Corporate Heritage
+            </span>
           </div>
-          <h1 className="fade-elem text-5xl md:text-7xl font-bold text-slate-900 tracking-tight leading-tight uppercase">
-            THE LEGACY OF<br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">SRI SAI SHIPPING</span>
+          
+          <h1 className="fade-elem text-5xl sm:text-6xl md:text-[6.5rem] tracking-tight text-white leading-[1] mb-8">
+            <span className="font-sans font-medium">The Legacy of</span> <br />
+            <span className="font-serif italic text-white/95">Sri Sai Shipping</span>
           </h1>
+          
+          <p className="fade-elem text-base md:text-xl text-white/70 max-w-2xl font-light tracking-wide leading-relaxed">
+            Pioneering global maritime logistics and supply chain architecture from the historic seaport of Cochin since the 1980s.
+          </p>
         </div>
       </section>
 
@@ -49,7 +57,7 @@ export default function AboutPage() {
             Rooted in Tradition, Delivering Worldwide
           </h2>
           <p className="fade-up text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-            Serving the logistics industry since the 1980s, Sri Sai Shipping Agencies has stood as a beacon of logistics excellence for over 45 years at the historic seaport of Cochin. Our journey began with a simple but powerful mission: to bridge the gap between traditional Indian merchant trust and the rapidly evolving demands of international commerce. Over the years, we have scaled our operations from local customs handling to architectural global logistics, establishing high-frequency shipping corridors that connect India’s manufacturing hubs directly with key commercial gateways in North America. Today, we are proud to combine deep regulatory mastery with innovative modern supply chain technologies, ensuring every shipment is executed with absolute precision, safety, and speed.
+            Serving the logistics industry since the 1980s, SRI SAI SHIPPING AGENCIES has stood as a beacon of logistics excellence for over 45 years at the historic seaport of Cochin. Our journey began with a simple but powerful mission: to bridge the gap between traditional Indian merchant trust and the rapidly evolving demands of international commerce. Over the years, we have scaled our operations from local customs handling to architectural global logistics, establishing high-frequency shipping corridors that connect India’s manufacturing hubs directly with key commercial gateways in North America. Today, we are proud to combine deep regulatory mastery with innovative modern supply chain technologies, ensuring every shipment is executed with absolute precision, safety, and speed.
           </p>
         </div>
       </section>

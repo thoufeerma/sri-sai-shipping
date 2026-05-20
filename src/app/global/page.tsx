@@ -29,21 +29,27 @@ export default function GlobalLogisticsPage() {
     <div ref={containerRef} className="min-h-screen pb-32">
 
       {/* ─── HERO ─── */}
-      <section className="relative h-[65vh] flex items-end overflow-hidden pt-28 md:pt-32">
-        <AmbientGradient />
+      <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1c1917]">
         <div className="absolute inset-0">
-          <Image src="/freight-air.webp" alt="Global air freight" fill priority quality={100} className="object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
+          <Image src="/freight-air.webp" alt="Global air freight" fill priority quality={100} className="object-cover object-center opacity-90 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-transparent h-48" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
-          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-slate-355 bg-slate-100/80 backdrop-blur text-xs text-slate-800 font-semibold tracking-widest uppercase mb-4">
-            PROPRIETARY LOGISTICS NETWORK
+        
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center mt-12">
+          <div className="fade-elem inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            <span className="text-[10px] sm:text-xs text-white/90 font-medium tracking-[0.2em] uppercase">
+              Proprietary Logistics Network
+            </span>
           </div>
-          <h1 className="fade-elem text-5xl md:text-7xl font-bold text-slate-900 tracking-tight uppercase">
-            GLOBAL ROUTING <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">ARCHITECTURE</span>
+          
+          <h1 className="fade-elem text-5xl sm:text-6xl md:text-[6.5rem] tracking-tight text-white leading-[1] mb-8">
+            <span className="font-sans font-medium">Global Routing</span> <br />
+            <span className="font-serif italic text-white/95">Architecture</span>
           </h1>
-          <p className="fade-elem text-lg text-slate-700 mt-4 max-w-xl">
+          
+          <p className="fade-elem text-base md:text-xl text-white/70 max-w-2xl font-light tracking-wide leading-relaxed">
             Optimized shipping corridors, ultra-secure cargo warehousing, and flawless customs compliance engineered for elite trans-continental delivery.
           </p>
         </div>
@@ -115,16 +121,16 @@ export default function GlobalLogisticsPage() {
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center mb-16">
-            <p className="fade-up text-xs text-slate-500 tracking-[0.4em] uppercase mb-4">NATIONAL GATEWAY INFRASTRUCTURE</p>
+            <p className="fade-up text-xs text-slate-500 tracking-[0.4em] uppercase mb-4">GLOBAL GATEWAY INFRASTRUCTURE</p>
             <AnimatedText as="h2" className="fade-up text-3xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-              India's Major Maritime Hubs
+              International Maritime Hubs
             </AnimatedText>
             <p className="fade-up text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-              Strategically operating from India’s major maritime logistics hubs including Cochin, Nhava Sheva, and Mundra to ensure seamless national and international freight movement.
+              Strategically operating from major maritime logistics hubs across India and North America to ensure seamless national and international freight movement.
             </p>
           </div>
  
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 city: "Cochin, Kerala",
@@ -143,6 +149,12 @@ export default function GlobalLogisticsPage() {
                 role: "Northern & Western Deep-Draft Terminal",
                 desc: "Facilitating massive dry-dock, container leasing, and vessel chartering operations connecting Northern manufacturing hubs with North America.",
                 img: "/warehouse.webp"
+              },
+              {
+                city: "North America",
+                role: "Primary Destination Network",
+                desc: "Managing integrated final-mile delivery, extensive warehousing, and streamlined customs clearance across the United States and Canada.",
+                img: "/freight-air.webp"
               }
             ].map((loc, i) => (
               <div key={i} className="fade-up group relative rounded-3xl overflow-hidden border border-slate-200 bg-white hover:bg-white hover:border-blue-500/20 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_rgba(15,23,42,0.06)] transition-all duration-500 p-6 flex flex-col justify-between h-[380px] shadow-sm">

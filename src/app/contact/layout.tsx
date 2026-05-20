@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Our Logistics Experts | Sri Sai Shipping Agencies",
+  title: "Contact Our Logistics Experts | SRI SAI SHIPPING AGENCIES",
   description: "Reach our command center in Cochin, Kerala, India. Get custom freight quotes, speak to custom house agents, and orchestrate secure international shipments.",
   keywords: [
     "Contact customs house agent Cochin",
