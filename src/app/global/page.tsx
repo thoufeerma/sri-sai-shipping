@@ -92,6 +92,8 @@ export default function GlobalLogisticsPage() {
           <div className="fade-up mt-8 flex flex-wrap gap-8 justify-center">
             {[
               { city: "Cochin, India", role: "Origin Hub" },
+              { city: "Nhava Sheva, India", role: "Western Hub" },
+              { city: "Mundra, India", role: "Gujarat Hub" },
               { city: "New York, USA", role: "Primary Destination" },
               { city: "Toronto, Canada", role: "Secondary Destination" },
             ].map((loc, i) => (
