@@ -147,12 +147,6 @@ export default function Home() {
         );
       });
 
-      // Service cards stagger
-      gsap.fromTo(".svc-card",
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "power2.out",
-          scrollTrigger: { trigger: ".svc-section", start: "top 80%" } }
-      );
     }, containerRef);
 
     return () => ctx.revert();
