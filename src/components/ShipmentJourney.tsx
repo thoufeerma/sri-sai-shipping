@@ -44,18 +44,19 @@ export default function ShipmentJourney() {
 
         // Highlight active dot and card exactly when ship passes by
         tl.to(`.sj-dot-${i}`, { 
-          backgroundColor: "#ffffff", 
+          backgroundColor: "#1E40AF", 
           scale: 1.5, 
-          boxShadow: "0 0 16px rgba(255,255,255,0.8)",
+          boxShadow: "0 0 16px rgba(30,64,175,0.6)",
           ease: "power2.out", 
           duration: duration 
         }, start);
 
         tl.to(`.sj-card-${i}`, { 
-          borderColor: "rgba(255,255,255,0.3)", 
-          backgroundColor: "rgba(255,255,255,0.06)",
+          borderColor: "rgba(30,64,175,0.2)", 
+          backgroundColor: "rgba(255,255,255,0.95)",
           opacity: 1,
           y: -8,
+          boxShadow: "0 10px 40px rgba(15,23,42,0.06)",
           ease: "power2.out", 
           duration: duration 
         }, start);
@@ -68,15 +69,16 @@ export default function ShipmentJourney() {
           tl.to(`.sj-dot-${i}`, { 
             scale: 1, 
             boxShadow: "none", 
-            backgroundColor: "rgba(255,255,255,0.15)",
+            backgroundColor: "#CBD5E1",
             duration: duration 
           }, dimStart);
 
           tl.to(`.sj-card-${i}`, { 
-            borderColor: "rgba(255,255,255,0.05)", 
-            backgroundColor: "rgba(255,255,255,0.02)",
+            borderColor: "rgba(15,23,42,0.06)", 
+            backgroundColor: "rgba(255,255,255,0.4)",
             opacity: 0.4,
             y: 0,
+            boxShadow: "none",
             duration: duration 
           }, dimStart);
         }
@@ -86,41 +88,41 @@ export default function ShipmentJourney() {
   }, []);
 
   return (
-    <section ref={wrapRef} className="relative bg-deep-charcoal" style={{ height: "240vh" }}>
+    <section ref={wrapRef} className="relative bg-[#EEF2F7]" style={{ height: "240vh" }}>
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         {/* Top and Bottom ambient gradients */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-matte-black/60 to-transparent pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#EEF2F7]/60 to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full relative z-10">
           
           {/* Header */}
           <div className="mb-10 md:mb-16 text-center">
-            <p className="text-[10px] md:text-[11px] tracking-[0.4em] text-white/40 uppercase mb-2 md:mb-3 font-medium">The Shipment Journey</p>
-            <h2 className="text-3xl md:text-5xl font-medium text-white/90 tracking-tight">
-              Origin to <span className="text-white/40">Destination.</span>
+            <p className="text-[10px] md:text-[11px] tracking-[0.4em] text-slate-500 uppercase mb-2 md:mb-3 font-medium">The Shipment Journey</p>
+            <h2 className="text-3xl md:text-5xl font-medium text-slate-900 tracking-tight">
+              Origin to <span className="text-slate-400">Destination.</span>
             </h2>
           </div>
 
           {/* ── TRACK ── */}
           <div className="relative mb-10 md:mb-16 px-2 md:px-8" ref={trackRef}>
-            <div className="h-[2px] bg-white/[0.06] w-full relative rounded-full">
+            <div className="h-[2px] bg-slate-300 w-full relative rounded-full">
               {/* Fill */}
-              <div className="sj-fill absolute inset-0 origin-left bg-gradient-to-r from-white/10 via-white/50 to-white/90 rounded-full" style={{ transform: "scaleX(0)" }} />
+              <div className="sj-fill absolute inset-0 origin-left bg-gradient-to-r from-blue-350 via-[#2563EB] to-[#1E40AF] rounded-full" style={{ transform: "scaleX(0)" }} />
 
               {/* Ship */}
               <div className="sj-ship absolute top-1/2 -translate-y-1/2 z-20" style={{ left: "0%", transform: "translate(-50%, -50%)" }}>
-                <div className="sj-trail absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-8 opacity-0 pointer-events-none" style={{ background: "radial-gradient(ellipse, rgba(255,255,255,0.4), transparent 70%)", filter: "blur(6px)" }} />
+                <div className="sj-trail absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-8 opacity-0 pointer-events-none" style={{ background: "radial-gradient(ellipse, rgba(30,64,175,0.25), transparent 70%)", filter: "blur(6px)" }} />
                 
-                <svg width="48" height="24" viewBox="0 0 80 28" fill="none" className="drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]">
-                  <path d="M2 16 L8 11 L68 11 L77 16 L74 22 L5 22 Z" fill="rgba(255,255,255,1)" />
-                  <rect x="18" y="6" width="7" height="5" rx="0.4" fill="rgba(255,255,255,0.8)" />
-                  <rect x="27" y="6" width="7" height="5" rx="0.4" fill="rgba(255,255,255,0.6)" />
-                  <rect x="36" y="6" width="7" height="5" rx="0.4" fill="rgba(255,255,255,0.7)" />
-                  <rect x="45" y="6" width="7" height="5" rx="0.4" fill="rgba(255,255,255,0.5)" />
-                  <rect x="54" y="6" width="7" height="5" rx="0.4" fill="rgba(255,255,255,0.6)" />
-                  <rect x="6" y="3" width="13" height="8" rx="1" fill="rgba(255,255,255,0.9)" />
-                  <rect x="8" y="1" width="8" height="3.5" rx="0.5" fill="rgba(255,255,255,0.8)" />
+                <svg width="48" height="24" viewBox="0 0 80 28" fill="none" className="drop-shadow-[0_0_8px_rgba(30,64,175,0.25)]">
+                  <path d="M2 16 L8 11 L68 11 L77 16 L74 22 L5 22 Z" fill="#1E40AF" />
+                  <rect x="18" y="6" width="7" height="5" rx="0.4" fill="#0F172A" />
+                  <rect x="27" y="6" width="7" height="5" rx="0.4" fill="#2563EB" />
+                  <rect x="36" y="6" width="7" height="5" rx="0.4" fill="#F59E0B" />
+                  <rect x="45" y="6" width="7" height="5" rx="0.4" fill="#10B981" />
+                  <rect x="54" y="6" width="7" height="5" rx="0.4" fill="#EF4444" />
+                  <rect x="6" y="3" width="13" height="8" rx="1" fill="#FFFFFF" />
+                  <rect x="8" y="1" width="8" height="3.5" rx="0.5" fill="#64748B" />
                 </svg>
               </div>
 
@@ -129,12 +131,12 @@ export default function ShipmentJourney() {
                 {STAGES.map((s, i) => (
                   <div key={i} className="flex flex-col items-center justify-center relative">
                     <div
-                      className={`sj-dot-${i} w-3 h-3 rounded-full border-2 border-deep-charcoal absolute`}
-                      style={{ backgroundColor: "rgba(255,255,255,0.15)", transform: "scale(1)" }}
+                      className={`sj-dot-${i} w-3 h-3 rounded-full border-2 border-[#EEF2F7] absolute`}
+                      style={{ backgroundColor: "#CBD5E1", transform: "scale(1)" }}
                     />
                     {/* Label above dot — hidden on small screens to prevent overflow */}
                     <div className="absolute bottom-6 w-20 md:w-32 text-center hidden sm:block">
-                       <p className="text-[9px] md:text-[11px] font-medium text-white/50 leading-tight">{s.label}</p>
+                       <p className="text-[9px] md:text-[11px] font-medium text-slate-500 leading-tight">{s.label}</p>
                     </div>
                   </div>
                 ))}
@@ -149,25 +151,25 @@ export default function ShipmentJourney() {
               return (
                 <div
                   key={i}
-                  className={`sj-card-${i} rounded-xl md:rounded-2xl border border-white/[0.05] p-4 md:p-6 lg:p-8 backdrop-blur-xl transition-none relative overflow-hidden group`}
+                  className={`sj-card-${i} rounded-xl md:rounded-2xl border border-[rgba(15,23,42,0.06)] p-4 md:p-6 lg:p-8 backdrop-blur-xl transition-none relative overflow-hidden group`}
                   style={{
-                    background: "rgba(255,255,255,0.02)",
+                    background: "rgba(255,255,255,0.4)",
                     opacity: i === 0 ? 1 : 0.4,
                     transform: "translateY(0px)",
                   }}
                 >
                   {/* Subtle gradient glow inside card */}
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white">
+                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700">
                         <Icon size={20} strokeWidth={1.5} />
                       </div>
-                      <p className="text-[10px] text-white/30 tracking-widest font-mono uppercase">Stage 0{i + 1}</p>
+                      <p className="text-[10px] text-slate-500 tracking-widest font-mono uppercase font-semibold">Stage 0{i + 1}</p>
                     </div>
-                    <h4 className="text-lg font-medium text-white/90 mb-3">{stage.label}</h4>
-                    <p className="text-sm text-white/50 leading-relaxed font-light">{stage.desc}</p>
+                    <h4 className="text-lg font-bold text-slate-900 mb-3">{stage.label}</h4>
+                    <p className="text-sm text-slate-700 leading-relaxed font-light">{stage.desc}</p>
                   </div>
                 </div>
               );

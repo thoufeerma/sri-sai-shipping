@@ -75,19 +75,20 @@ export default function ServicesPage() {
     <div ref={containerRef} className="min-h-screen pb-32">
 
       {/* ─── HERO ─── */}
-      <section className="relative h-[55vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-end overflow-hidden pt-36 md:pt-48 pb-16 md:pb-20">
         <div className="absolute inset-0">
-          <Image src="/hero-port.webp" alt="Services hero" fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+          <Image src="/hero-port.webp" alt="Services hero" fill priority quality={100} className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
-          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur text-xs text-white/60 tracking-widest uppercase mb-4">
+          <div className="fade-elem inline-block px-3 py-1 rounded-full border border-slate-350 bg-slate-100/80 backdrop-blur text-xs text-slate-800 font-semibold tracking-widest uppercase mb-4">
             ENTERPRISE CAPABILITIES
           </div>
-          <h1 className="fade-elem text-5xl md:text-6xl font-medium text-white tracking-tight max-w-2xl uppercase">
-            ARCHITECTURAL <span className="text-white/40 font-light">SOLUTIONS</span>
+          <h1 className="fade-elem text-5xl md:text-6xl font-bold text-slate-900 tracking-tight max-w-2xl uppercase">
+            ARCHITECTURAL <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">SOLUTIONS</span>
           </h1>
-          <p className="fade-elem text-lg text-white/50 mt-4 max-w-xl">
+          <p className="fade-elem text-lg text-slate-700 mt-4 max-w-xl">
             Comprehensive, enterprise-grade supply chain solutions designed for modern global trade, scale, and absolute deterministic reliability.
           </p>
         </div>
@@ -97,28 +98,28 @@ export default function ServicesPage() {
       {/* ─── SERVICES LIST ─── */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-24 space-y-8">
         {services.map((service, idx) => (
-          <div key={idx} className="service-card group grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/[0.08] hover:border-white/20 transition-colors duration-500">
+          <div key={idx} className="service-card group grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-slate-200 hover:border-blue-500/20 hover:shadow-[0_15px_40px_rgba(15,23,42,0.06)] hover:-translate-y-1 bg-white transition-all duration-500">
             {/* Image — alternates left/right */}
-            <div className={`relative h-72 md:h-80 ${idx % 2 !== 0 ? "md:order-last" : ""}`}>
+            <div className={`relative h-72 md:h-80 overflow-hidden ${idx % 2 !== 0 ? "md:order-last" : ""}`}>
               <Image
                 src={service.image}
                 alt={service.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500" />
             </div>
-
+ 
             {/* Content */}
-            <div className="bg-white/[0.02] p-10 md:p-12 flex flex-col justify-center">
-              <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 mb-6">
+            <div className="bg-white/60 p-10 md:p-12 flex flex-col justify-center backdrop-blur-sm">
+              <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#2563EB] group-hover:text-[#1E40AF] group-hover:border-blue-300 transition-colors mb-6">
                 {service.icon}
               </div>
-              <div className="text-xs text-white/30 font-mono mb-2 tracking-widest uppercase">
+              <div className="text-xs text-slate-500 font-mono font-bold mb-2 tracking-widest uppercase">
                 0{idx + 1}
               </div>
-              <h3 className="text-2xl font-medium text-white mb-4">{service.title}</h3>
-              <p className="text-white/50 leading-relaxed">{service.desc}</p>
+              <h3 className="text-2xl font-bold text-slate-900 group-hover:text-[#1E40AF] transition-colors mb-4">{service.title}</h3>
+              <p className="text-slate-700 leading-relaxed font-light">{service.desc}</p>
             </div>
           </div>
         ))}

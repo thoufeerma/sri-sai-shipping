@@ -25,9 +25,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} dark`}
+      className={`${inter.variable} light`}
     >
-      <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased overflow-x-hidden selection:bg-white/10 selection:text-white">
+      <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
         <LoadingScreen />
         <SmoothScrolling>
           <Navbar />

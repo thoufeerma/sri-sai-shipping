@@ -80,7 +80,7 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative h-[360px] sm:h-[400px] rounded-[2rem] overflow-hidden border border-white/10 bg-slate-950 shadow-2xl"
+      className="group relative h-[360px] sm:h-[400px] rounded-[2rem] overflow-hidden border border-slate-200 bg-white shadow-[0_10px_35px_rgba(15,23,42,0.03)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.1)] hover:border-blue-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out"
     >
       <Image
         src={img}
@@ -90,25 +90,26 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
         sizes="(max-width: 768px) 100vw, 33vw"
         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent z-10" />
-      <div className="absolute inset-0 bg-slate-950/15 group-hover:bg-slate-950/30 transition-colors duration-500 z-10" />
+      {/* Strong dark bottom gradient overlay to make text highly legible */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 via-60% to-transparent z-10" />
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-500 z-10" />
       
       {/* Top Left Icon Box */}
-      <div className="absolute top-8 left-8 z-20 w-14 h-14 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-all duration-500">
-        <Icon className="text-white/80 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-500" size={24} strokeWidth={1.5} />
+      <div className="absolute top-8 left-8 z-20 w-14 h-14 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center border border-slate-200 group-hover:border-blue-500/30 group-hover:bg-blue-50/50 transition-all duration-500">
+        <Icon className="text-slate-800 group-hover:text-[#1E40AF] group-hover:scale-110 transition-all duration-500" size={24} strokeWidth={1.5} />
       </div>
 
       {/* Bottom Text Content */}
       <div className="absolute bottom-8 left-8 right-8 z-20 flex flex-col justify-end">
-        <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight group-hover:text-blue-400 transition-colors duration-300">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight group-hover:text-blue-200 transition-colors duration-300">
           {title}
         </h3>
         
         <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-          <p className="text-white/60 text-xs md:text-sm mt-3 leading-relaxed">
+          <p className="text-slate-100 text-xs md:text-sm mt-3 leading-relaxed">
             {desc}
           </p>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-blue-400 uppercase mt-4">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-blue-300 group-hover:text-blue-200 uppercase mt-4">
             Explore Capability <ArrowRight size={12} />
           </div>
         </div>
@@ -175,16 +176,16 @@ function IndustryCard({ title, desc, icon: Icon }: IndustryCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.015] hover:bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[170px] glass-shimmer"
+      className="group relative rounded-2xl border border-slate-200 bg-white/60 hover:bg-white p-6 backdrop-blur-sm shadow-sm hover:shadow-[0_12px_30px_rgba(15,23,42,0.06)] hover:border-blue-500/20 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[170px] glass-shimmer"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="relative z-10 flex flex-col h-full justify-between">
         <div>
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-blue-400/30 group-hover:bg-blue-400/5 transition-all duration-500 mb-5">
-            <Icon className="text-white/60 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-500" size={20} strokeWidth={1.5} />
+          <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 group-hover:border-blue-400/30 group-hover:bg-blue-50 transition-all duration-500 mb-5">
+            <Icon className="text-slate-600 group-hover:text-[#2563EB] group-hover:scale-110 transition-all duration-500" size={20} strokeWidth={1.5} />
           </div>
-          <h3 className="text-lg font-medium text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors duration-300">{title}</h3>
-          <p className="text-white/50 text-xs md:text-sm leading-relaxed">{desc}</p>
+          <h3 className="text-lg font-medium text-slate-900 mb-2 leading-tight group-hover:text-[#1E40AF] transition-colors duration-300">{title}</h3>
+          <p className="text-slate-700 text-xs md:text-sm leading-relaxed">{desc}</p>
         </div>
       </div>
     </motion.div>
@@ -230,7 +231,7 @@ export default function Home() {
     <div ref={containerRef} className="flex flex-col w-full">
 
       {/* ─── HERO ─── */}
-      <section className="hero-section relative min-h-screen flex flex-col justify-end overflow-hidden">
+      <section className="hero-section relative min-h-screen flex flex-col justify-end overflow-hidden pt-28 md:pt-36">
         <AmbientGradient />
 
         <div className="hero-img absolute inset-0 will-change-transform">
@@ -239,41 +240,42 @@ export default function Home() {
             alt="Sri Sai Shipping port — Cochin, India"
             fill
             priority
-            quality={90}
+            quality={100}
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+          {/* Soft overlay to protect text without excessive smoke */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent h-[40%] top-auto bottom-0" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full pb-20 md:pb-32">
-          <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-md mb-6 md:mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-            <span className="text-xs text-white/60 font-medium tracking-wide uppercase">• SRI SAI SHIPPING AGENCIES • GLOBAL AUTHORITY</span>
+          <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-350 bg-slate-100/80 backdrop-blur-md mb-6 md:mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1E40AF]" />
+            <span className="text-xs text-slate-800 font-semibold tracking-wide uppercase">• SRI SAI SHIPPING AGENCIES • GLOBAL AUTHORITY</span>
           </div>
 
-          <h1 className="hero-element text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.05] mb-5 md:mb-6 max-w-4xl">
+          <h1 className="hero-element text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5 md:mb-6 max-w-4xl uppercase">
             ARCHITECTING<br />
-            <span className="text-white/40">GLOBAL LOGISTICS</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E40AF] to-blue-700 font-bold">GLOBAL LOGISTICS</span>
           </h1>
 
-          <p className="hero-element text-base md:text-xl text-white/55 mb-8 md:mb-10 max-w-xl leading-relaxed">
+          <p className="hero-element text-base md:text-xl text-slate-700 mb-8 md:mb-10 max-w-xl leading-relaxed">
             Delivering Reliable Freight Solutions for 45+ Years. Elevating international trade through uncompromising customs clearance, elite freight forwarding, and specialized enterprise delivery infrastructure from India to North America.
           </p>
 
           <div className="hero-element flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-black bg-white rounded-full hover:bg-white/90 transition-colors">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-semibold text-sm text-white bg-gradient-to-br from-[#1E40AF] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#1E40AF] rounded-full shadow-[0_4px_14px_rgba(30,64,175,0.15)] hover:shadow-[0_6px_20px_rgba(30,64,175,0.25)] transition-all duration-300">
               Track Shipment
             </Link>
-            <Link href="/global-logistics" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-medium text-sm text-white bg-white/10 hover:bg-white/15 border border-white/15 rounded-full backdrop-blur-sm transition-colors">
+            <Link href="/global-logistics" className="inline-flex items-center justify-center gap-2 h-12 px-7 font-semibold text-sm text-slate-800 bg-white/70 backdrop-blur-md hover:bg-white border border-slate-200/80 rounded-full shadow-sm hover:shadow transition-all duration-300">
               Explore Enterprise Network
             </Link>
           </div>
         </div>
 
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/25"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-slate-500"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
         >
@@ -283,7 +285,7 @@ export default function Home() {
 
 
       {/* ─── STATS STRIP ─── */}
-      <section className="py-16 md:py-20 border-b border-white/[0.05] relative">
+      <section className="py-16 md:py-20 border-b border-slate-200 bg-white/60 relative">
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
@@ -294,8 +296,8 @@ export default function Home() {
               { num: "50+", label: "Global Freight Operations" },
             ].map((stat, i) => (
               <div key={i} className="stat-num">
-                <div className="text-3xl md:text-5xl font-light text-white mb-1 md:mb-2">{stat.num}</div>
-                <div className="text-xs md:text-sm text-white/35 tracking-wide">{stat.label}</div>
+                <div className="text-3xl md:text-5xl font-light text-slate-900 mb-1 md:mb-2">{stat.num}</div>
+                <div className="text-xs md:text-sm text-slate-500 tracking-wide">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -312,12 +314,12 @@ export default function Home() {
 
 
       {/* ─── SERVICES VISUAL GRID ─── */}
-      <section className="svc-section py-20 md:py-32 border-t border-white/[0.04] relative overflow-hidden">
+      <section className="svc-section py-16 md:py-24 border-t border-slate-200 bg-[#F8FAFC] relative overflow-hidden">
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-10 md:mb-16">
-            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">CORE CAPABILITIES</p>
-            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-white tracking-tight max-w-2xl">
+            <p className="text-slate-500 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">CORE CAPABILITIES</p>
+            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-slate-900 tracking-tight max-w-2xl">
               Precision-Engineered Logistics Services
             </AnimatedText>
           </div>
@@ -330,7 +332,7 @@ export default function Home() {
 
           <div className="mt-8 md:mt-10 text-center">
             <MagneticButton>
-              <Link href="/services" className="inline-flex items-center gap-2 text-white/45 hover:text-white transition-colors text-sm font-medium">
+              <Link href="/services" className="inline-flex items-center gap-2 text-slate-655 hover:text-[#1E40AF] transition-colors text-sm font-semibold tracking-wide border-b border-transparent hover:border-[#1E40AF] pb-0.5">
                 View All Services <ArrowRight size={16} />
               </Link>
             </MagneticButton>
@@ -339,19 +341,19 @@ export default function Home() {
       </section>
 
       {/* ─── INDUSTRIES WE SERVE SECTION ─── */}
-      <section className="py-20 md:py-32 border-t border-white/[0.04] relative overflow-hidden">
+      <section className="py-12 md:py-20 border-t border-slate-200 bg-white relative overflow-hidden">
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-12 md:mb-16">
-            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INDUSTRY EXPERTISE ACROSS GLOBAL SUPPLY CHAINS</p>
-            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-white tracking-tight max-w-3xl">
+            <p className="text-slate-500 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INDUSTRY EXPERTISE ACROSS GLOBAL SUPPLY CHAINS</p>
+            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-slate-900 tracking-tight max-w-3xl">
               Specialized Logistics for Diverse Sectors
             </AnimatedText>
-            <p className="text-white/50 text-sm mt-4 max-w-2xl">
+            <p className="text-slate-600 text-sm mt-4 max-w-2xl">
               Delivering specialized freight forwarding, vessel chartering, and integrated supply chain management solutions customized to distinct industrial requirements.
             </p>
           </div>
-
+ 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((ind, i) => (
               <IndustryCard key={i} title={ind.title} desc={ind.desc} icon={ind.icon} />
@@ -359,21 +361,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+ 
       {/* ─── CLIENTS / TRUST SECTION ─── */}
-      <section className="py-16 md:py-24 relative overflow-hidden border-t border-white/[0.04]">
+      <section className="py-12 md:py-24 relative overflow-hidden border-t border-slate-200 bg-[#F8FAFC]">
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="text-center mb-10 md:mb-16">
-            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INTERNATIONAL TRUSTED ORGANIZATIONS</p>
-            <AnimatedText as="h2" className="text-2xl md:text-4xl font-medium text-white tracking-tight mx-auto max-w-2xl">
+            <p className="text-slate-500 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INTERNATIONAL TRUSTED ORGANIZATIONS</p>
+            <AnimatedText as="h2" className="text-2xl md:text-4xl font-medium text-slate-900 tracking-tight mx-auto max-w-2xl">
               Trusted Clients & Organizations
             </AnimatedText>
-            <p className="text-white/50 text-sm mt-4 max-w-xl mx-auto">
+            <p className="text-slate-600 text-sm mt-4 max-w-xl mx-auto">
               Our logistics architecture supports premium institutions, global relief organizations, and major international worship centers.
             </p>
           </div>
-
+ 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
@@ -398,22 +400,22 @@ export default function Home() {
                 desc: "Executing complex custom clearing and high-frequency cargo movements for traditional temple artifacts."
               }
             ].map((client, i) => (
-              <div key={i} className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-white/[0.02] p-7 md:p-8 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[280px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div key={i} className="group relative rounded-2xl md:rounded-3xl border border-slate-200 bg-white/85 p-7 md:p-8 backdrop-blur-sm hover:bg-white shadow-[0_10px_35px_rgba(15,23,42,0.03)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:border-blue-500/20 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[280px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
-                      <Globe className="text-white/70 group-hover:text-white transition-colors" size={18} strokeWidth={1.5} />
+                    <div className="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 group-hover:border-blue-200 group-hover:bg-blue-50/50 transition-colors">
+                      <Globe className="text-slate-600 group-hover:text-[#2563EB] transition-colors" size={18} strokeWidth={1.5} />
                     </div>
                     <span className="text-2xl" role="img" aria-label="country flag">{client.flag}</span>
                   </div>
-                  <h3 className="text-base md:text-lg font-medium text-white mb-2 leading-snug group-hover:text-blue-400 transition-colors">{client.name}</h3>
-                  <p className="text-white/40 text-xs mb-3">{client.location}</p>
-                  <p className="text-white/55 text-xs leading-relaxed">{client.desc}</p>
+                  <h3 className="text-base md:text-lg font-medium text-slate-900 mb-2 leading-snug group-hover:text-[#1E40AF] transition-colors">{client.name}</h3>
+                  <p className="text-slate-500 text-xs mb-3 font-medium">{client.location}</p>
+                  <p className="text-slate-700 text-xs leading-relaxed">{client.desc}</p>
                 </div>
-                <div className="relative z-10 mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-[10px] text-white/30 uppercase tracking-wider">{client.service}</span>
-                  <ArrowRight size={14} className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
+                <div className="relative z-10 mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">{client.service}</span>
+                  <ArrowRight size={14} className="text-slate-500 group-hover:text-[#1E40AF] group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             ))}
@@ -433,17 +435,17 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-matte-black/80" />
+          <div className="absolute inset-0 bg-slate-950/75" />
         </div>
         <AmbientGradient />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
-          <AnimatedText as="h2" className="text-3xl sm:text-4xl md:text-6xl font-medium text-white tracking-tight mb-4 md:mb-6">
+          <AnimatedText as="h2" className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight mb-4 md:mb-6 uppercase">
             READY TO DOMINATE?
           </AnimatedText>
-          <p className="text-base md:text-xl text-white/50 mb-8 md:mb-10">
+          <p className="text-base md:text-xl text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
             Partner with Sri Sai Shipping Agencies today and experience the future of elite global trade execution.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center h-13 md:h-14 px-8 md:px-10 font-medium text-black bg-white rounded-full hover:bg-white/90 transition-colors shadow-[0_0_60px_rgba(255,255,255,0.08)]">
+          <Link href="/contact" className="inline-flex items-center justify-center h-14 px-10 font-semibold text-sm text-white bg-gradient-to-br from-[#1E40AF] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#1E40AF] rounded-full shadow-[0_4px_14px_rgba(30,64,175,0.25)] hover:shadow-[0_6px_20px_rgba(30,64,175,0.35)] transition-all duration-300">
             Initiate Consultation
           </Link>
         </div>

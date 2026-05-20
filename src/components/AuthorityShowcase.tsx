@@ -17,21 +17,21 @@ export function SectionHeader() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="flex items-center gap-2"
       >
-        <span className="w-1 h-5 bg-[#5B8DEF] rounded-full" />
-        <span className="text-xs font-semibold tracking-[0.2em] text-[#5B8DEF] uppercase">
+        <span className="w-1 h-5 bg-[#1E40AF] rounded-full" />
+        <span className="text-xs font-semibold tracking-[0.2em] text-[#1E40AF] uppercase">
           THE INDUSTRY AUTHORITY
         </span>
       </motion.div>
-
+ 
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase leading-[1.05]"
+        className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 uppercase leading-[1.05]"
       >
         REDEFINING<br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E40AF] to-[#2563EB]">
           GLOBAL TRADE
         </span>
       </motion.h2>
@@ -46,14 +46,14 @@ export function TrustIndicator() {
       {[1, 2, 3, 4].map((i) => (
         <div
           key={i}
-          className="w-8 h-8 rounded-full border border-black bg-neutral-900 flex items-center justify-center text-white/40 ring-1 ring-white/10"
+          className="w-8 h-8 rounded-full border border-slate-200 bg-slate-100 flex items-center justify-center text-slate-655 ring-1 ring-slate-200/50"
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </div>
       ))}
-      <div className="w-8 h-8 rounded-full border border-black bg-amber-500 flex items-center justify-center text-[10px] font-bold text-black ring-1 ring-white/10">
+      <div className="w-8 h-8 rounded-full border border-slate-255 bg-[#1E40AF] flex items-center justify-center text-[10px] font-bold text-white ring-1 ring-slate-200/50">
         +50
       </div>
     </div>
@@ -72,7 +72,7 @@ export function CTARow() {
     >
       <Link
         href="/about"
-        className="group inline-flex items-center gap-2 text-white hover:text-white/60 transition-colors text-sm font-semibold tracking-wider uppercase border-b border-white/20 pb-1 hover:border-white/40"
+        className="group inline-flex items-center gap-2 text-slate-900 hover:text-[#1E40AF] transition-colors text-sm font-semibold tracking-wider uppercase border-b border-slate-350 pb-1 hover:border-[#1E40AF]"
       >
         Read Our Heritage
         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -91,14 +91,14 @@ export function FloatingInfoCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-      className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 flex items-center gap-4 bg-matte-black/75 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-2xl"
+      className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 flex items-center gap-4 bg-white/90 backdrop-blur-md border border-slate-200/50 p-4 rounded-xl shadow-[0_10px_40px_rgba(15,23,42,0.08)]"
     >
-      <div className="bg-amber-500 text-black flex items-center justify-center rounded-lg w-10 h-10 shrink-0 shadow-lg shadow-amber-500/20">
+      <div className="bg-[#1E40AF] text-white flex items-center justify-center rounded-lg w-10 h-10 shrink-0 shadow-lg shadow-blue-500/20">
         <Anchor size={18} strokeWidth={2} />
       </div>
       <div className="text-left">
-        <h4 className="text-white font-semibold text-sm">Tier-1 Port Access</h4>
-        <p className="text-white/60 text-xs mt-0.5 leading-normal">
+        <h4 className="text-slate-900 font-semibold text-sm">Tier-1 Port Access</h4>
+        <p className="text-slate-600 text-xs mt-0.5 leading-normal">
           Direct integration with major global maritime networks.
         </p>
       </div>
@@ -109,7 +109,7 @@ export function FloatingInfoCard() {
 // ─── MAIN SHOWCASE COMPONENT ───
 export default function AuthorityShowcase() {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden bg-matte-black/20 border-b border-white/[0.03]">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-[#F8FAFC] border-b border-slate-200">
       <AmbientGradient />
       
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
@@ -124,9 +124,9 @@ export default function AuthorityShowcase() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="border-l border-white/15 pl-4"
+            className="border-l border-slate-300 pl-4"
           >
-            <p className="text-white/85 text-lg md:text-xl font-normal leading-relaxed">
+            <p className="text-slate-900 text-lg md:text-xl font-semibold leading-relaxed">
               Based in the historic logistics hub of Cochin, India, Sri Sai Shipping Agencies is not merely a freight forwarder—we are architects of global supply chains.
             </p>
           </motion.div>
@@ -137,7 +137,7 @@ export default function AuthorityShowcase() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
-            className="text-white/50 text-sm md:text-base leading-relaxed"
+            className="text-slate-700 text-sm md:text-base leading-relaxed"
           >
             For 45+ years since the 1980s, we have flawlessly integrated traditional Indian business values—unshakeable trust, profound respect for cargo, and personalized executive support—with ultra-modern, high-tech logistics infrastructure. Whether managing massive commercial enterprise shipments or highly sensitive traditional devotional items, our execution is characterized by absolute precision and zero-delay compliance.
           </motion.p>
@@ -152,18 +152,18 @@ export default function AuthorityShowcase() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="border border-white/10 p-3 rounded-[32px] bg-white/[0.01] backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative"
+            className="border border-slate-200 p-3 rounded-[32px] bg-white/60 backdrop-blur-sm shadow-[0_20px_50px_rgba(15,23,42,0.06)] relative"
           >
             <div className="relative h-[320px] sm:h-[400px] lg:h-[450px] rounded-2xl overflow-hidden glass-shimmer">
               <Image
                 src="/cochin.webp"
-                alt="High-tech container shipping port at night representing global trade"
+                alt="High-tech container shipping port represent global trade"
                 fill
                 quality={90}
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent pointer-events-none" />
               
               <FloatingInfoCard />
             </div>

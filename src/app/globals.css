@@ -3,15 +3,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-matte-black: #0A0F1D;
-  --color-deep-charcoal: #0F172A;
-  --color-graphite: #1E293B;
-  --color-dark-navy: #1B263B;
-  --color-soft-blue: #5B8DEF;
-  --color-subtle-silver: #94A3B8;
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-glass-bg: rgba(255, 255, 255, 0.015);
-  --color-glass-hover: rgba(255, 255, 255, 0.03);
+  --color-matte-black: #FFFFFF;
+  --color-deep-charcoal: #F8FAFC;
+  --color-graphite: #F1F5F9;
+  --color-dark-navy: #0F172A;
+  --color-soft-blue: #2563EB;
+  --color-subtle-silver: #64748B;
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
+  --color-glass-bg: rgba(255, 255, 255, 0.6);
+  --color-glass-hover: rgba(255, 255, 255, 0.9);
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-inter: var(--font-inter), system-ui, sans-serif;
@@ -20,7 +20,7 @@
 @layer base {
   :root {
     --background: var(--color-deep-charcoal);
-    --foreground: #F5F5F7;
+    --foreground: #0F172A;
   }
 }
 
@@ -34,7 +34,7 @@
 
 @layer utilities {
   .glassmorphism {
-    @apply bg-[var(--color-glass-bg)] backdrop-blur-2xl border border-[var(--color-border-subtle)] shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+    @apply bg-[var(--color-glass-bg)] backdrop-blur-2xl border border-[var(--color-border-subtle)] shadow-[0_10px_40px_rgba(15,23,42,0.06)];
   }
   
   .glassmorphism-hover {
@@ -42,18 +42,18 @@
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-[#E2E2E2] to-[#888888];
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#475569];
   }
 
   .text-gradient-blue {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2563EB] to-[#1D4ED8];
   }
 
   .mesh-bg {
     background-image: 
-      radial-gradient(at 40% 20%, hsla(210,100%,50%,0.05) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, hsla(240,100%,50%,0.03) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, hsla(210,100%,20%,0.05) 0px, transparent 50%);
+      radial-gradient(at 40% 20%, hsla(217,91%,60%,0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(220,100%,70%,0.04) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(217,91%,40%,0.04) 0px, transparent 50%);
   }
 }
 
@@ -69,7 +69,7 @@
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #CBD5E1;
 }
 
 /* ─── Ambient Gradient Drift ─── */
@@ -93,7 +93,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
   animation: shimmer 6s ease-in-out infinite;
   pointer-events: none;
 }
@@ -102,4 +102,4 @@
 .anim-word { will-change: transform, opacity; }
 
 /* ─── Focus visible ─── */
-*:focus-visible { outline: 2px solid rgba(255,255,255,0.3); outline-offset: 4px; border-radius: 4px; }
+*:focus-visible { outline: 2px solid rgba(15,23,42,0.3); outline-offset: 4px; border-radius: 4px; }

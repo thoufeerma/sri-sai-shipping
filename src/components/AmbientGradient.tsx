@@ -42,13 +42,13 @@ export default function AmbientGradient() {
 
   return (
     <div ref={ref} className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-      {/* Orb 1 — blue-navy, upper left */}
+      {/* Orb 1 — blue, upper left */}
       <div
         className="ag-orb-1 absolute rounded-full will-change-transform"
         style={{
           width: 700, height: 700,
           top: "-15%", left: "-10%",
-          background: "radial-gradient(ellipse, rgba(30,60,120,0.18) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 70%)",
           filter: "blur(80px)",
           animation: "agDrift1 18s ease-in-out infinite",
         }}
@@ -59,7 +59,7 @@ export default function AmbientGradient() {
         style={{
           width: 800, height: 600,
           bottom: "-20%", right: "-10%",
-          background: "radial-gradient(ellipse, rgba(50,80,130,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(96,165,250,0.04) 0%, transparent 70%)",
           filter: "blur(100px)",
           animation: "agDrift2 22s ease-in-out infinite",
         }}
@@ -70,7 +70,7 @@ export default function AmbientGradient() {
         style={{
           width: 600, height: 400,
           top: "30%", left: "30%",
-          background: "radial-gradient(ellipse, rgba(80,100,160,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(59,130,246,0.02) 0%, transparent 70%)",
           filter: "blur(120px)",
         }}
       />
