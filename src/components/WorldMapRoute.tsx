@@ -14,7 +14,9 @@ interface City {
   lAnchor: "start" | "end" | "middle";
 }
 
-const COCHIN: City  = { name: "Cochin",    sub: "India — Origin",           coords: [76.22, 9.93]   as [number, number], lx: 14,  ly: -4,  lAnchor: "start" };
+const COCHIN: City  = { name: "Cochin",    sub: "Kerala — Origin",          coords: [76.22, 9.93]   as [number, number], lx: 14,  ly: -4,  lAnchor: "start" };
+const NHAVASHEVA: City = { name: "Nhava Sheva", sub: "Mumbai — Hub",         coords: [72.95, 18.95]  as [number, number], lx: -14, ly: 2,   lAnchor: "end" };
+const MUNDRA: City = { name: "Mundra",      sub: "Gujarat — Hub",        coords: [69.73, 22.84]  as [number, number], lx: -14, ly: -10,  lAnchor: "end" };
 const NEWYORK: City = { name: "New York",  sub: "USA — Primary Dest.",      coords: [-74.0, 40.71]  as [number, number], lx: 12,  ly: 20,  lAnchor: "start" };
 const TORONTO: City = { name: "Toronto",   sub: "Canada — Secondary Dest.", coords: [-79.38, 43.65] as [number, number], lx: -14, ly: -18, lAnchor: "end" };
 
@@ -117,6 +119,14 @@ export default function WorldMapRoute() {
           stroke="rgba(255,255,255,0.07)" strokeWidth={1.5}
           strokeLinecap="round" strokeDasharray="5 8"
         />
+        <Line from={NHAVASHEVA.coords} to={NEWYORK.coords}
+          stroke="rgba(255,255,255,0.07)" strokeWidth={1.5}
+          strokeLinecap="round" strokeDasharray="5 8"
+        />
+        <Line from={MUNDRA.coords} to={TORONTO.coords}
+          stroke="rgba(255,255,255,0.07)" strokeWidth={1.5}
+          strokeLinecap="round" strokeDasharray="5 8"
+        />
 
         {/* Animated glowing route lines */}
         <Line from={COCHIN.coords} to={NEWYORK.coords}
@@ -129,10 +139,22 @@ export default function WorldMapRoute() {
           className="rmap-r2"
           style={{ filter: "drop-shadow(0 0 5px rgba(255,255,255,0.35))" }}
         />
+        <Line from={NHAVASHEVA.coords} to={NEWYORK.coords}
+          stroke="url(#rg1)" strokeWidth={2.2} strokeLinecap="round"
+          className="rmap-r1"
+          style={{ filter: "drop-shadow(0 0 5px rgba(255,255,255,0.4))" }}
+        />
+        <Line from={MUNDRA.coords} to={TORONTO.coords}
+          stroke="url(#rg2)" strokeWidth={2.2} strokeLinecap="round"
+          className="rmap-r2"
+          style={{ filter: "drop-shadow(0 0 5px rgba(255,255,255,0.35))" }}
+        />
 
         {/* Markers – destinations rendered first, Cochin on top */}
         <PulseMarker city={NEWYORK} />
         <PulseMarker city={TORONTO} />
+        <PulseMarker city={MUNDRA} />
+        <PulseMarker city={NHAVASHEVA} />
         <PulseMarker city={COCHIN}  />
       </ComposableMap>
 
