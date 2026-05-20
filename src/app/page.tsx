@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane } from "lucide-react";
+import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane, HardHat, Shirt, FlaskConical, Cpu, Car, Scale, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import AmbientGradient from "@/components/AmbientGradient";
@@ -111,6 +111,80 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
           <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-blue-400 uppercase mt-4">
             Explore Capability <ArrowRight size={12} />
           </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ─── INDUSTRY DATA ───
+const industries = [
+  {
+    title: "Bulk Cargo",
+    desc: "Chartering and coordination for heavy dry and liquid bulk maritime transport.",
+    icon: Anchor,
+  },
+  {
+    title: "Project Cargo",
+    desc: "End-to-end heavy-lift and out-of-gauge logistics for infrastructure ventures.",
+    icon: HardHat,
+  },
+  {
+    title: "Textile",
+    desc: "Global supply chain logistics connecting Indian weaving hubs with overseas markets.",
+    icon: Shirt,
+  },
+  {
+    title: "Chemicals",
+    desc: "Highly secure, compliant transit protocols for hazardous and non-hazardous products.",
+    icon: FlaskConical,
+  },
+  {
+    title: "Electronics",
+    desc: "Time-sensitive, high-security routing for precision electronic instruments and components.",
+    icon: Cpu,
+  },
+  {
+    title: "Automotive",
+    desc: "Just-in-time logistics execution for vehicular parts and specialized machinery.",
+    icon: Car,
+  },
+  {
+    title: "Commodities",
+    desc: "Precision shipping coordination for agricultural, metal, and industrial raw materials.",
+    icon: Scale,
+  },
+  {
+    title: "FMCG",
+    desc: "High-velocity distribution networks keeping fast-moving consumer goods in constant motion.",
+    icon: ShoppingCart,
+  },
+];
+
+// ─── REUSABLE INDUSTRY CARD COMPONENT ───
+interface IndustryCardProps {
+  title: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
+}
+
+function IndustryCard({ title, desc, icon: Icon }: IndustryCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.015] hover:bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[170px] glass-shimmer"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        <div>
+          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-blue-400/30 group-hover:bg-blue-400/5 transition-all duration-500 mb-5">
+            <Icon className="text-white/60 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-500" size={20} strokeWidth={1.5} />
+          </div>
+          <h3 className="text-lg font-medium text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors duration-300">{title}</h3>
+          <p className="text-white/50 text-xs md:text-sm leading-relaxed">{desc}</p>
         </div>
       </div>
     </motion.div>
@@ -264,6 +338,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── INDUSTRIES WE SERVE SECTION ─── */}
+      <section className="py-20 md:py-32 border-t border-white/[0.04] relative overflow-hidden">
+        <AmbientGradient />
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
+          <div className="mb-12 md:mb-16">
+            <p className="text-white/35 text-xs tracking-[0.4em] uppercase mb-3 md:mb-4">INDUSTRY EXPERTISE ACROSS GLOBAL SUPPLY CHAINS</p>
+            <AnimatedText as="h2" className="text-3xl md:text-5xl font-medium text-white tracking-tight max-w-3xl">
+              Specialized Logistics for Diverse Sectors
+            </AnimatedText>
+            <p className="text-white/50 text-sm mt-4 max-w-2xl">
+              Delivering specialized freight forwarding, vessel chartering, and integrated supply chain management solutions customized to distinct industrial requirements.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industries.map((ind, i) => (
+              <IndustryCard key={i} title={ind.title} desc={ind.desc} icon={ind.icon} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── CLIENTS / TRUST SECTION ─── */}
       <section className="py-16 md:py-24 relative overflow-hidden border-t border-white/[0.04]">
