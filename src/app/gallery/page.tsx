@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Image from "next/image";
+import { Metadata } from "next";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 import AmbientGradient from "@/components/AmbientGradient";
 
