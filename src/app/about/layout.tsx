@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "About Us | SRI SAI SHIPPING AGENCIES",
   description: "Founded in 1980 in Cochin, Kerala, SRI SAI SHIPPING AGENCIES delivers high-precision customs clearance, freight forwarding, and trusted international logistics services.",
   keywords: [
-    "About Sri Sai Shipping", 
+    "About SRI SAI SHIPPING", 
     "Logistics history Cochin", 
     "Licensed custom house broker", 
     "International shipping Kerala",

@@ -31,13 +31,13 @@ const capabilities = [
     title: "Freight Forwarding",
     desc: "Reliable end-to-end global cargo coordination and shipping solutions.",
     icon: Globe,
-    img: "/cochin.webp",
+    img: "/hero-port.webp",
   },
   {
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery.",
     icon: Truck,
-    img: "/hero-port.webp",
+    img: "/gallery/Global Shipments/1.webp",
   },
   {
     title: "Equipment Leasing",
@@ -49,7 +49,7 @@ const capabilities = [
     title: "Coastal Services",
     desc: "Seamless coastal shipping and domestic maritime transit along the Indian coastline.",
     icon: Anchor,
-    img: "/cargo-ship.webp",
+    img: "/gallery/Global Shipments/2.webp",
   },
   {
     title: "Vessel Chartering",
@@ -110,9 +110,6 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
           <p className="text-slate-100 text-xs md:text-sm mt-3 leading-relaxed">
             {desc}
           </p>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-blue-300 group-hover:text-blue-200 uppercase mt-4">
-            Explore Capability <ArrowRight size={12} />
-          </div>
         </div>
       </div>
     </motion.div>
@@ -366,7 +363,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap, i) => (
-              <CapabilityCard key={i} title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
+              <div key={i} className={i === 6 || i === 7 ? "lg:translate-x-[calc(50%+1rem)]" : ""}>
+                <CapabilityCard title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
+              </div>
             ))}
           </div>
 

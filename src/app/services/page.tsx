@@ -23,13 +23,13 @@ const services = [
     title: "Freight Forwarding",
     desc: "Reliable end-to-end global cargo coordination and shipping solutions. Leveraging key steamship line agreements and international alliances, we deliver flexible routes tailored to your commercial needs.",
     icon: <Globe size={24} strokeWidth={1.5} />,
-    image: "/cochin.webp",
+    image: "/hero-port.webp",
   },
   {
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery. We manage a robust container transport fleet to guarantee reliable overland haulage between ports, rail heads, and inland warehouses.",
     icon: <Truck size={24} strokeWidth={1.5} />,
-    image: "/cochin.webp",
+    image: "/gallery/Global Shipments/1.webp",
   },
   {
     title: "Equipment Leasing",
@@ -41,7 +41,7 @@ const services = [
     title: "Coastal Services",
     desc: "Seamless coastal shipping and domestic maritime transit along the Indian coastline. We offer cost-effective coastal cargo services connecting all major hubs along the east and west coast ports.",
     icon: <Anchor size={24} strokeWidth={1.5} />,
-    image: "/cargo-ship.webp",
+    image: "/gallery/Global Shipments/2.webp",
   },
   {
     title: "Vessel Chartering",
@@ -65,7 +65,7 @@ export default function ServicesPage() {
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-elem", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power2.out", delay: 0.2 });
       gsap.utils.toArray<HTMLElement>(".service-card").forEach((card) => {
-        gsap.fromTo(card, { opacity: 0, y: 40 }, { scrollTrigger: { trigger: card, start: "top 85%" }, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+        gsap.fromTo(card, { opacity: 0, y: 30 }, { scrollTrigger: { trigger: card, start: "top 90%" }, opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
       });
     }, containerRef);
     return () => ctx.revert();

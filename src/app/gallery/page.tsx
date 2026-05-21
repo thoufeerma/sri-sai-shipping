@@ -47,9 +47,9 @@ function getGalleryImages() {
   }
 }
 
-export const metadata = {
-  title: "Operational Gallery | Sri Sai Shipping",
-  description: "Explore our global logistics operations, maritime infrastructure, and enterprise freight handling.",
+export const metadata: Metadata = {
+  title: "Operational Gallery | SRI SAI SHIPPING",
+  description: "Explore the visual archives of SRI SAI SHIPPING AGENCIES, featuring our global maritime infrastructure, cargo handling operations, and enterprise logistics networks.",
 };
 
 export default function GalleryPage() {

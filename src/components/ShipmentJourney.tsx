@@ -89,7 +89,7 @@ export default function ShipmentJourney() {
 
   return (
     <section ref={wrapRef} className="relative bg-[#EEF2F7]" style={{ height: "240vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+      <div className="sticky top-0 h-[100svh] flex flex-col justify-center overflow-hidden">
         {/* Top and Bottom ambient gradients */}
         <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#EEF2F7]/60 to-transparent pointer-events-none" />
@@ -97,15 +97,15 @@ export default function ShipmentJourney() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full relative z-10">
           
           {/* Header */}
-          <div className="mb-10 md:mb-16 text-center">
+          <div className="mb-6 md:mb-16 text-center">
             <p className="text-[10px] md:text-[11px] tracking-[0.4em] text-slate-500 uppercase mb-2 md:mb-3 font-medium">The Shipment Journey</p>
-            <h2 className="text-3xl md:text-5xl font-medium text-slate-900 tracking-tight">
+            <h2 className="text-2xl md:text-5xl font-medium text-slate-900 tracking-tight">
               Origin to <span className="text-slate-400">Destination.</span>
             </h2>
           </div>
 
           {/* ── TRACK ── */}
-          <div className="relative mb-10 md:mb-16 px-2 md:px-8" ref={trackRef}>
+          <div className="relative mb-6 md:mb-16 px-2 md:px-8" ref={trackRef}>
             <div className="h-[2px] bg-slate-300 w-full relative rounded-full">
               {/* Fill */}
               <div className="sj-fill absolute inset-0 origin-left bg-gradient-to-r from-blue-350 via-[#2563EB] to-[#1E40AF] rounded-full" style={{ transform: "scaleX(0)" }} />
@@ -145,13 +145,13 @@ export default function ShipmentJourney() {
           </div>
 
           {/* Stage cards grid */}
-          <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 pt-2">
+          <div className="relative grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 pt-2">
             {STAGES.map((stage, i) => {
               const Icon = stage.icon;
               return (
                 <div
                   key={i}
-                  className={`sj-card-${i} rounded-xl md:rounded-2xl border border-[rgba(15,23,42,0.06)] p-4 md:p-6 lg:p-8 backdrop-blur-xl transition-none relative overflow-hidden group`}
+                  className={`sj-card-${i} rounded-xl md:rounded-2xl border border-[rgba(15,23,42,0.06)] p-3 md:p-6 lg:p-8 backdrop-blur-xl transition-none relative overflow-hidden group`}
                   style={{
                     background: "rgba(255,255,255,0.4)",
                     opacity: i === 0 ? 1 : 0.4,
@@ -162,14 +162,14 @@ export default function ShipmentJourney() {
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#1E40AF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700">
-                        <Icon size={20} strokeWidth={1.5} />
+                    <div className="flex items-center justify-between mb-2 md:mb-6">
+                      <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700">
+                        <Icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
                       </div>
-                      <p className="text-[10px] text-slate-500 tracking-widest font-mono uppercase font-semibold">Stage 0{i + 1}</p>
+                      <p className="text-[9px] md:text-[10px] text-slate-500 tracking-widest font-mono uppercase font-semibold">Stage 0{i + 1}</p>
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-3">{stage.label}</h4>
-                    <p className="text-sm text-slate-700 leading-relaxed font-light">{stage.desc}</p>
+                    <h4 className="text-[11px] md:text-lg font-bold text-slate-900 mb-1 md:mb-3 leading-tight">{stage.label}</h4>
+                    <p className="text-[10px] md:text-sm text-slate-700 leading-snug md:leading-relaxed font-light">{stage.desc}</p>
                   </div>
                 </div>
               );

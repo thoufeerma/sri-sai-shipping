@@ -39,7 +39,7 @@ export default function AboutPage() {
           
           <h1 className="fade-elem text-5xl sm:text-6xl md:text-[6.5rem] tracking-tight text-white leading-[1] mb-8">
             <span className="font-sans font-medium">The Legacy of</span> <br />
-            <span className="font-serif italic text-white/95">Sri Sai Shipping</span>
+            <span className="font-serif italic text-white/95">SRI SAI SHIPPING</span>
           </h1>
           
           <p className="fade-elem text-base md:text-xl text-white/70 max-w-2xl font-light tracking-wide leading-relaxed">
