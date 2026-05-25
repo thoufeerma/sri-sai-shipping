@@ -25,37 +25,37 @@ const capabilities = [
     title: "Customs Broking & Logistics Services",
     desc: "Expert customs clearance and integrated document compliance orchestration.",
     icon: FileText,
-    img: "/customs.webp",
+    img: "/services/coastal-logistics.webp",
   },
   {
     title: "Freight Forwarding",
     desc: "Reliable end-to-end global cargo coordination and shipping solutions.",
     icon: Globe,
-    img: "/hero-port.webp",
+    img: "/services/freight-forwarding.webp",
   },
   {
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery.",
     icon: Truck,
-    img: "/gallery/Global Shipments/1.webp",
+    img: "/services/transportation.webp",
   },
   {
     title: "Equipment Leasing",
     desc: "Flexible high-grade logistics and container lease provisions for bulk cargo.",
     icon: Boxes,
-    img: "/cargo-ship.webp",
+    img: "/services/equipment--leasing.webp",
   },
   {
     title: "Coastal Services",
     desc: "Seamless coastal shipping and domestic maritime transit along the Indian coastline.",
     icon: Anchor,
-    img: "/gallery/Global Shipments/2.webp",
+    img: "/services/coastal-services.webp",
   },
   {
     title: "Vessel Chartering",
     desc: "Bespoke chartering solutions for bulk, breakbulk, and heavy-lift project cargo.",
     icon: Compass,
-    img: "/cochin.webp",
+    img: "/services/vessel-chartering.webp",
   },
   {
     title: "Air Freight",
@@ -122,25 +122,25 @@ const industries = [
     title: "Bulk Cargo",
     desc: "Chartering and coordination for heavy dry and liquid bulk maritime transport.",
     icon: Anchor,
-    img: "/cargo-ship.webp"
+    img: "/INDUSTRY EXPERTISE/bulk-cargo.webp"
   },
   {
     title: "Project Cargo",
     desc: "End-to-end heavy-lift and out-of-gauge logistics for infrastructure ventures.",
     icon: HardHat,
-    img: "/hero-port.webp"
+    img: "/INDUSTRY EXPERTISE/project-cargo.webp"
   },
   {
     title: "Textile",
     desc: "Global supply chain logistics connecting Indian weaving hubs with overseas markets.",
     icon: Shirt,
-    img: "/customs.webp"
+    img: "/INDUSTRY EXPERTISE/textile.webp"
   },
   {
     title: "Chemicals",
     desc: "Highly secure, compliant transit protocols for hazardous and non-hazardous products.",
     icon: FlaskConical,
-    img: "/freight-air.webp"
+    img: "/INDUSTRY EXPERTISE/chemicals.webp"
   },
   {
     title: "Electronics",
@@ -152,19 +152,19 @@ const industries = [
     title: "Automotive",
     desc: "Just-in-time logistics execution for vehicular parts and specialized machinery.",
     icon: Car,
-    img: "/cochin.webp"
+    img: "/INDUSTRY EXPERTISE/automotive.webp"
   },
   {
     title: "Commodities",
     desc: "Precision shipping coordination for agricultural, metal, and industrial raw materials.",
     icon: Scale,
-    img: "/cargo-ship.webp"
+    img: "/INDUSTRY EXPERTISE/commodities.webp"
   },
   {
     title: "FMCG",
     desc: "High-velocity distribution networks keeping fast-moving consumer goods in constant motion.",
     icon: ShoppingCart,
-    img: "/warehouse.webp"
+    img: "/INDUSTRY EXPERTISE/fmcg.webp"
   },
 ];
 
