@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-700 text-xs font-semibold tracking-widest uppercase mb-4">Capabilities</h4>
             <ul className="space-y-3">
-              {["Shipping Agency (Liner)", "Customs Broking", "Freight Forwarding", "Transportation", "Coastal Services"].map((s) => (
+              {["Customs Broking & Logistics Services", "Freight Forwarding", "Air Freight", "Transportation", "Smart Warehousing"].map((s) => (
                 <li key={s} className="text-slate-600 text-sm">{s}</li>
               ))}
             </ul>
@@ -60,9 +60,11 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-700 text-xs font-semibold tracking-widest uppercase mb-4">Contact</h4>
             <p className="text-slate-600 text-sm leading-relaxed mb-3">
-              Sree Mahadeva Temple Trust Bldg,<br />
-              1st Floor, Cochin,<br />
-              Kerala - 682 035, India
+              <span className="font-semibold">SRI SAI SHIPPING AGENCIES</span><br />
+              D. No. 14/1284 D<br />
+              M. A. CYRIL ROAD, NEAR OFFICE OF THE KWA, WEST KARUVELIPADY<br />
+              COCHIN – 682002<br />
+              KERALA, INDIA
             </p>
             <div className="flex flex-col gap-1.5">
               <a href="tel:+919447054109" className="text-slate-600 hover:text-blue-600 transition-colors text-sm">

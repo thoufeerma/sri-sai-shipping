@@ -93,20 +93,23 @@ export default function WorldMapRoute() {
         {/* Continents */}
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="#CBD5E1"
-                stroke="#94A3B8"
-                strokeWidth={0.5}
-                style={{
-                  default: { outline: "none" },
-                  hover:   { fill: "rgba(255,255,255,0.95)", outline: "none" },
-                  pressed: { outline: "none" },
-                }}
-              />
-            ))
+            geographies.map((geo) => {
+              const isHighlighted = ["United States of America", "Canada"].includes(geo.properties.name);
+              return (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  fill={isHighlighted ? "rgba(37,99,235,0.18)" : "#CBD5E1"}
+                  stroke={isHighlighted ? "rgba(37,99,235,0.6)" : "#94A3B8"}
+                  strokeWidth={isHighlighted ? 1 : 0.5}
+                  style={{
+                    default: { outline: "none", transition: "all 0.3s ease" },
+                    hover:   { fill: isHighlighted ? "rgba(37,99,235,0.35)" : "rgba(255,255,255,0.95)", outline: "none" },
+                    pressed: { outline: "none" },
+                  }}
+                />
+              );
+            })
           }
         </Geographies>
  
@@ -150,9 +153,19 @@ export default function WorldMapRoute() {
           style={{ filter: "drop-shadow(0 0 5px rgba(37,99,235,0.3))" }}
         />
 
-        {/* Markers – destinations rendered first, Cochin on top */}
-        <PulseMarker city={NEWYORK} />
-        <PulseMarker city={TORONTO} />
+        {/* Region Labels */}
+        <Marker coordinates={[-98.5, 39.8]}>
+          <text textAnchor="middle" y={0} fill="#1E40AF" fontSize={10} fontWeight={800} letterSpacing={3} style={{ filter: "drop-shadow(0 1px 2px rgba(255,255,255,0.85))" }}>
+            USA
+          </text>
+        </Marker>
+        <Marker coordinates={[-106.3, 58.1]}>
+          <text textAnchor="middle" y={0} fill="#1E40AF" fontSize={10} fontWeight={800} letterSpacing={3} style={{ filter: "drop-shadow(0 1px 2px rgba(255,255,255,0.85))" }}>
+            CANADA
+          </text>
+        </Marker>
+
+        {/* Markers – origins rendered first, Cochin on top */}
         <PulseMarker city={MUNDRA} />
         <PulseMarker city={NHAVASHEVA} />
         <PulseMarker city={COCHIN}  />

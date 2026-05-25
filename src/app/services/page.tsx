@@ -8,12 +8,6 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Warehousing",
-    desc: "Secure, climate-controlled enterprise storage solutions with integrated inventory management. We offer scalable storage, automated inventory tracking, and seamless cross-docking capabilities.",
-    icon: <Warehouse size={24} strokeWidth={1.5} />,
-    image: "/warehouse.webp",
-  },
-  {
     title: "Customs Broking & Logistics Services",
     desc: "Expert customs clearance and integrated document compliance orchestration. Our certified customs specialists navigate complex tariff codes, tax calculations, and regulatory mandates for seamless port exits.",
     icon: <FileText size={24} strokeWidth={1.5} />,
@@ -26,16 +20,22 @@ const services = [
     image: "/services/freight-forwarding.webp",
   },
   {
+    title: "Air Freight",
+    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo. Our air logistics network coordinates with premium airlines for rapid door-to-door transit and customs pre-clearance.",
+    icon: <Plane size={24} strokeWidth={1.5} />,
+    image: "/freight-air.webp",
+  },
+  {
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery. We manage a robust container transport fleet to guarantee reliable overland haulage between ports, rail heads, and inland warehouses.",
     icon: <Truck size={24} strokeWidth={1.5} />,
     image: "/services/transportation.webp",
   },
   {
-    title: "Equipment Leasing",
-    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo. We provide short-term and long-term rental options for standard dry vans, flat racks, open tops, and high-cube containers.",
-    icon: <Boxes size={24} strokeWidth={1.5} />,
-    image: "/services/equipment--leasing.webp",
+    title: "Smart Warehousing",
+    desc: "Secure, climate-controlled enterprise storage solutions with integrated inventory management. We offer scalable storage, automated inventory tracking, and seamless cross-docking capabilities.",
+    icon: <Warehouse size={24} strokeWidth={1.5} />,
+    image: "/warehouse.webp",
   },
   {
     title: "Coastal Services",
@@ -50,10 +50,10 @@ const services = [
     image: "/services/vessel-chartering.webp",
   },
   {
-    title: "Air Freight",
-    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo. Our air logistics network coordinates with premium airlines for rapid door-to-door transit and customs pre-clearance.",
-    icon: <Plane size={24} strokeWidth={1.5} />,
-    image: "/freight-air.webp",
+    title: "Equipment Leasing",
+    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo. We provide short-term and long-term rental options for standard dry vans, flat racks, open tops, and high-cube containers.",
+    icon: <Boxes size={24} strokeWidth={1.5} />,
+    image: "/services/equipment--leasing.webp",
   },
 ];
 

@@ -16,12 +16,6 @@ import AuthorityShowcase from "@/components/AuthorityShowcase";
 // ─── CAPABILITY DATA ───
 const capabilities = [
   {
-    title: "Warehousing",
-    desc: "Secure, scalable storage solutions with integrated inventory management and distribution.",
-    icon: Warehouse,
-    img: "/warehouse.webp",
-  },
-  {
     title: "Customs Broking & Logistics Services",
     desc: "Expert customs clearance and integrated document compliance orchestration.",
     icon: FileText,
@@ -34,16 +28,22 @@ const capabilities = [
     img: "/services/freight-forwarding.webp",
   },
   {
+    title: "Air Freight",
+    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo.",
+    icon: Plane,
+    img: "/freight-air.webp",
+  },
+  {
     title: "Transportation",
     desc: "Secure and timely domestic road haulage, first-mile, and last-mile delivery.",
     icon: Truck,
     img: "/services/transportation.webp",
   },
   {
-    title: "Equipment Leasing",
-    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo.",
-    icon: Boxes,
-    img: "/services/equipment--leasing.webp",
+    title: "Smart Warehousing",
+    desc: "Secure, scalable storage solutions with integrated inventory management and distribution.",
+    icon: Warehouse,
+    img: "/warehouse.webp",
   },
   {
     title: "Coastal Services",
@@ -58,10 +58,10 @@ const capabilities = [
     img: "/services/vessel-chartering.webp",
   },
   {
-    title: "Air Freight",
-    desc: "Expedited global air transport for time-sensitive, high-value enterprise cargo.",
-    icon: Plane,
-    img: "/freight-air.webp",
+    title: "Equipment Leasing",
+    desc: "Flexible high-grade logistics and container lease provisions for bulk cargo.",
+    icon: Boxes,
+    img: "/services/equipment--leasing.webp",
   },
 ];
 
@@ -166,6 +166,12 @@ const industries = [
     icon: ShoppingCart,
     img: "/industry-expertise/fmcg.webp"
   },
+  {
+    title: "Traditional & Devotional Projects",
+    desc: "Respectful, highly secure logistics of traditional and devotional artifacts and institutional goods.",
+    icon: Ship,
+    img: "/industry-expertise/traditional-devotional-projects.webp"
+  },
 ];
 
 // ─── REUSABLE INDUSTRY CARD COMPONENT ───
@@ -183,7 +189,7 @@ function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group relative rounded-2xl overflow-hidden min-h-[360px] shadow-md hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end border border-slate-200/50"
+      className="group relative rounded-2xl overflow-hidden min-h-[360px] h-full shadow-md hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end border border-slate-200/50"
     >
       <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/50 to-transparent z-10" />
@@ -329,7 +335,7 @@ export default function Home() {
               { num: "45+", label: "Years Experience" },
               { num: "1980s", label: "Established Since" },
               { num: "100%", label: "International Logistics Expertise" },
-              { num: "50+", label: "Global Freight Operations" },
+              { num: "40,000+", label: "Global Freight Operations" },
             ].map((stat, i) => (
               <div key={i} className="stat-num">
                 <div className="text-3xl md:text-5xl font-light text-slate-900 mb-1 md:mb-2">{stat.num}</div>
@@ -394,9 +400,13 @@ export default function Home() {
             </p>
           </div>
  
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {industries.map((ind, i) => (
-              <IndustryCard key={i} title={ind.title} desc={ind.desc} icon={ind.icon} img={ind.img} />
+              <div key={i} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-19.2px)] flex">
+                <div className="w-full">
+                  <IndustryCard title={ind.title} desc={ind.desc} icon={ind.icon} img={ind.img} />
+                </div>
+              </div>
             ))}
           </div>
         </div>

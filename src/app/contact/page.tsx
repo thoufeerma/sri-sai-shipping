@@ -94,12 +94,14 @@ export default function ContactPage() {
                   className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 focus:outline-none focus:border-[#2563EB] transition-colors duration-300 appearance-none"
                 >
                   <option value="" disabled className="text-black">Select a service</option>
-                  <option value="North American Export (Ocean Freight)" className="text-black">North American Export (Ocean Freight)</option>
-                  <option value="Expedited Customs Clearance" className="text-black">Expedited Customs Clearance</option>
-                  <option value="Premium Ocean & Air Freight" className="text-black">Premium Ocean & Air Freight</option>
-                  <option value="Smart Warehousing & Storage" className="text-black">Smart Warehousing & Storage</option>
-                  <option value="Traditional & Devotional Projects" className="text-black">Traditional & Devotional Projects</option>
-                  <option value="North American Enterprise Routes" className="text-black">North American Enterprise Routes</option>
+                  <option value="Customs Broking & Logistics Services" className="text-black">Customs Broking & Logistics Services</option>
+                  <option value="Freight Forwarding" className="text-black">Freight Forwarding</option>
+                  <option value="Air Freight" className="text-black">Air Freight</option>
+                  <option value="Transportation" className="text-black">Transportation</option>
+                  <option value="Smart Warehousing" className="text-black">Smart Warehousing</option>
+                  <option value="Coastal Services" className="text-black">Coastal Services</option>
+                  <option value="Vessel Chartering" className="text-black">Vessel Chartering</option>
+                  <option value="Equipment Leasing" className="text-black">Equipment Leasing</option>
                 </select>
               </div>
               <div className="space-y-2">
@@ -131,13 +133,8 @@ export default function ContactPage() {
               {[
                 {
                   icon: <MapPin size={18} strokeWidth={1.5} className="text-[#2563EB] shrink-0" />,
-                  label: "Global Headquarters",
-                  detail: "Sree Mahadeva Temple Trust Bldg, 1st Floor, Cochin, Kerala - 682 035"
-                },
-                {
-                  icon: <MapPin size={18} strokeWidth={1.5} className="text-[#2563EB] shrink-0" />,
-                  label: "Registered Office",
-                  detail: "D. No. 14/1284 D, M. A. Cyril Road, West Karuvelipady, Cochin — 682002, Kerala, India"
+                  label: "Corporate Office",
+                  detail: "SRI SAI SHIPPING AGENCIES\nD. No. 14/1284 D\nM. A. CYRIL ROAD, NEAR OFFICE OF THE KWA, WEST KARUVELIPADY\nCOCHIN – 682002\nKERALA, INDIA"
                 },
                 {
                   icon: <Phone size={18} strokeWidth={1.5} className="text-[#2563EB] shrink-0" />,
@@ -173,7 +170,7 @@ export default function ContactPage() {
                         {item.detail}
                       </a>
                     ) : (
-                      <p className="text-slate-800 text-sm leading-relaxed">{item.detail}</p>
+                      <p className="text-slate-800 text-sm leading-relaxed whitespace-pre-wrap">{item.detail}</p>
                     )}
                   </div>
                 </div>

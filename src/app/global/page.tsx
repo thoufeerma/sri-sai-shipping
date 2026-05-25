@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe2, Plane, Ship, MapPin, ArrowRight } from "lucide-react";
+import { Globe2, Plane, Ship, MapPin, ArrowRight, Anchor } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AmbientGradient from "@/components/AmbientGradient";
@@ -101,8 +101,7 @@ export default function GlobalLogisticsPage() {
               { city: "Cochin, India", role: "Origin Hub" },
               { city: "Nhava Sheva, India", role: "Western Hub" },
               { city: "Mundra, India", role: "Gujarat Hub" },
-              { city: "New York, USA", role: "Primary Destination" },
-              { city: "Toronto, Canada", role: "Secondary Destination" },
+              { city: "USA & Canada", role: "Primary Destination Regions" },
             ].map((loc, i) => (
               <div key={i} className="flex items-center gap-3 text-sm">
                 <div className="w-2 h-2 rounded-full bg-blue-600" />
@@ -112,6 +111,72 @@ export default function GlobalLogisticsPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── MAJOR PORTS ─── */}
+      <section className="py-20 border-t border-slate-200 relative bg-white">
+        <AmbientGradient />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="text-center mb-16">
+            <p className="fade-up text-xs text-[#1E40AF] tracking-[0.4em] uppercase mb-4 font-bold">North American Access</p>
+            <AnimatedText as="h2" className="fade-up text-3xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+              Major Ports in USA & Canada
+            </AnimatedText>
+            <p className="fade-up text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+              Direct access to key maritime gateways ensuring seamless, rapid cargo routing across North America.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+            {/* Canada */}
+            <div className="fade-up bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-[0_10px_40px_rgba(15,23,42,0.04)] transition-all duration-500">
+              <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200">
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-slate-200">
+                  <span className="text-2xl drop-shadow-sm">🇨🇦</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">Canada Ports</h3>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                {[
+                  "Port of Vancouver", "Port of Montreal", "Port of Prince Rupert",
+                  "Port of Halifax", "Port of Saint John", "Port of Quebec",
+                  "Port of Hamilton", "Port of Thunder Bay", "Port of Sept-Îles",
+                  "Port of St. John’s", "Port of Toronto"
+                ].map((port, i) => (
+                  <li key={i} className="flex items-center gap-3 group cursor-default">
+                    <Anchor size={14} className="text-slate-300 group-hover:text-red-500 transition-colors shrink-0" />
+                    <span className="text-slate-600 text-sm font-medium group-hover:text-slate-900 transition-colors">{port}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* USA */}
+            <div className="fade-up bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-[0_10px_40px_rgba(15,23,42,0.04)] transition-all duration-500">
+              <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200">
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-slate-200">
+                  <span className="text-2xl drop-shadow-sm">🇺🇸</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">USA Ports</h3>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                {[
+                  "Port of Baltimore", "Port of Texas", "Port of Los Angeles",
+                  "Port of Long Beach", "Port of New York and New Jersey", "Port of Savannah",
+                  "Port of Houston", "Port of Oakland", "Port of Seattle",
+                  "Port of Tacoma", "Port of Virginia", "Port of Charleston",
+                  "Port of Miami", "Port of New Orleans", "Port of South Louisiana",
+                  "Port of Corpus Christi"
+                ].map((port, i) => (
+                  <li key={i} className="flex items-center gap-3 group cursor-default">
+                    <Anchor size={14} className="text-slate-300 group-hover:text-blue-600 transition-colors shrink-0" />
+                    <span className="text-slate-600 text-sm font-medium group-hover:text-slate-900 transition-colors">{port}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
