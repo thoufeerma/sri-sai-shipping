@@ -402,7 +402,14 @@ export default function Home() {
  
           <div className="flex flex-wrap justify-center gap-6">
             {industries.map((ind, i) => (
-              <div key={i} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-19.2px)] flex">
+              <div 
+                key={i} 
+                className={`w-full sm:w-[calc(50%-12px)] flex ${
+                  i < 2 ? "lg:w-[calc(50%-12px)]" : 
+                  i < 5 ? "lg:w-[calc(33.333%-16px)]" : 
+                  "lg:w-[calc(25%-18px)]"
+                }`}
+              >
                 <div className="w-full">
                   <IndustryCard title={ind.title} desc={ind.desc} icon={ind.icon} img={ind.img} />
                 </div>
