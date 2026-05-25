@@ -122,25 +122,25 @@ const industries = [
     title: "Bulk Cargo",
     desc: "Chartering and coordination for heavy dry and liquid bulk maritime transport.",
     icon: Anchor,
-    img: "/INDUSTRY EXPERTISE/bulk-cargo.webp"
+    img: "/industry-expertise/bulk-cargo.webp"
   },
   {
     title: "Project Cargo",
     desc: "End-to-end heavy-lift and out-of-gauge logistics for infrastructure ventures.",
     icon: HardHat,
-    img: "/INDUSTRY EXPERTISE/project-cargo.webp"
+    img: "/industry-expertise/project-cargo.webp"
   },
   {
     title: "Textile",
     desc: "Global supply chain logistics connecting Indian weaving hubs with overseas markets.",
     icon: Shirt,
-    img: "/INDUSTRY EXPERTISE/textile.webp"
+    img: "/industry-expertise/textile.webp"
   },
   {
     title: "Chemicals",
     desc: "Highly secure, compliant transit protocols for hazardous and non-hazardous products.",
     icon: FlaskConical,
-    img: "/INDUSTRY EXPERTISE/chemicals.webp"
+    img: "/industry-expertise/chemicals.webp"
   },
   {
     title: "Electronics",
@@ -152,19 +152,19 @@ const industries = [
     title: "Automotive",
     desc: "Just-in-time logistics execution for vehicular parts and specialized machinery.",
     icon: Car,
-    img: "/INDUSTRY EXPERTISE/automotive.webp"
+    img: "/industry-expertise/automotive.webp"
   },
   {
     title: "Commodities",
     desc: "Precision shipping coordination for agricultural, metal, and industrial raw materials.",
     icon: Scale,
-    img: "/INDUSTRY EXPERTISE/commodities.webp"
+    img: "/industry-expertise/commodities.webp"
   },
   {
     title: "FMCG",
     desc: "High-velocity distribution networks keeping fast-moving consumer goods in constant motion.",
     icon: ShoppingCart,
-    img: "/INDUSTRY EXPERTISE/fmcg.webp"
+    img: "/industry-expertise/fmcg.webp"
   },
 ];
 
