@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-700 text-xs font-semibold tracking-widest uppercase mb-4">Capabilities</h4>
             <ul className="space-y-3">
-              {["Customs Broking & Logistics Services", "Freight Forwarding", "Air Freight", "Transportation", "Smart Warehousing"].map((s) => (
+              {["Customs Broking & Logistics Services", "Freight Forwarding", "Air Freight", "Transportation", "Smart Warehousing", "Coastal Services", "Vessel Chartering", "Equipment Leasing"].map((s) => (
                 <li key={s} className="text-slate-600 text-sm">{s}</li>
               ))}
             </ul>

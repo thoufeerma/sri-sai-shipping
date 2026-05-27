@@ -335,7 +335,7 @@ export default function Home() {
               { num: "45+", label: "Years Experience" },
               { num: "1980s", label: "Established Since" },
               { num: "100%", label: "International Logistics Expertise" },
-              { num: "40,000+", label: "Global Freight Operations" },
+              { num: "40k+", label: "Global Freight Operations" },
             ].map((stat, i) => (
               <div key={i} className="stat-num">
                 <div className="text-3xl md:text-5xl font-light text-slate-900 mb-1 md:mb-2">{stat.num}</div>
@@ -345,6 +345,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
 
       {/* ─── SHOWCASE STRIP ─── */}
