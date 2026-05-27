@@ -3,12 +3,36 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Send, MapPin, Phone, Mail } from "lucide-react";
+import { Send, MapPin, Phone, Mail, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+const SERVICES = [
+  "Customs Broking & Logistics Services",
+  "Freight Forwarding",
+  "Air Freight",
+  "Transportation",
+  "Smart Warehousing",
+  "Coastal Services",
+  "Vessel Chartering",
+  "Equipment Leasing"
+];
 
 export default function ContactPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({ name: "", email: "", service: "", message: "" });
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +47,10 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.service) {
+      alert("Please select a service before transmitting your inquiry.");
+      return;
+    }
     const text = `Name: ${formData.name}%0AEmail: ${formData.email}%0AService: ${formData.service}%0AMessage: ${formData.message}`;
     window.open(`https://wa.me/919447054109?text=${text}`, "_blank");
   };
@@ -58,8 +86,12 @@ export default function ContactPage() {
       </section>
 
       {/* ─── FORM + DETAILS ─── */}
-      <section className="pt-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-5 gap-16">
+      <section className="pt-24 relative">
+        {/* Ambient background for glassmorphism */}
+        <div className="absolute top-[20%] left-[5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-5 gap-16 relative z-10">
  
           {/* Form */}
           <div className="lg:col-span-3 fade-up">
@@ -67,50 +99,70 @@ export default function ContactPage() {
             <p className="text-slate-700 text-base mb-10 leading-relaxed max-w-lg">
               Please provide detailed specifications regarding your cargo, destination, and timeline for a highly accurate architectural logistics assessment.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-10">
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-600 tracking-widest uppercase">Full Name</label>
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white/40 backdrop-blur-3xl border border-white/80 p-8 md:p-10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-semibold text-slate-600 tracking-widest uppercase pl-1">Full Name</label>
                 <input
                   type="text" required value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 placeholder-slate-450 focus:outline-none focus:border-[#2563EB] transition-colors duration-300"
-                  placeholder="Jane Smith"
+                  className="w-full bg-white/50 border border-white/60 focus:bg-white/80 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl px-4 py-3.5 text-slate-900 transition-all outline-none shadow-sm"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-600 tracking-widest uppercase">Email</label>
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-semibold text-slate-600 tracking-widest uppercase pl-1">Email</label>
                 <input
                   type="email" required value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 placeholder-slate-450 focus:outline-none focus:border-[#2563EB] transition-colors duration-300"
-                  placeholder="jane@company.com"
+                  className="w-full bg-white/50 border border-white/60 focus:bg-white/80 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl px-4 py-3.5 text-slate-900 transition-all outline-none shadow-sm"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-600 tracking-widest uppercase">Service</label>
-                <select
-                  required value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 focus:outline-none focus:border-[#2563EB] transition-colors duration-300 appearance-none"
-                >
-                  <option value="" disabled className="text-black">Select a service</option>
-                  <option value="Customs Broking & Logistics Services" className="text-black">Customs Broking & Logistics Services</option>
-                  <option value="Freight Forwarding" className="text-black">Freight Forwarding</option>
-                  <option value="Air Freight" className="text-black">Air Freight</option>
-                  <option value="Transportation" className="text-black">Transportation</option>
-                  <option value="Smart Warehousing" className="text-black">Smart Warehousing</option>
-                  <option value="Coastal Services" className="text-black">Coastal Services</option>
-                  <option value="Vessel Chartering" className="text-black">Vessel Chartering</option>
-                  <option value="Equipment Leasing" className="text-black">Equipment Leasing</option>
-                </select>
+              <div className="space-y-1.5 relative" ref={dropdownRef}>
+                <label className="text-[11px] font-semibold text-slate-600 tracking-widest uppercase pl-1">Service</label>
+                <div className="relative">
+                  <div
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className={`w-full bg-white/50 border border-white/60 focus-within:bg-white/80 focus-within:border-blue-500/50 focus-within:ring-4 focus-within:ring-blue-500/10 rounded-xl px-4 py-3.5 transition-all outline-none shadow-sm cursor-pointer flex justify-between items-center ${
+                      formData.service ? "text-slate-900" : "text-slate-500"
+                    }`}
+                  >
+                    {formData.service || "Select a service"}
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-blue-600" : "text-slate-500"}`} />
+                  </div>
+                  
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute z-50 w-full mt-2 py-2 bg-white/80 backdrop-blur-2xl border border-white/80 rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] overflow-hidden"
+                      >
+                        <div className="max-h-60 overflow-y-auto">
+                          {SERVICES.map((srv, idx) => (
+                            <div
+                              key={idx}
+                              onClick={() => {
+                                setFormData({ ...formData, service: srv });
+                                setIsDropdownOpen(false);
+                              }}
+                              className="px-4 py-2.5 mx-2 rounded-xl text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 cursor-pointer transition-colors"
+                            >
+                              {srv}
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-600 tracking-widest uppercase">Message</label>
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-semibold text-slate-600 tracking-widest uppercase pl-1">Message</label>
                 <textarea
                   required rows={4} value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 placeholder-slate-450 focus:outline-none focus:border-[#2563EB] transition-colors duration-300 resize-none"
-                  placeholder="Provide details regarding volume, weight, commodity type, and destination..."
+                  className="w-full bg-white/50 border border-white/60 focus:bg-white/80 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl px-4 py-3.5 text-slate-900 transition-all outline-none shadow-sm resize-none"
                 />
               </div>
               <button type="submit" className="inline-flex items-center gap-3 h-14 px-10 font-semibold text-sm text-white bg-gradient-to-br from-[#1E40AF] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#1E40AF] rounded-full shadow-[0_4px_14px_rgba(30,64,175,0.15)] hover:shadow-[0_6px_20px_rgba(30,64,175,0.25)] transition-all duration-300">

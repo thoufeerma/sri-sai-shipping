@@ -100,7 +100,7 @@ export default function ShipmentJourney() {
           <div className="mb-6 md:mb-16 text-center">
             <p className="text-[10px] md:text-[11px] tracking-[0.4em] text-slate-500 uppercase mb-2 md:mb-3 font-medium">The Shipment Journey</p>
             <h2 className="text-2xl md:text-5xl font-medium text-slate-900 tracking-tight">
-              Origin to <span className="text-slate-400">Destination.</span>
+              Origin to Destination.
             </h2>
           </div>
 
