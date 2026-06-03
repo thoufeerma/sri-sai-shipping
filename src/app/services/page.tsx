@@ -123,7 +123,7 @@ export default function ServicesPage() {
               <div className="w-12 h-12 rounded-full bg-[var(--color-bg-main)] border border-white/10 flex items-center justify-center text-[var(--color-text-secondary)] group-hover:text-[var(--color-accent-cyan)] group-hover:border-[var(--color-accent-cyan)]/30 transition-colors mb-6">
                 {service.icon}
               </div>
-              <div className="text-xs theme-text font-mono font-bold mb-2 tracking-widest uppercase">
+              <div className="text-xs theme-text  font-bold mb-2 tracking-widest uppercase">
                 0{idx + 1}
               </div>
               <h3 className="text-2xl font-bold theme-heading group-hover:text-[var(--color-accent-cyan)] transition-colors mb-4">{service.title}</h3>

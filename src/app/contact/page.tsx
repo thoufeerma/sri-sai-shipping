@@ -52,7 +52,7 @@ export default function ContactPage() {
       return;
     }
     const text = `Name: ${formData.name}%0AEmail: ${formData.email}%0AService: ${formData.service}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/919447054109?text=${text}`, "_blank");
+    window.open(`https://wa.me/919846501223?text=${text}`, "_blank");
   };
 
   return (
@@ -191,20 +191,20 @@ export default function ContactPage() {
                 {
                   icon: <Phone size={18} strokeWidth={1.5} className="text-[var(--color-accent-cyan)] shrink-0" />,
                   label: "Executive Hotline",
-                  detail: "+91 94470 54109",
-                  href: "tel:+919447054109"
+                  detail: "+91 98465 01223",
+                  href: "tel:+919846501223"
                 },
                 {
                   icon: <Phone size={18} strokeWidth={1.5} className="text-[var(--color-accent-cyan)] shrink-0" />,
                   label: "WhatsApp Priority Support",
                   detail: "Instant executive messaging for critical enterprise shipment updates.",
-                  href: "https://wa.me/919447054109"
+                  href: "https://wa.me/919846501223"
                 },
                 {
                   icon: <Mail size={18} strokeWidth={1.5} className="text-[var(--color-accent-cyan)] shrink-0" />,
                   label: "Executive Inquiry",
-                  detail: "info@srisaishipping.com",
-                  href: "mailto:info@srisaishipping.com"
+                  detail: "sandeep@srisaishipping.com",
+                  href: "mailto:sandeep@srisaishipping.com"
                 },
                 {
                   icon: <Mail size={18} strokeWidth={1.5} className="text-[var(--color-accent-cyan)] shrink-0" />,

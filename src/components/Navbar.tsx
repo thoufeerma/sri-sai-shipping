@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="relative z-50 group">
             <span className={clsx(
-              "font-sans font-bold text-xl tracking-widest uppercase transition-colors duration-300 drop-shadow-md",
+              " font-bold text-xl tracking-widest uppercase transition-colors duration-300 drop-shadow-md",
               isScrolled ? "text-white drop-shadow-none" : "text-white group-hover:text-white/80"
             )}>
               Sri Sai

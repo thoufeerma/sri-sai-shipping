@@ -67,11 +67,11 @@ export default function Footer() {
               KERALA, INDIA
             </p>
             <div className="flex flex-col gap-1.5">
-              <a href="tel:+919447054109" className="theme-text hover:text-[var(--color-accent-cyan)] transition-colors text-sm">
-                +91 94470 54109
+              <a href="tel:+919846501223" className="theme-text hover:text-[var(--color-accent-cyan)] transition-colors text-sm">
+                +91 98465 01223
               </a>
-              <a href="mailto:info@srisaishipping.com" className="theme-text hover:text-[var(--color-accent-cyan)] transition-colors text-sm">
-                info@srisaishipping.com
+              <a href="mailto:sandeep@srisaishipping.com" className="theme-text hover:text-[var(--color-accent-cyan)] transition-colors text-sm">
+                sandeep@srisaishipping.com
               </a>
             </div>
           </div>

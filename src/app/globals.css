@@ -166,5 +166,18 @@
 /* ─── Text mask reveal util ─── */
 .anim-word { will-change: transform, opacity; }
 
-/* ─── Focus visible ─── */
 *:focus-visible { outline: 2px solid rgba(15,23,42,0.3); outline-offset: 4px; border-radius: 4px; }
+
+/* ─── SVG Route Animation ─── */
+@keyframes dash-flow {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-dash-flow {
+  stroke-dasharray: 5 5;
+  animation: dash-flow 1s linear infinite;
+}

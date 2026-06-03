@@ -166,7 +166,7 @@ export default function ShipmentJourney() {
                       <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[var(--color-bg-main)] border border-white/10 flex items-center justify-center text-[var(--color-text-secondary)]">
                         <Icon className="w-4 h-4 md:w-5 md:h-5 group-hover:text-[var(--color-accent-cyan)] transition-colors" strokeWidth={1.5} />
                       </div>
-                      <p className="text-[9px] md:text-[10px] theme-text tracking-widest font-mono uppercase font-semibold">Stage 0{i + 1}</p>
+                      <p className="text-[9px] md:text-[10px] theme-text tracking-widest  uppercase font-semibold">Stage 0{i + 1}</p>
                     </div>
                     <h4 className="text-[11px] md:text-lg font-bold theme-heading mb-1 md:mb-2 leading-tight">{stage.label}</h4>
                     <p className="text-[10px] md:text-sm theme-text leading-snug md:leading-relaxed font-light">{stage.desc}</p>

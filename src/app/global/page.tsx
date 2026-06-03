@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe2, Plane, Ship, MapPin, ArrowRight, Anchor, Globe, Truck } from "lucide-react";
+import { Globe2, Plane, Ship, MapPin, ArrowRight, Anchor, Globe, Truck, Star, CheckCircle2, ShieldCheck, Radar, Clock, Activity } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AmbientGradient from "@/components/AmbientGradient";
@@ -247,105 +247,146 @@ export default function GlobalLogisticsPage() {
       {/* ─── CROSS-BORDER LOGISTICS SECTION ─── */}
       <section className="py-20 md:py-28 bg-[var(--color-bg-main)] border-b theme-border relative overflow-hidden">
         {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--color-primary)]/10 blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#061324] opacity-50 blur-[120px] pointer-events-none rounded-full" />
         
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
-          <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-5xl font-medium theme-heading tracking-tight mb-4">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 relative z-10">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-5xl font-semibold theme-heading tracking-tight mb-4">
               Cross-Border Logistics
             </h2>
-            <p className="theme-text text-base md:text-lg max-w-2xl mx-auto font-light">
+            <p className="theme-text text-base md:text-xl max-w-2xl mx-auto font-light text-slate-300">
               Reliable freight movement across major international and regional trade corridors.
             </p>
           </div>
 
-          <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-0 items-center justify-between max-w-6xl mx-auto">
+          <div className="relative flex flex-col lg:flex-row items-center justify-center w-full pb-10">
             
             {/* Card 1 — USA & Canada */}
-            <div className="group relative w-full lg:w-[40%] rounded-2xl bg-[#121212]/80 backdrop-blur-sm border border-[#2a2a2a] p-8 hover:bg-[#181818]/90 hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
-              <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-400 to-blue-500/0 group-hover:w-full transition-all duration-700 ease-out" />
-              
-              <div className="mb-6 flex justify-between items-start">
-                <span className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-slate-300">
+            <div className="relative z-10 w-full lg:w-[28%] shrink-0 rounded-[24px] bg-[#061324] border border-white/5 p-8 shadow-2xl h-[440px] flex flex-col group hover:-translate-y-2 transition-transform duration-500 ease-out">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F36]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
+              <div className="relative z-10 mb-8 flex justify-between items-start">
+                <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] text-[#F8FAFC]/80">
                   North America Network
                 </span>
-                <Globe className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-accent-cyan)] transition-colors duration-500" size={24} strokeWidth={1.5} />
+                <Globe className="text-[#F8FAFC]/30 group-hover:text-[#F8FAFC]/60 transition-colors" size={26} strokeWidth={1.5} />
               </div>
               
-              <h3 className="text-2xl text-white font-medium mb-4 flex items-center gap-3">
-                USA & Canada
-                <ArrowRight size={16} className="text-[var(--color-text-secondary)] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
-              </h3>
-              <p className="text-blue-300/80 text-sm font-medium mb-6">Door-to-Door Logistics</p>
+              <div className="relative z-10">
+                <h3 className="text-[30px] text-[#F8FAFC] font-semibold mb-2 tracking-tight">USA & Canada</h3>
+                <p className="text-[#60A5FA] text-[15px] font-medium mb-10">Door-to-Door Logistics</p>
+              </div>
               
-              <ul className="space-y-3 text-slate-400 text-sm font-light">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 mt-1.5"></span>
+              <ul className="relative z-10 space-y-5 text-[#F8FAFC]/70 text-[15px] font-light flex-grow">
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
                   Freight pickup to final delivery
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
                   Customs clearance support
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
                   Ocean & air cargo coordination
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
                   Warehousing and distribution
                 </li>
               </ul>
             </div>
 
-            {/* Premium Divider Desktop Only */}
-            <div className="hidden lg:flex flex-col items-center justify-center w-[20%] relative z-0">
-              <div className="w-full flex items-center justify-center space-x-2 whitespace-nowrap">
-                <span className="text-[10px] font-semibold text-[var(--color-text-secondary)] tracking-widest uppercase shrink-0">USA & CAN</span>
-                <div className="relative w-8 lg:w-16 h-[1px] bg-[#2a2a2a] overflow-hidden shrink-0">
-                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/80 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+            {/* Connection Line 1 */}
+            <div className="hidden lg:flex items-center justify-center w-[8%] relative z-30 shrink-0">
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent relative">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-main)] px-3 text-[10px] font-medium text-white/60 tracking-[0.2em] text-center leading-[1.2] whitespace-nowrap backdrop-blur-sm border border-white/5 rounded-full py-1">
+                  USA & EUROPE
                 </div>
-                <span className="text-[10px] font-semibold text-[var(--color-text-secondary)] tracking-widest uppercase shrink-0">IND & NEP</span>
               </div>
-            </div>
-            
-            {/* Premium Divider Mobile Only */}
-            <div className="flex lg:hidden items-center justify-center w-full py-4 relative z-0">
-               <div className="w-[2px] h-12 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
             </div>
 
-            {/* Card 2 — India & Nepal */}
-            <div className="group relative w-full lg:w-[40%] rounded-2xl bg-[#121212]/80 backdrop-blur-sm border border-[#2a2a2a] p-8 hover:bg-[#181818]/90 hover:border-amber-500/30 transition-all duration-500 overflow-hidden">
-              <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-amber-500/0 via-amber-400 to-amber-500/0 group-hover:w-full transition-all duration-700 ease-out" />
+            {/* Card 2 — Cross Country Logistics */}
+            <div className="relative z-20 w-full lg:w-[40%] shrink-0 rounded-[28px] bg-[#07111D] border border-white/5 p-10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] h-[580px] flex flex-col overflow-hidden transform lg:scale-105 group">
+              {/* Grid background */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] mask-image-[radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-100" style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black, transparent 80%)' }} />
               
-              <div className="mb-6 flex justify-between items-start">
-                <span className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-slate-300">
-                  South Asia Corridor
-                </span>
-                <Truck className="text-[var(--color-text-secondary)] group-hover:text-amber-400 transition-colors duration-500" size={24} strokeWidth={1.5} />
+              {/* Top Arched Route Graphic */}
+              <div className="relative w-full h-[80px] flex justify-center items-center pointer-events-none mt-4 mb-4">
+                   <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 300 80" preserveAspectRatio="none">
+                     <path d="M 60 60 Q 150 10 240 60" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2" className="animate-dash-flow" />
+                   </svg>
+                   <MapPin className="absolute top-[60px] left-[20%] text-[#F8FAFC] fill-[#0B1F36] -translate-x-1/2 -translate-y-1/2" size={20} />
+                   <MapPin className="absolute top-[60px] left-[80%] text-[#F8FAFC] fill-[#0B1F36] -translate-x-1/2 -translate-y-1/2" size={26} />
               </div>
               
-              <h3 className="text-2xl text-white font-medium mb-4 flex items-center gap-3">
-                India & Nepal
-                <ArrowRight size={16} className="text-[var(--color-text-secondary)] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
-              </h3>
-              <p className="text-amber-300/80 text-sm font-medium mb-6">Cross Country Transport</p>
+              <div className="relative z-10 mb-10 text-center">
+                <h3 className="text-[34px] text-[#F8FAFC] font-bold mb-2 leading-tight tracking-tight drop-shadow-md">Global Trade Corridors</h3>
+                <p className="text-[#64748B] text-[16px] font-medium tracking-wide">USA & Europe</p>
+              </div>
               
-              <ul className="space-y-3 text-slate-400 text-sm font-light">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 mt-1.5"></span>
+              <ul className="space-y-6 text-[#F8FAFC]/90 text-[16px] font-light relative z-10 flex-grow px-4 md:px-8">
+                <li className="flex items-center gap-6">
+                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Truck className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
+                  Reliable transcontinental freight
+                </li>
+                <li className="flex items-center gap-6">
+                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Plane className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
+                  Air, ocean & multimodal solutions
+                </li>
+                <li className="flex items-center gap-6">
+                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><ShieldCheck className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
+                  Customs & compliance support
+                </li>
+                <li className="flex items-center gap-6">
+                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Radar className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
+                  End-to-end visibility & tracking
+                </li>
+                <li className="flex items-center gap-6">
+                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Clock className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
+                  Time-critical shipments
+                </li>
+              </ul>
+            </div>
+
+            {/* Connection Line 2 */}
+            <div className="hidden lg:flex items-center justify-center w-[8%] relative z-30 shrink-0">
+              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent relative">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-main)] px-3 text-[10px] font-medium text-white/60 tracking-[0.2em] text-center leading-[1.2] whitespace-nowrap backdrop-blur-sm border border-white/5 rounded-full py-1">
+                  IND & NEP
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 — India & Nepal */}
+            <div className="relative z-10 w-full lg:w-[28%] shrink-0 rounded-[24px] bg-[#061324] border border-white/5 p-8 shadow-2xl h-[440px] flex flex-col group hover:-translate-y-2 transition-transform duration-500 ease-out">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F36]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
+              <div className="relative z-10 mb-8 flex justify-between items-start">
+                <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] text-[#F8FAFC]/80">
+                  South Asia Corridor
+                </span>
+                <Truck className="text-[#F8FAFC]/30 group-hover:text-[#F8FAFC]/60 transition-colors" size={26} strokeWidth={1.5} />
+              </div>
+              
+              <div className="relative z-10">
+                <h3 className="text-[30px] text-[#F8FAFC] font-semibold mb-2 tracking-tight">India & Nepal</h3>
+                <p className="text-[#D4AF37] text-[15px] font-medium mb-10">Cross-Border Transport</p>
+              </div>
+              
+              <ul className="relative z-10 space-y-5 text-[#F8FAFC]/70 text-[15px] font-light flex-grow">
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
                   Seamless border cargo movement
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
                   Regional freight coordination
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
                   Commercial goods transportation
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 mt-1.5"></span>
+                <li className="flex items-center gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
                   Fast customs processing
                 </li>
               </ul>
@@ -401,7 +442,7 @@ export default function GlobalLogisticsPage() {
                 "Specialized protocols for highly regulated traditional and agricultural goods."
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-3 text-sm theme-text items-start font-light">
-                  <span className="text-[var(--color-accent-cyan)] font-bold font-mono">[{idx + 1}]</span>
+                  <span className="text-[var(--color-accent-cyan)] font-bold ">[{idx + 1}]</span>
                   <span>{item}</span>
                 </div>
               ))}
