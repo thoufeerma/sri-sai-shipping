@@ -80,7 +80,7 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative h-[260px] md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden theme-card hover:theme-card-hover hover:border-[var(--color-accent-cyan)]/30 border border-transparent shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 ease-out"
+      className="group relative h-[200px] md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden theme-card hover:theme-card-hover hover:border-[var(--color-accent-cyan)]/30 border border-transparent shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 ease-out"
     >
       <Image
         src={img}
@@ -189,7 +189,7 @@ function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group relative rounded-2xl overflow-hidden min-h-[360px] h-full shadow-md hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end theme-card hover:theme-card-hover"
+      className="group relative rounded-2xl overflow-hidden min-h-[220px] md:min-h-[360px] h-full shadow-md hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end theme-card hover:theme-card-hover"
     >
       <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0 opacity-60 mix-blend-luminosity" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#0B2430]/70 to-transparent z-10" />
@@ -460,7 +460,7 @@ export default function Home() {
                 img: "/Guruvayurappan Temple of Brampton.jpg"
               }
             ].map((client, i) => (
-              <div key={i} className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 min-h-[380px] flex flex-col justify-end theme-card hover:theme-card-hover">
+              <div key={i} className={`group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 min-h-[240px] md:min-h-[380px] flex flex-col justify-end theme-card hover:theme-card-hover ${i === 2 ? "col-span-2 md:col-span-1" : ""}`}>
                 <Image src={client.img} alt={client.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0 opacity-60 mix-blend-luminosity" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#0B2430]/70 to-transparent z-10" />
                 
@@ -472,7 +472,7 @@ export default function Home() {
                 <div className="relative z-20 p-4 md:p-8 w-full">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 md:mb-4 gap-2 md:gap-0">
                     <span className="text-xl md:text-3xl" role="img" aria-label="country flag">{client.flag}</span>
-                    <span className="text-[8px] md:text-[10px] text-white/90 uppercase tracking-wider font-bold border border-white/30 bg-white/10 backdrop-blur-md px-2 py-1 md:px-3 md:py-1 rounded-full self-start md:self-auto line-clamp-1">{client.service}</span>
+                    <span className="text-[8px] md:text-[10px] text-white/90 uppercase tracking-wider font-bold border border-white/30 bg-white/10 backdrop-blur-md px-2 py-1 md:px-3 md:py-1 rounded-full self-start md:self-auto truncate max-w-full inline-block">{client.service}</span>
                   </div>
                   <h3 className="text-sm md:text-2xl font-bold theme-heading mb-1 md:mb-2 leading-tight drop-shadow-md">{client.name}</h3>
                   <p className="theme-text text-[9px] md:text-xs mb-2 md:mb-4 font-semibold uppercase tracking-wider drop-shadow-md line-clamp-1">{client.location}</p>
