@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #00415A;
+  --color-primary-hover: #005A7A;
+  --color-primary-light: #0A6C94;
+  --color-bg-main: #061A24;
+  --color-bg-alt: #0B2430;
+  --color-card-bg: rgba(19,47,61,0.65);
+  --color-card-hover: rgba(19,47,61,0.85);
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-accent-blue: #FBBF24;
+  --color-accent-cyan: #FBBF24;
+  --color-success: #10B981;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(245, 158, 11, 0.25);
+  --color-glass-bg: rgba(16, 45, 58, 0.65);
+  --color-glass-hover: rgba(16, 45, 58, 0.85);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-inter: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bg-main);
+    --foreground: var(--color-text-primary);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] font-sans antialiased overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(0,113,156,0.12),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 80% 30%,
+        rgba(251,191,36,0.08),
+        transparent 35%
+      );
+
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .theme-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-subtle);
+    backdrop-filter: blur(20px);
+  }
+
+  .theme-card-hover {
+    background: var(--color-card-hover);
+  }
+
+  .theme-heading {
+    color: var(--color-text-primary);
+  }
+
+  .theme-text {
+    color: var(--color-text-secondary);
+  }
+
+  .theme-border {
+    border-color: var(--color-border-subtle);
+  }
+
+  .theme-section {
+    background: var(--color-bg-alt);
+  }
+
+  .glassmorphism {
+    @apply bg-[var(--color-glass-bg)] backdrop-blur-2xl border border-[var(--color-border-subtle)] shadow-[0_10px_40px_var(--color-shadow)];
+  }
+  
+  .glassmorphism-hover {
+    @apply hover:bg-[var(--color-glass-hover)] hover:border-[var(--color-border-hover)] transition-all duration-500 ease-out;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FFFFFF] to-[#FBBF24];
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00415A] to-[#0A6C94];
+  }
+
+  .text-gradient-hero {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#061A24] via-[#00415A] to-[#0A6C94];
+  }
+  
+  .button-gradient {
+    @apply bg-gradient-to-r from-[#00415A] to-[#FBBF24];
+  }
+
+  .mesh-bg {
+    background-image: 
+      radial-gradient(at 40% 20%, rgba(251, 191, 36, 0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(251, 191, 36, 0.04) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(10, 108, 148, 0.04) 0px, transparent 50%);
+  }
+}
+
+/* Custom Scrollbar - Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-card-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* ─── Ambient Gradient Drift ─── */
+@keyframes agDrift1 {
+  0%,100% { transform: translate(0px,   0px)   scale(1);    }
+  33%      { transform: translate(40px, -30px)  scale(1.06); }
+  66%      { transform: translate(-25px, 40px)  scale(0.97); }
+}
+@keyframes agDrift2 {
+  0%,100% { transform: translate(0px,  0px)   scale(1);    }
+  40%      { transform: translate(-35px, 25px) scale(1.04); }
+  70%      { transform: translate(30px, -35px) scale(0.98); }
+}
+
+/* ─── Glass shimmer sweep ─── */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(300%)  skewX(-12deg); }
+}
+.glass-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+  animation: shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─── Text mask reveal util ─── */
+.anim-word { will-change: transform, opacity; }
+
+/* ─── Focus visible ─── */
+*:focus-visible { outline: 2px solid rgba(15,23,42,0.3); outline-offset: 4px; border-radius: 4px; }
