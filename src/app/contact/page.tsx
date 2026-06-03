@@ -205,13 +205,7 @@ export default function ContactPage() {
                   label: "Executive Inquiry",
                   detail: "sandeep@srisaishipping.com",
                   href: "mailto:sandeep@srisaishipping.com"
-                },
-                {
-                  icon: <Mail size={18} strokeWidth={1.5} className="text-[var(--color-accent-cyan)] shrink-0" />,
-                  label: "Operations",
-                  detail: "operations@srisaishipping.com",
-                  href: "mailto:operations@srisaishipping.com"
-                },
+                }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 border-t theme-border pt-6">
                   {item.icon}
