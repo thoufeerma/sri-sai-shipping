@@ -91,9 +91,8 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0"
       />
       {/* Cinematic bottom gradient overlay to make text highly legible and add warmth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#0B2430]/80 via-60% to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#061A24]/40 to-transparent z-10" />
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
       
       {/* Top Left Icon Box */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-10 h-10 md:w-14 md:h-14 bg-[var(--color-bg-main)]/70 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-[var(--color-accent-cyan)]/30 group-hover:bg-[var(--color-primary)]/50 transition-all duration-500">
@@ -191,14 +190,11 @@ function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative rounded-2xl overflow-hidden min-h-[220px] md:min-h-[360px] h-full shadow-md hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end theme-card hover:theme-card-hover"
     >
-      <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0 opacity-60 mix-blend-luminosity" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#0B2430]/70 to-transparent z-10" />
+      <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#061A24]/40 to-transparent z-10" />
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500 z-10" />
       
-      {/* Top right arrow */}
-      <div className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full border border-white/10 bg-[var(--color-bg-main)]/50 backdrop-blur-md flex items-center justify-center group-hover:bg-[var(--color-primary)]/80 transition-all">
-        <ArrowRight size={14} className="text-white -rotate-45" />
-      </div>
+
 
       <div className="relative z-20 p-4 md:p-6 w-full">
         <h3 className="text-sm md:text-2xl font-bold theme-heading mb-1 md:mb-2 leading-tight drop-shadow-md">{title}</h3>
@@ -461,13 +457,10 @@ export default function Home() {
               }
             ].map((client, i) => (
               <div key={i} className={`group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 min-h-[240px] md:min-h-[380px] flex flex-col justify-end theme-card hover:theme-card-hover ${i === 2 ? "col-span-2 md:col-span-1" : ""}`}>
-                <Image src={client.img} alt={client.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0 opacity-60 mix-blend-luminosity" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#0B2430]/70 to-transparent z-10" />
+                <Image src={client.img} alt={client.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#061A24]/40 to-transparent z-10" />
                 
-                {/* Top right arrow */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/10 bg-[var(--color-bg-main)]/50 backdrop-blur-md flex items-center justify-center group-hover:bg-[var(--color-primary)]/80 transition-all">
-                  <ArrowRight className="text-white -rotate-45 w-3 h-3 md:w-4 md:h-4" />
-                </div>
+
 
                 <div className="relative z-20 p-4 md:p-8 w-full">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 md:mb-4 gap-2 md:gap-0">

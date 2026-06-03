@@ -370,7 +370,7 @@ export default function GlobalLogisticsPage() {
               { name: "Final-Mile Execution", img: "/freight-air.webp", desc: "Door-to-door delivery execution utilizing our highly vetted North American and global transportation networks." },
             ].map((route, i) => (
               <div key={i} className="fade-up relative h-[280px] md:h-[360px] rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 theme-card shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1">
-                <Image src={route.img} alt={route.name} fill className="object-cover opacity-80 mix-blend-luminosity group-hover:scale-105 group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700 ease-out" />
+                <Image src={route.img} alt={route.name} fill className="object-cover group-hover:scale-105 transition-all duration-700 ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-main)] via-[var(--color-bg-main)]/60 via-60% to-transparent" />
                 <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
                   <h3 className="text-sm md:text-xl font-bold theme-heading mb-1 md:mb-2 group-hover:text-[var(--color-accent-cyan)] transition-colors">{route.name}</h3>

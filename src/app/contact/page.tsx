@@ -61,7 +61,7 @@ export default function ContactPage() {
       {/* ─── HERO ─── */}
       <section className="relative h-[65vh] md:h-[80vh] flex items-center justify-center overflow-hidden pt-20 bg-[#061A24]">
         <div className="absolute inset-0">
-          <Image src="/cochin.webp" alt="Cochin — our home" fill priority quality={100} className="object-cover opacity-80 mix-blend-luminosity scale-105" />
+          <Image src="/cochin.webp" alt="Cochin — our home" fill priority quality={100} className="object-cover scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-transparent h-48" />
         </div>
@@ -174,7 +174,7 @@ export default function ContactPage() {
           {/* Info + Image */}
           <div className="lg:col-span-2 flex flex-col gap-12 fade-up">
             <div className="relative h-52 rounded-3xl overflow-hidden border border-white/10 theme-card">
-              <Image src="/hero-port.webp" alt="Port operations" fill className="object-cover opacity-60 mix-blend-luminosity" />
+              <Image src="/hero-port.webp" alt="Port operations" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-xs text-white/90 tracking-widest uppercase font-semibold bg-[var(--color-bg-main)]/70 backdrop-blur-md px-3 py-1 rounded-lg inline-block w-fit border border-white/10">
                 Cochin Port — Command Hub

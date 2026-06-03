@@ -113,7 +113,7 @@ export default function ServicesPage() {
                 alt={service.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-[#061A24]/40 group-hover:bg-transparent transition-colors duration-500" />
             </div>

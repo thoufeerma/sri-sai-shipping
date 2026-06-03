@@ -45,7 +45,7 @@ export default function GalleryCard({ image, category, index, onClick, className
           alt={`Gallery image ${index + 1}`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105 opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal"
+          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105"
         />
       </div>
  
