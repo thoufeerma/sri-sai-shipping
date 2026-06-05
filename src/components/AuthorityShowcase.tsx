@@ -140,7 +140,7 @@ export default function AuthorityShowcase() {
             transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
             className="theme-text text-sm md:text-base leading-relaxed"
           >
-            For 45+ years since the 1980s, we have flawlessly integrated traditional Indian business values—unshakeable trust, profound respect for cargo, and personalized executive support—with ultra-modern, high-tech logistics infrastructure. Whether managing massive commercial enterprise shipments or highly sensitive traditional devotional items, our execution is characterized by absolute precision and zero-delay compliance.
+            For 45+ years since the 1980s, we have flawlessly integrated traditional Indian business values—unshakeable trust, profound respect for cargo, and personalized executive support—with ultra-modern, high-tech logistics infrastructure. Whether managing massive commercial enterprise shipments and highly sensitive traditional devotional items, our execution is characterized by absolute precision and zero-delay compliance.
           </motion.p>
 
           <CTARow />

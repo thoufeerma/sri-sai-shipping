@@ -4,6 +4,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const TraditionalProjects = dynamic(() => import("@/components/TraditionalProjects"), { ssr: false });
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,8 +15,15 @@ export default function AboutPage() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-elem", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.12, ease: "power2.out", delay: 0.2 });
-      gsap.utils.toArray<HTMLElement>(".fade-up").forEach((el) => {
-        gsap.fromTo(el, { opacity: 0, y: 40 }, { scrollTrigger: { trigger: el, start: "top 85%" }, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+      ScrollTrigger.batch(".fade-up", {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out", overwrite: true, force3D: true }
+          );
+        }
       });
     }, containerRef);
     return () => ctx.revert();
@@ -120,6 +130,9 @@ export default function AboutPage() {
       </section>
 
 
+      {/* ─── TRADITIONAL & CULTURAL PROJECTS ─── */}
+      <TraditionalProjects />
+
       {/* ─── TIMELINE ─── */}
       <section className="py-24 border-t theme-border theme-section">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
@@ -130,7 +143,7 @@ export default function AboutPage() {
               { year: "1990s", title: "Expansion into Freight Forwarding", desc: "Expanded operational capabilities to offer comprehensive domestic freight forwarding and custom clearing solutions." },
               { year: "2000s", title: "International Logistics Operations", desc: "Scaled services internationally, managing global vessel chartering, liner shipping agency services, and complex logistics solutions." },
               { year: "2010s", title: "USA & Canada Corridors", desc: "Established dedicated direct shipping services connecting India's manufacturing hubs with major gateways in USA and Canada." },
-              { year: "Today", title: "Advanced Customs & Logistics Handling", desc: "Dominating global routes with digital supply chain tracking, high-frequency cargo operations, and elite customs compliance." },
+              { year: "Today", title: "Cross Trade Shipments and Advanced Customs & Logistics Handling", desc: "Dominating global routes with digital supply chain tracking, high-frequency cargo operations, and elite customs compliance." },
             ].map((item, i) => (
               <div key={i} className="fade-up relative">
                 <div className="absolute -left-[38px] top-1.5 w-3 h-3 rounded-full bg-[var(--color-accent-cyan)] border-4 border-[#061A24]" />

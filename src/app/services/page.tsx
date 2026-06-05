@@ -14,7 +14,7 @@ const services = [
     image: "/services/coastal-logistics.webp",
   },
   {
-    title: "Freight Forwarding",
+    title: "Freight Forwarding logistics",
     desc: "Reliable end-to-end global cargo coordination and shipping solutions. Leveraging key steamship line agreements and international alliances, we deliver flexible routes tailored to your commercial needs.",
     icon: <Globe size={24} strokeWidth={1.5} />,
     image: "/services/freight-forwarding.webp",
@@ -55,6 +55,12 @@ const services = [
     icon: <Boxes size={24} strokeWidth={1.5} />,
     image: "/services/equipment--leasing.webp",
   },
+  {
+    title: "Cross Trade Shipment",
+    desc: "Expert coordination of cargo movements between two countries outside the country of operation. We ensure seamless triangular trade logistics, optimizing routing while maintaining strict supply chain confidentiality.",
+    icon: <Ship size={24} strokeWidth={1.5} />,
+    image: "/cargo-ship.webp",
+  },
 ];
 
 export default function ServicesPage() {
@@ -64,8 +70,15 @@ export default function ServicesPage() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-elem", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power2.out", delay: 0.2 });
-      gsap.utils.toArray<HTMLElement>(".service-card").forEach((card) => {
-        gsap.fromTo(card, { opacity: 0, y: 30 }, { scrollTrigger: { trigger: card, start: "top 90%" }, opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+      ScrollTrigger.batch(".service-card", {
+        start: "top 90%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 30 }, 
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out", overwrite: true }
+          );
+        }
       });
     }, containerRef);
     return () => ctx.revert();

@@ -49,7 +49,6 @@ export default function AmbientGradient() {
           width: 700, height: 700,
           top: "-15%", left: "-10%",
           background: "radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 70%)",
-          filter: "blur(80px)",
           animation: "agDrift1 18s ease-in-out infinite",
         }}
       />
@@ -60,7 +59,6 @@ export default function AmbientGradient() {
           width: 800, height: 600,
           bottom: "-20%", right: "-10%",
           background: "radial-gradient(ellipse, rgba(96,165,250,0.04) 0%, transparent 70%)",
-          filter: "blur(100px)",
           animation: "agDrift2 22s ease-in-out infinite",
         }}
       />
@@ -71,7 +69,6 @@ export default function AmbientGradient() {
           width: 600, height: 400,
           top: "30%", left: "30%",
           background: "radial-gradient(ellipse, rgba(59,130,246,0.02) 0%, transparent 70%)",
-          filter: "blur(120px)",
         }}
       />
     </div>

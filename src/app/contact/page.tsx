@@ -38,8 +38,15 @@ export default function ContactPage() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-elem", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power2.out", delay: 0.2 });
-      gsap.utils.toArray<HTMLElement>(".fade-up").forEach((el) => {
-        gsap.fromTo(el, { opacity: 0, y: 40 }, { scrollTrigger: { trigger: el, start: "top 85%" }, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+      ScrollTrigger.batch(".fade-up", {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out", overwrite: true, force3D: true }
+          );
+        }
       });
     }, containerRef);
     return () => ctx.revert();

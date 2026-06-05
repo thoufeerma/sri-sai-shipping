@@ -7,11 +7,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ArrowDown, Globe, Anchor, Ship, FileText, Truck, Boxes, Compass, Plane, HardHat, Shirt, FlaskConical, Cpu, Car, Scale, ShoppingCart, Warehouse } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import AmbientGradient from "@/components/AmbientGradient";
 import MagneticButton from "@/components/MagneticButton";
 import AnimatedText from "@/components/AnimatedText";
-import ShipmentJourney from "@/components/ShipmentJourney";
-import AuthorityShowcase from "@/components/AuthorityShowcase";
+import HoverShinyText from "@/components/HoverShinyText";
+
+const ShipmentJourney = dynamic(() => import("@/components/ShipmentJourney"), { ssr: false });
+const AuthorityShowcase = dynamic(() => import("@/components/AuthorityShowcase"), { ssr: false });
 
 // ─── CAPABILITY DATA ───
 const capabilities = [
@@ -22,7 +25,7 @@ const capabilities = [
     img: "/services/coastal-logistics.webp",
   },
   {
-    title: "Freight Forwarding",
+    title: "Freight Forwarding logistics",
     desc: "Reliable end-to-end global cargo coordination and shipping solutions.",
     icon: Globe,
     img: "/services/freight-forwarding.webp",
@@ -63,6 +66,12 @@ const capabilities = [
     icon: Boxes,
     img: "/services/equipment--leasing.webp",
   },
+  {
+    title: "Cross Trade Shipment",
+    desc: "Advanced cross trade shipments and advanced customs and logistics handling.",
+    icon: Globe,
+    img: "/cargo-ship.webp",
+  },
 ];
 
 // ─── REUSABLE CAPABILITY CARD COMPONENT ───
@@ -75,12 +84,8 @@ interface CapabilityCardProps {
 
 function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative h-[200px] md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden theme-card hover:theme-card-hover hover:border-[var(--color-accent-cyan)]/30 border border-transparent shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 ease-out"
+    <div
+      className="fade-up group relative h-[200px] md:h-[380px] rounded-2xl md:rounded-3xl overflow-hidden theme-card hover:theme-card-hover hover:border-[var(--color-accent-cyan)]/30 border border-transparent shadow-lg hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 ease-out"
     >
       <Image
         src={img}
@@ -111,7 +116,7 @@ function CapabilityCard({ title, desc, icon: Icon, img }: CapabilityCardProps) {
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -183,12 +188,8 @@ interface IndustryCardProps {
 
 function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group relative rounded-2xl overflow-hidden min-h-[220px] md:min-h-[360px] h-full shadow-md hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end theme-card hover:theme-card-hover"
+    <div
+      className="fade-up group relative rounded-2xl overflow-hidden min-h-[220px] md:min-h-[360px] h-full shadow-md hover:shadow-[0_20px_40px_rgba(0,113,156,0.15)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-end theme-card hover:theme-card-hover"
     >
       <Image src={img} alt={title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#061A24] via-[#061A24]/40 to-transparent z-10" />
@@ -202,7 +203,7 @@ function IndustryCard({ title, desc, icon: Icon, img }: IndustryCardProps) {
           <p className="theme-text text-[10px] md:text-sm leading-relaxed drop-shadow-sm mt-1 md:mt-2 line-clamp-2 md:line-clamp-none">{desc}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -228,12 +229,27 @@ export default function Home() {
       });
 
       // Stats count-up feel
-      gsap.utils.toArray<HTMLElement>(".stat-num").forEach((el) => {
-        gsap.fromTo(el,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-            scrollTrigger: { trigger: el, start: "top 88%" } }
-        );
+      ScrollTrigger.batch(".stat-num", {
+        start: "top 88%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out", overwrite: true, force3D: true }
+          );
+        }
+      });
+
+      // Unified batch for fade-up elements
+      ScrollTrigger.batch(".fade-up", {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out", overwrite: true, force3D: true }
+          );
+        }
       });
 
     }, containerRef);
@@ -263,15 +279,19 @@ export default function Home() {
           
           {/* Top gradient for Navbar visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/0 to-transparent h-48" />
+
+          {/* Left gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-[#020617]/50 to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row lg:items-end justify-between gap-12 lg:gap-8">
           
           {/* Left Side: Large Text */}
           <div className="flex-1 hero-element text-white w-full max-w-full overflow-hidden">
-            <h1 className="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-6 w-full">
-              <span className="font-sans font-medium block md:inline">Architecting</span> <br className="hidden md:block" />
-              <span className="font-serif italic text-white/95 text-[1em]">Global Logistics</span>
+            <h1 className="text-[3rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6rem] leading-[1.05] md:leading-[1.1] tracking-tight mb-4 md:mb-6 w-full">
+              <span className="font-sans font-light block md:inline">Architecting</span> <br className="hidden md:block" />
+              <span className="font-serif italic font-light text-white/95">Global Logistics</span>{" "}
+              <span className="font-sans font-light text-white/80">with <HoverShinyText>SRI SAI SHIPPING AGENCIES</HoverShinyText></span>
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/80 max-w-2xl font-light tracking-wide leading-relaxed">
               Premium freight forwarding across international waters, ports & beyond.
@@ -353,7 +373,7 @@ export default function Home() {
 
       {/* ─── SERVICES VISUAL GRID ─── */}
       <section className="svc-section py-16 md:py-24 border-t border-white/10 bg-[var(--color-bg-main)] relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/2 h-[600px] bg-gradient-to-bl from-[var(--color-primary)]/10 via-transparent to-transparent pointer-events-none blur-3xl" />
+        <div className="absolute right-0 top-0 w-1/2 h-[600px] bg-gradient-to-bl from-[var(--color-primary)]/10 via-transparent to-transparent pointer-events-none" />
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-10 md:mb-16">
@@ -365,7 +385,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
             {capabilities.map((cap, i) => (
-              <div key={i} className={i === 6 || i === 7 ? "lg:translate-x-[calc(50%+1rem)]" : ""}>
+              <div key={i}>
                 <CapabilityCard title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
               </div>
             ))}
@@ -383,7 +403,7 @@ export default function Home() {
 
       {/* ─── INDUSTRIES WE SERVE SECTION ─── */}
       <section className="py-12 md:py-24 border-t border-white/10 bg-gradient-to-br from-[#061A24] via-[#0B2430] to-[#071821] relative overflow-hidden">
-        <div className="absolute -left-[10%] top-[20%] w-[40%] h-[400px] bg-[var(--color-primary)]/5 rounded-full pointer-events-none blur-3xl" />
+        <div className="absolute -left-[10%] top-[20%] w-[40%] h-[400px] bg-[var(--color-primary)]/5 rounded-full pointer-events-none" />
         <AmbientGradient />
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
           <div className="mb-12 md:mb-16">

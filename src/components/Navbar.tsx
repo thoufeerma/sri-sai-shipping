@@ -44,7 +44,7 @@ export default function Navbar() {
               " font-bold text-xl tracking-widest uppercase transition-colors duration-300 drop-shadow-md",
               isScrolled ? "text-white drop-shadow-none" : "text-white group-hover:text-white/80"
             )}>
-              Sri Sai
+              SRI SAI SHIPPING AGENCIES
             </span>
           </Link>
 

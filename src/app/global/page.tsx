@@ -6,10 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Globe2, Plane, Ship, MapPin, ArrowRight, Anchor, Globe, Truck, Star, CheckCircle2, ShieldCheck, Radar, Clock, Activity } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import AmbientGradient from "@/components/AmbientGradient";
 import AnimatedText from "@/components/AnimatedText";
 import MagneticButton from "@/components/MagneticButton";
-import WorldMapRoute from "@/components/WorldMapRoute";
+
+const WorldMapRoute = dynamic(() => import("@/components/WorldMapRoute"), { ssr: false });
 
 export default function GlobalLogisticsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,8 +20,15 @@ export default function GlobalLogisticsPage() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-elem", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power2.out", delay: 0.2 });
-      gsap.utils.toArray<HTMLElement>(".fade-up").forEach((el) => {
-        gsap.fromTo(el, { opacity: 0, y: 40 }, { scrollTrigger: { trigger: el, start: "top 85%" }, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+      ScrollTrigger.batch(".fade-up", {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out", overwrite: true, force3D: true }
+          );
+        }
       });
     }, containerRef);
     return () => ctx.revert();
@@ -244,154 +253,30 @@ export default function GlobalLogisticsPage() {
         </div>
       </section>
 
-      {/* ─── CROSS-BORDER LOGISTICS SECTION ─── */}
-      <section className="py-20 md:py-28 bg-[var(--color-bg-main)] border-b theme-border relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#061324] opacity-50 blur-[120px] pointer-events-none rounded-full" />
-        
+      {/* ─── CROSS COUNTRY LOGISTICS SECTION ─── */}
+      <section className="py-20 md:py-32 bg-[var(--color-bg-main)] border-b theme-border relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 relative z-10">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-5xl font-semibold theme-heading tracking-tight mb-4">
-              Cross-Border Logistics
-            </h2>
-            <p className="theme-text text-base md:text-xl max-w-2xl mx-auto font-light text-slate-300">
-              Reliable freight movement across major international and regional trade corridors.
-            </p>
-          </div>
-
-          <div className="relative flex flex-col lg:flex-row items-center justify-center w-full pb-10">
-            
-            {/* Card 1 — USA & Canada */}
-            <div className="relative z-10 w-full lg:w-[28%] shrink-0 rounded-[24px] bg-[#061324] border border-white/5 p-8 shadow-2xl h-[440px] flex flex-col group hover:-translate-y-2 transition-transform duration-500 ease-out">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F36]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
-              <div className="relative z-10 mb-8 flex justify-between items-start">
-                <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] text-[#F8FAFC]/80">
-                  North America Network
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            {/* Left Side: Text */}
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <div className="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md self-start mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+                <span className="text-[10px] sm:text-xs text-[#F8FAFC]/90 font-medium tracking-[0.2em] uppercase">
+                  Global Reach
                 </span>
-                <Globe className="text-[#F8FAFC]/30 group-hover:text-[#F8FAFC]/60 transition-colors" size={26} strokeWidth={1.5} />
               </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-[30px] text-[#F8FAFC] font-semibold mb-2 tracking-tight">USA & Canada</h3>
-                <p className="text-[#60A5FA] text-[15px] font-medium mb-10">Door-to-Door Logistics</p>
-              </div>
-              
-              <ul className="relative z-10 space-y-5 text-[#F8FAFC]/70 text-[15px] font-light flex-grow">
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
-                  Freight pickup to final delivery
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
-                  Customs clearance support
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
-                  Ocean & air cargo coordination
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shrink-0"></span>
-                  Warehousing and distribution
-                </li>
-              </ul>
+              <h2 className="fade-up text-4xl md:text-5xl lg:text-6xl font-semibold theme-heading tracking-tight mb-8 leading-[1.1]">
+                Cross Country Logistics
+              </h2>
+              <p className="fade-up text-lg md:text-xl theme-text font-light leading-relaxed max-w-2xl text-slate-300">
+                Cross-country logistics involves the long-distance or international movement of goods, requiring multimodal transportation (road, rail, sea, air), customs clearance, and complex route optimization. These services ensure end-to-end supply chain visibility and secure delivery across geographical boundaries.
+              </p>
             </div>
 
-            {/* Connection Line 1 */}
-            <div className="hidden lg:flex items-center justify-center w-[8%] relative z-30 shrink-0">
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-main)] px-3 text-[10px] font-medium text-white/60 tracking-[0.2em] text-center leading-[1.2] whitespace-nowrap backdrop-blur-sm border border-white/5 rounded-full py-1">
-                  USA & EUROPE
-                </div>
-              </div>
+            {/* Right Side: Image */}
+            <div className="w-full lg:w-1/2 fade-up relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <Image src="/cross-country.webp" alt="Cross Country Logistics" fill className="object-cover hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
-
-            {/* Card 2 — Cross Country Logistics */}
-            <div className="relative z-20 w-full lg:w-[40%] shrink-0 rounded-[28px] bg-[#07111D] border border-white/5 p-10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] h-[580px] flex flex-col overflow-hidden transform lg:scale-105 group">
-              {/* Grid background */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] mask-image-[radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-100" style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black, transparent 80%)' }} />
-              
-              {/* Top Arched Route Graphic */}
-              <div className="relative w-full h-[80px] flex justify-center items-center pointer-events-none mt-4 mb-4">
-                   <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 300 80" preserveAspectRatio="none">
-                     <path d="M 60 60 Q 150 10 240 60" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2" className="animate-dash-flow" />
-                   </svg>
-                   <MapPin className="absolute top-[60px] left-[20%] text-[#F8FAFC] fill-[#0B1F36] -translate-x-1/2 -translate-y-1/2" size={20} />
-                   <MapPin className="absolute top-[60px] left-[80%] text-[#F8FAFC] fill-[#0B1F36] -translate-x-1/2 -translate-y-1/2" size={26} />
-              </div>
-              
-              <div className="relative z-10 mb-10 text-center">
-                <h3 className="text-[34px] text-[#F8FAFC] font-bold mb-2 leading-tight tracking-tight drop-shadow-md">Global Trade Corridors</h3>
-                <p className="text-[#64748B] text-[16px] font-medium tracking-wide">USA & Europe</p>
-              </div>
-              
-              <ul className="space-y-6 text-[#F8FAFC]/90 text-[16px] font-light relative z-10 flex-grow px-4 md:px-8">
-                <li className="flex items-center gap-6">
-                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Truck className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
-                  Reliable transcontinental freight
-                </li>
-                <li className="flex items-center gap-6">
-                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Plane className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
-                  Air, ocean & multimodal solutions
-                </li>
-                <li className="flex items-center gap-6">
-                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><ShieldCheck className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
-                  Customs & compliance support
-                </li>
-                <li className="flex items-center gap-6">
-                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Radar className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
-                  End-to-end visibility & tracking
-                </li>
-                <li className="flex items-center gap-6">
-                  <div className="bg-[#122238] border border-white/10 p-2.5 rounded-xl shrink-0"><Clock className="text-[#D4AF37]" size={20} strokeWidth={1.5} /></div>
-                  Time-critical shipments
-                </li>
-              </ul>
-            </div>
-
-            {/* Connection Line 2 */}
-            <div className="hidden lg:flex items-center justify-center w-[8%] relative z-30 shrink-0">
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-main)] px-3 text-[10px] font-medium text-white/60 tracking-[0.2em] text-center leading-[1.2] whitespace-nowrap backdrop-blur-sm border border-white/5 rounded-full py-1">
-                  IND & NEP
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 — India & Nepal */}
-            <div className="relative z-10 w-full lg:w-[28%] shrink-0 rounded-[24px] bg-[#061324] border border-white/5 p-8 shadow-2xl h-[440px] flex flex-col group hover:-translate-y-2 transition-transform duration-500 ease-out">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F36]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
-              <div className="relative z-10 mb-8 flex justify-between items-start">
-                <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] text-[#F8FAFC]/80">
-                  South Asia Corridor
-                </span>
-                <Truck className="text-[#F8FAFC]/30 group-hover:text-[#F8FAFC]/60 transition-colors" size={26} strokeWidth={1.5} />
-              </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-[30px] text-[#F8FAFC] font-semibold mb-2 tracking-tight">India & Nepal</h3>
-                <p className="text-[#D4AF37] text-[15px] font-medium mb-10">Cross-Border Transport</p>
-              </div>
-              
-              <ul className="relative z-10 space-y-5 text-[#F8FAFC]/70 text-[15px] font-light flex-grow">
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
-                  Seamless border cargo movement
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
-                  Regional freight coordination
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
-                  Commercial goods transportation
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
-                  Fast customs processing
-                </li>
-              </ul>
-            </div>
-
           </div>
         </div>
       </section>
