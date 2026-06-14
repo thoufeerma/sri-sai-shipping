@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: "Premium freight forwarding across international waters, ports & beyond.",
   },
   icons: {
-    icon: "/bg-logo-fav.webp",
+    icon: "/favicon.webp",
   },
 };
 
