@@ -25,7 +25,7 @@ export default function HoverShinyText({ children }: { children: React.ReactNode
       className="relative font-medium inline-block cursor-default group"
     >
       {/* Base Gold Text */}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">
+      <span className="text-[#FFD700] bg-none md:text-transparent md:bg-clip-text md:bg-gradient-to-r md:from-yellow-300 md:to-yellow-500 drop-shadow-sm">
         {children}
       </span>
       

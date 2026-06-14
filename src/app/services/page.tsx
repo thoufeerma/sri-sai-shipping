@@ -5,6 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Ship, FileText, Globe, Truck, Boxes, Anchor, Compass, Plane, Warehouse } from "lucide-react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const TraditionalProjects = dynamic(() => import("@/components/TraditionalProjects"), { ssr: false });
 
 const services = [
   {
@@ -145,6 +148,9 @@ export default function ServicesPage() {
           </div>
         ))}
       </div>
+
+      {/* ─── TRADITIONAL & CULTURAL PROJECTS ─── */}
+      <TraditionalProjects />
 
     </div>
   );

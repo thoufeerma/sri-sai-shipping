@@ -4,9 +4,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const TraditionalProjects = dynamic(() => import("@/components/TraditionalProjects"), { ssr: false });
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -130,8 +127,6 @@ export default function AboutPage() {
       </section>
 
 
-      {/* ─── TRADITIONAL & CULTURAL PROJECTS ─── */}
-      <TraditionalProjects />
 
       {/* ─── TIMELINE ─── */}
       <section className="py-24 border-t theme-border theme-section">

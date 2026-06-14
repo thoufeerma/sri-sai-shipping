@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { useLenis } from "lenis/react";
 
 function ShipSVG() {
   return (
@@ -31,10 +32,23 @@ export default function LoadingScreen() {
   const fillRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (lenis) {
+      if (hidden) {
+        lenis.start();
+      } else {
+        lenis.stop();
+      }
+    }
+  }, [lenis, hidden]);
+
   useEffect(() => {
     if (!overlayRef.current || !trackRef.current) return;
 
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     const tl = gsap.timeline({
       delay: 0.1,
@@ -47,6 +61,7 @@ export default function LoadingScreen() {
           onComplete: () => {
             setHidden(true);
             document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
           },
         });
       },
@@ -96,7 +111,7 @@ export default function LoadingScreen() {
     // Hold
     tl.to({}, { duration: 0.2 });
 
-    return () => { tl.kill(); document.body.style.overflow = ""; };
+    return () => { tl.kill(); document.body.style.overflow = ""; document.documentElement.style.overflow = ""; };
   }, []);
 
   if (hidden) return null;

@@ -288,10 +288,10 @@ export default function Home() {
           
           {/* Left Side: Large Text */}
           <div className="flex-1 hero-element text-white w-full max-w-full overflow-hidden">
-            <h1 className="text-[3rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6rem] leading-[1.05] md:leading-[1.1] tracking-tight mb-4 md:mb-6 w-full">
-              <span className="font-sans font-light block md:inline">Architecting</span> <br className="hidden md:block" />
-              <span className="font-serif italic font-light text-white/95">Global Logistics</span>{" "}
-              <span className="font-sans font-light text-white/80">with <HoverShinyText>SRI SAI SHIPPING AGENCIES</HoverShinyText></span>
+            <h1 className="font-serif italic font-light text-[3rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6rem] leading-[1.05] md:leading-[1.1] tracking-tight mb-4 md:mb-6 w-full text-white/95">
+              <span className="block md:inline">Architecting</span> <br className="hidden md:block" />
+              Global Logistics{" "}
+              <span className="text-white/80">with <span className="not-italic"><HoverShinyText>SRI SAI SHIPPING AGENCIES</HoverShinyText></span></span>
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/80 max-w-2xl font-light tracking-wide leading-relaxed">
               Premium freight forwarding across international waters, ports & beyond.
@@ -384,11 +384,19 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
-            {capabilities.map((cap, i) => (
-              <div key={i}>
-                <CapabilityCard title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
-              </div>
-            ))}
+            {capabilities.map((cap, i) => {
+              const isLastOddItem = i === capabilities.length - 1 && capabilities.length % 2 !== 0;
+              return (
+                <div 
+                  key={i}
+                  className={isLastOddItem ? "col-span-2 lg:col-span-1 flex justify-center lg:block" : ""}
+                >
+                  <div className={isLastOddItem ? "w-[calc(50%-0.375rem)] md:w-[calc(50%-1rem)] lg:w-full" : "w-full h-full"}>
+                    <CapabilityCard title={cap.title} desc={cap.desc} icon={cap.icon} img={cap.img} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-8 md:mt-10 text-center">

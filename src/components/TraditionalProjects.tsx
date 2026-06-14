@@ -70,7 +70,7 @@ export default function TraditionalProjects() {
 
               <div className="space-y-4 mb-10">
                 {[
-                  { icon: Building2, text: "Temple & Religious Infrastructure" },
+                  { icon: Building2, text: "Religious Infrastructure" },
                   { icon: CalendarDays, text: "Cultural Events & Heritage Projects" },
                   { icon: Users, text: "Community Development Support" }
                 ].map((item, i) => (

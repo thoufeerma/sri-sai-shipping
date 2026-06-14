@@ -39,13 +39,15 @@ export default function Navbar() {
         )}
       >
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="relative z-50 group">
-            <span className={clsx(
-              " font-bold text-xl tracking-widest uppercase transition-colors duration-300 drop-shadow-md",
-              isScrolled ? "text-white drop-shadow-none" : "text-white group-hover:text-white/80"
-            )}>
-              SRI SAI SHIPPING AGENCIES
-            </span>
+          <Link href="/" className="relative z-50 group flex items-center">
+            <Image 
+              src="/bg-logo.webp" 
+              alt="Sri Sai Shipping Logo" 
+              width={180} 
+              height={60} 
+              className="object-contain h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

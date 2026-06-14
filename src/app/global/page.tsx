@@ -269,7 +269,7 @@ export default function GlobalLogisticsPage() {
                 Cross Country Logistics
               </h2>
               <p className="fade-up text-lg md:text-xl theme-text font-light leading-relaxed max-w-2xl text-slate-300">
-                Cross-country logistics involves the long-distance or international movement of goods, requiring multimodal transportation (road, rail, sea, air), customs clearance, and complex route optimization. These services ensure end-to-end supply chain visibility and secure delivery across geographical boundaries.
+                Remotely control and monitor shipments across countries with real-time tracking, centralized logistics management, route optimization, and end-to-end supply chain visibility, ensuring seamless international transportation and delivery.
               </p>
             </div>
 

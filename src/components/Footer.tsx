@@ -13,12 +13,11 @@ export default function Footer() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B2430] via-[#0B2430]/80 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8">
             <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-white/10 bg-[var(--color-bg-main)] shrink-0">
-                <Image src="/logoship.jpeg" alt="Sri Sai Shipping Logo" fill className="object-cover" />
+              <div className="relative w-40 h-16 shrink-0">
+                <Image src="/bg-logo.webp" alt="Sri Sai Shipping Logo" fill className="object-contain" />
               </div>
               <div>
-                <p className="theme-heading font-semibold text-lg">SRI SAI SHIPPING AGENCIES</p>
-                <p className="theme-text text-sm">Established in the 1980s · Cochin, India</p>
+                <p className="theme-text text-sm mt-1">Established in the 1980s · Cochin, India</p>
               </div>
             </div>
           </div>
