@@ -140,7 +140,7 @@ export default function TraditionalProjects() {
                 whileHover={{ y: -5 }}
               >
                 <Image
-                  src="/Heritage & Cultural Logistics/cultural.png"
+                  src="/Heritage & Cultural Logistics/cultural.webp"
                   alt="Cultural Events Support"
                   fill
                   className="object-cover"

@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B2430] via-[#0B2430]/80 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8">
             <div className="flex items-center gap-4">
-              <div className="relative w-40 h-16 shrink-0">
+              <div className="relative w-64 h-24 shrink-0">
                 <Image src="/bg-logo.webp" alt="Sri Sai Shipping Logo" fill className="object-contain" />
               </div>
               <div>

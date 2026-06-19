@@ -58,8 +58,16 @@ export default function ContactPage() {
       alert("Please select a service before transmitting your inquiry.");
       return;
     }
-    const text = `Name: ${formData.name}%0AEmail: ${formData.email}%0AService: ${formData.service}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/919846501223?text=${text}`, "_blank");
+    
+    const messageBody = `Name: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\nMessage: ${formData.message}`;
+    const encodedBody = encodeURIComponent(messageBody);
+    
+    // Open WhatsApp
+    window.open(`https://wa.me/919846501223?text=${encodedBody}`, "_blank");
+
+    // Open Mail client
+    const mailtoLink = `mailto:sandeep@srisaishipping.com,docs@srisaishipping.com?subject=Enterprise Quote Request - ${encodeURIComponent(formData.name)}&body=${encodedBody}`;
+    window.location.href = mailtoLink;
   };
 
   return (

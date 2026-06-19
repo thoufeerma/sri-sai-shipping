@@ -34,8 +34,8 @@ export default function Navbar() {
         className={clsx(
           "fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out border-b",
           isScrolled
-            ? "py-4 bg-[#061A24]/80 backdrop-blur-xl border-white/10 shadow-sm"
-            : "py-6 bg-transparent border-transparent"
+            ? "py-2 bg-[#061A24]/80 backdrop-blur-xl border-white/10 shadow-sm"
+            : "py-4 bg-transparent border-transparent"
         )}
       >
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -43,21 +43,21 @@ export default function Navbar() {
             <Image 
               src="/bg-logo.webp" 
               alt="Sri Sai Shipping Logo" 
-              width={180} 
-              height={60} 
-              className="object-contain h-14 w-auto"
+              width={340} 
+              height={120} 
+              className="object-contain h-20 md:h-[95px] w-auto transition-all duration-300"
               priority
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={clsx(
-                  "relative text-sm font-medium tracking-wide transition-colors duration-300 drop-shadow-md",
+                  "relative text-base xl:text-lg font-medium tracking-wide transition-colors duration-300 drop-shadow-md",
                   isScrolled
                     ? pathname === link.href ? "text-[var(--color-accent-cyan)] drop-shadow-none" : "text-[var(--color-text-secondary)] hover:text-white drop-shadow-none"
                     : pathname === link.href ? "text-white" : "text-white/80 hover:text-white"
